@@ -176,7 +176,6 @@ input[type="text"], input[type="password"] {
 }
 label {
     display: block;
-    float: left;
     line-height: 18px;
     margin: 0 10px 0 0;
     padding: 3px 10px 0 0;
@@ -197,6 +196,93 @@ label {
 }
 form p{
     margin: 5px 0;
+}
+#body-background{
+    z-index: 0 !important;
+}
+#body-background > img{
+    position: absolute !important;
+}
+.logoBox{
+    width: 167px;
+    height: 40px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+.accessFrame{
+    background: #f7f9f9;
+    width: 250px;
+    height: 100%;
+    left: 0px;
+    z-index: 0;
+    position: relative;
+}
+.frameContent{
+    color:#807f83;
+    padding: 50px 0 0 10px;
+}
+.frameForm{
+    color:#807f83;
+    display: none;
+    padding: 50px 0 0 10px;
+}
+.frameForm form div{
+    text-align: left;
+    margin-top: 10px;
+}
+.frameForm input[type="text"]{
+    border:none;
+    border-radius: 0px;
+    width: 200px;
+}
+.frameForm input[type="submit"]{
+    border:none;
+    background: none;
+    text-decoration: underline;
+    border-radius: 0px;
+    width: 200px;
+    text-align: left;
+    color:#807f83;
+}
+.frameForm textarea{
+    border:none;
+    width: 210px;
+    height: 150px;
+    resize: none;
+    border-radius: 0px;
+}
+.accessFrame p{
+    text-align: left;
+    margin-bottom: 12px; 
+}
+.accessFrame title{
+    color:#000;
+}
+.accessFrame .link cufon{
+    border-bottom: 2px solid #cacaca;
+    cursor: pointer;
+}
+.labelInfo{
+    background: url("../images/labelInfo.png") no-repeat scroll 0 0px transparent;
+    left: 0px;
+    position: absolute;
+    top: 50%;
+    width: 100px;
+    height: 60px;
+    cursor: pointer;
+}
+.labelNext{
+    background: url("../images/labelNext.png") no-repeat scroll 0 0px transparent;
+    position: fixed;
+    right: 0px;
+    top: 50%;
+    width: 100px;
+    height: 60px;
+    cursor: pointer;
+}
+.backgroundMove{
+    left: 250px !important;
 }
 #logo_img{
     background: url("../images/logo.png") no-repeat scroll center center transparent;
@@ -504,7 +590,7 @@ ul.slider li {
 }
 .zoomMenos{
     background: url("../images/mapZoom.jpg") no-repeat scroll 0 0px transparent;
-     right: 50px;
+    right: 50px;
     bottom: 0px;
 }
 .fitScreenBar{
