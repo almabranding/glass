@@ -28,11 +28,11 @@
 }
 
 .elastislide-horizontal {
-	padding: 10px 40px;
+	padding: 0px 0px;
 }
 
 .elastislide-vertical {
-	padding: 40px 10px;
+	padding: 0px 0px;
 }
 
 .elastislide-carousel {
@@ -79,30 +79,41 @@
 
 .elastislide-carousel ul li a img {
 	display: block;
-	border: 2px solid white;
+        margin: 0;
+        padding: 0;
 	max-width: 100%;
+        border:none; 
 }
 
 /* Navigation Arrows */
-
+.elastislide-prev{
+    background: url(../images/arrows.png) no-repeat 0px 0px;
+}
+.elastislide-next{
+    background: url(../images/arrows.png) no-repeat -60px 0px;
+}
+.elastislide-prev:hover{
+    background: url(../images/arrows.png) no-repeat 0px -60px;
+}
+.elastislide-next:hover{
+    background: url(../images/arrows.png) no-repeat -60px -60px;
+}
 .elastislide-wrapper nav span {
 	position: absolute;
-	background: #ddd url(../images/nav.png) no-repeat 4px 3px;
-	width: 23px;
-	height: 23px;
-	border-radius: 50%;
+	
+	width: 60px;
+	height: 60px;
 	text-indent: -9000px;
 	cursor: pointer;
-	opacity: 0.8;
 }
 
 .elastislide-wrapper nav span:hover {
-	opacity: 1.0
+    
 }
 
 .elastislide-horizontal nav span {
-	top: 50%;
-	left: 10px;
+	bottom:0;
+	left: 0px;
 	margin-top: -11px;
 }
 
@@ -114,15 +125,13 @@
 }
 
 .elastislide-horizontal nav span.elastislide-next {
-	right: 10px;
+	right: 0px;
 	left: auto;
-	background-position: 4px -17px;
 }
 
 .elastislide-vertical nav span.elastislide-next {
 	bottom: 10px;
 	top: auto;
-	background-position: -17px -18px;
 }
 
 *,

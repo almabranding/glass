@@ -8,6 +8,7 @@ class Form extends Controller {
     
     function register() {
         $this->model->register();
+        header('location: ' . URL . 'login');
     }
     
 }

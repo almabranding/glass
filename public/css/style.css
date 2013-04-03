@@ -1,16 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-/*@import url('http://fonts.googleapis.com/css?family=PT+Sans:400,700');*/
-/*
-@font-face {
-font-family: 'Helvetica Neue';
-src:    url(../fonts/helveticaneueroman.eot),
-        url(../fonts/HelveticaNeue-Roman.ttf) format(truetype),
-        url(../fonts/helveticaneueroman.svg) format(svg);
-    font-weight: normal;
-    font-style: normal;
-}
-*/
+
 @media screen and (max-width: 360px) {
     
 }
@@ -65,7 +55,13 @@ body {
 .bold{
     font-weight: bold;
 }
-
+.centered {
+    left: 50%;
+    margin-left: -134px;
+    margin-top: -146px;
+    position: fixed;
+    top: 50%;
+}
 header{
     background: none repeat scroll 0 0 #F8F8F7;
     left: 0;
@@ -108,21 +104,6 @@ footer{
     position: fixed;
     width: 100%;
     opacity: 0;
-}
-.social_fb{
-    background: url('../images/social.png')  no-repeat scroll 0px 0px transparent;
-}
-.social_vi{
-    background: url('../images/social.png')  no-repeat scroll -27px 0px transparent;
-}
-.social_tw{
-    background: url('../images/social.png')  no-repeat scroll -55px 0px transparent;
-}
-.social_in{
-    background: url('../images/social.png')  no-repeat scroll -83px 0px transparent;
-}
-.social_g{
-    background: url('../images/social.png')  no-repeat scroll -111px 0px transparent;
 }
 
 #floater {
@@ -227,16 +208,18 @@ form p{
     display: none;
     padding: 50px 0 0 10px;
 }
-.frameForm form div{
+.frameForm form fieldset{
     text-align: left;
     margin-top: 10px;
 }
-.frameForm input[type="text"]{
+.imageMove{
+}
+input[type="text"],input[type="password"]{
     border:none;
     border-radius: 0px;
     width: 200px;
 }
-.frameForm input[type="submit"]{
+input[type="submit"]{
     border:none;
     background: none;
     text-decoration: underline;
@@ -244,6 +227,7 @@ form p{
     width: 200px;
     text-align: left;
     color:#807f83;
+    cursor: pointer;
 }
 .frameForm textarea{
     border:none;
@@ -252,11 +236,17 @@ form p{
     resize: none;
     border-radius: 0px;
 }
+.loginBox{
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.7);
+    height: 177px;
+    padding: 20px;
+    width: 221px;
+}
 .accessFrame p{
     text-align: left;
     margin-bottom: 12px; 
 }
-.accessFrame title{
+.title{
     color:#000;
 }
 .accessFrame .link cufon{
@@ -383,15 +373,15 @@ form p{
 }
 .primaryInfo
 {
+    white-space: pre-line;
     float:left;
-    width: 29%;
+    width: 20%;
     text-align: left;
-    padding-left:10px;
-    padding-top: 10px;
+    padding:10px;
 }
 .primaryImage{
     float:left;
-    width: 70%;
+    width: 80%;
 }
 .primaryMap{
     float: left;
@@ -530,7 +520,11 @@ ul.slider li {
     left: 0;
 }
 #carousel li{
-    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    vertical-align: top;
+}
+#carousel{
 }
 .teamCol{
     background: none repeat scroll 0 0 #FFFFFF;

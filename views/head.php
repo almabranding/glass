@@ -24,8 +24,8 @@
     <script src="<?php echo URL;?>public/js/cufon-yui.js"></script>
     <script src="<?php echo URL;?>public/js/Akkurat_400.font.js"></script>
     <script type="text/javascript">
-    Cufon.set('fontSize', '12px').replace('p,span', { fontFamily: 'Akkurat'});
-    Cufon.set('fontSize', '12px').set('letterSpacing', '0.5em').replace('.accessFrame p,.accessFrame span,.accessFrame label', { fontFamily: 'Akkurat'});
+    Cufon.set('fontSize', '12px').set('color', '#9a999c').set('letterSpacing', '0.5em').replace('p,span,label', { fontFamily: 'Akkurat'});
+    Cufon.set('fontSize', '13px').set('color','#2f292b').set('letterSpacing', '1em').replace('.title', { fontFamily: 'Akkurat'});
     </script>
     
     <?php

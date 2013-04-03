@@ -1,5 +1,4 @@
 <body>
-    
     <div class="accessFrame">
         <div class="frameContent">
             <p class="title" style="color:#000;">GLASS</p>
@@ -16,28 +15,28 @@
             <p>Representation:<br>Eloy Carmenale<br>ONE Sotheby's International Realty<br>119 Washington Avenue, Suite 600<br>Miami Beach, FL 33139<br>305.282.7179</p>
             <p>Owned and developed by Terra Group.<br>Broker participation welcome.</p>
             <div>
-                <form>
-                    <div>
+                <form action="form/register" method="post" id="contactform">
+                    <fieldset>
                         <label>Name</label>
                         <input type='text' value='' name="name">
-                    </div> 
-                    <div>
+                    </fieldset> 
+                    <fieldset>
                         <label>Last name</label>
-                        <input type='text' value='' name="name">
-                    </div>   
-                    <div>
+                        <input type='text' value='' name="last">
+                    </fieldset>   
+                    <fieldset>
                         <label>Email address</label>
-                        <input type='text' value='' name="name">
-                    </div>   
-                    <div>
+                        <input type='text' value='' name="email">
+                    </fieldset>   
+                    <fieldset>
                         <label>Subject</label>
-                        <input type='text' value='' name="name">
-                    </div>   
-                    <div>
+                        <input type='text' value='' name="subject">
+                    </fieldset>   
+                    <fieldset>
                         <label>Message</label>
-                        <textarea value='' name="name"></textarea>
-                    </div>
-                    <div><input type="submit" value="SUBMIT"></div>
+                        <textarea value='' name="message"></textarea>
+                    </fieldset>
+                    <fieldset><input type="submit" value="SUBMIT"></fieldset>
                 </form>
                 <div class="clr"></div>
             </div>
@@ -47,16 +46,14 @@
     <div id="body-background" class=""><img src="<?php echo URL.'public/images/homeBackground.jpg';?>" alt="Bg">
     <div class="logoBox" style="margin-top: 40px;">
         <img src="<?php echo URL;?>public/images/logoWhite.png" alt="Glass">
-    </div>
-    
-    <div class="labelInfo"></div><div class="labelNext"></div>
+    </div>  
+    <div class="labelInfo"></div><div onclick="location.href='login'" class="labelNext"></div>
     </div>
 <script>
 $(document).ready(function() {
+    var h;
     $("#body-background").ezBgResize({
-        img     : "<?php echo URL.'public/images/homeBackground.jpg';?>", // Relative path example.  You could also use an absolute url (http://...).
-        opacity : 1, // Opacity. 1 = 100%.  This is optional.
-        center  : true // Boolean (true or false). This is optional. Default is true.
+        img     : "<?php echo URL.'public/images/homeBackground.jpg';?>"
     });
     $('.labelInfo').on('click',function(){
         var frame=250;
@@ -65,15 +62,33 @@ $(document).ready(function() {
         var x=new Image;
         x.src=img.attr('src');
         var frameW=frame;
-        var frameH=(x.height*frame)/x.width;
-        if(bg.hasClass('backgroundMove')){  
-            bg.css('left',frame+'px').removeClass("backgroundMove").animate({left:'0px'},1000);
-            img.animate({/*width:'+='+frameW+'px',height:'+='+frameH+'px'*/},1000);
+        var frameH=(x.height*frame)/x.width; 
+        if(bg.hasClass('backgroundMove')){ 
+            bg.css('left',frame).removeClass("backgroundMove").animate({
+                left:'0px',
+                width:'+='+frameW+'px'
+            },500,function(){
+            });
+            img.animate({
+                width:'+='+frameW+'px',
+                height:'+='+frameH+'px',
+            },500);
+            /*bg.css('left',frame+'px').removeClass("backgroundMove").animate({left:'0px'},500);*/
         }else{
-            bg.animate({left:frame+'px'},1000,function(){
+            /*bg.animate({left:frame+'px'},500,function(){
                 bg.addClass("backgroundMove");
             });
-            img.animate({/*width:'-='+frameW+'px',height:'-='+frameH+'px'*/},1000);
+            h=img.height();*/
+            bg.animate({
+                left:frame+'px',
+                width:'-='+frameW+'px'
+            },500,function(){
+                bg.addClass("backgroundMove");
+            });
+            img.animate({
+                width:'-='+frameW+'px',
+                height:'-='+frameH+'px',
+            },500);
         }
 
     });

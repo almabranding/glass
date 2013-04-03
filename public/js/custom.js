@@ -33,6 +33,8 @@ $('header').on('mouseover', '', function() {
     })
     $('.fitScreen').on("click",function(){
         $('#container').toggleClass("fullScreen");
+        $('#gallerys').masonry('reload');
+        carousel._slideTo(0);
     })
 });
 

@@ -214,7 +214,8 @@
 	$.Elastislide.prototype = {
 
 		_init : function( options ) {
-			
+			var hCarrousel=$('#carousel li').eq(0).height();
+                        $('#carousel').css('max-height',hCarrousel);
 			// options
 			this.options = $.extend( true, {}, $.Elastislide.defaults, options );
 
@@ -333,7 +334,6 @@
 				
 		},
 		_layout : function() {
-
 			this.$el.wrap( '<div class="elastislide-carousel"></div>' );
 
 			this.$carousel = this.$el.parent();
@@ -538,7 +538,6 @@
 			
 		},
 		_slide : function( dir, tvalue ) {
-
 			if( this.isSliding ) {
 
 				return false;
@@ -557,6 +556,7 @@
 				totalSpace = this.itemsCount * itemSpace,
 				// visible width/height
 				visibleSpace = this.options.orientation === 'horizontal' ? this.$carousel.width() : this.$carousel.height();
+                             
 			
 			if( tvalue === undefined ) {
 				
@@ -596,9 +596,13 @@
 					ftv < totalSpace - visibleSpace ? this._toggleControls( 'next', true ) : this._toggleControls( 'next', false );
 						
 				}
-				
 				tvalue = dir === 'next' ? translation - amount : translation + amount;
-
+                                var cosa = dir === 'next' ? (-translation/amount + 1) :(-translation/amount -1);
+                                var hCarrousel=$('#carousel li').eq(cosa).height();
+                                $('#carousel').css('max-height',hCarrousel);
+                               
+                               
+;
 			}
 			else {
 
@@ -615,7 +619,6 @@
 				Math.max( totalSpace, visibleSpace ) - visibleSpace > amount ? this._toggleControls( 'next', true ) : this._toggleControls( 'next', false );
 
 			}
-			
 			this.translation = tvalue;
 
 			if( translation === tvalue ) {
@@ -626,7 +629,6 @@
 			}
 
 			if( this.support ) {
-				
 				this.options.orientation === 'horizontal' ? this.$el.css( 'transform', 'translateX(' + tvalue + 'px)' ) : this.$el.css( 'transform', 'translateY(' + tvalue + 'px)' );
 
 			}
@@ -657,6 +659,8 @@
 
 		},
 		_slideTo : function( pos ) {
+                        var hCarrousel=$('#carousel li').eq(pos).height();
+                        $('#carousel').css('max-height',hCarrousel);
 			var pos = pos || this.current,
 				translation = Math.abs( this.translation ) || 0,
 				itemSpace = this.options.orientation === 'horizontal' ? this.$items.outerWidth( true ) : this.$items.outerHeight( true ),
@@ -671,8 +675,9 @@
 
 		},
 		_slideToItem : function( pos ) {
-
 			// how much to slide?
+                        var hCarrousel=$('#carousel li').eq(pos).height();
+                        $('#carousel').css('max-height',hCarrousel);
 			var amount	= this.options.orientation === 'horizontal' ? pos * this.$items.outerWidth( true ) : pos * this.$items.outerHeight( true );
 			this._slide( '', -amount );
 			

@@ -8,11 +8,13 @@ class Auth
     {
         @session_start();
         $logged = $_SESSION['loggedIn'];
-        /*if ($logged == false) {
+        if ($logged == false) {
             session_destroy();
-            header('location: ../login');
-            exit;
-        }*/
+            return false;
+            //header('location: ../index');
+            //exit;
+        }
+        return true;
     }
     
 }

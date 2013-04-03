@@ -7,7 +7,7 @@
         ?>
             <li>
                 <div class="primaryInfo">
-                    <span class="title"><?php echo $this->page['name']; ?></span>
+                    <span class="title"><?php echo $this->page['name']; ?></span><br/>
                     <p><?php echo $description; ?></p>
                 </div>
                 <div class="primaryImage">

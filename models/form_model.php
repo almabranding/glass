@@ -1,5 +1,5 @@
 <?php
-class Image_Model extends Model {
+class Form_Model extends Model {
     public function __construct() {
         parent::__construct();
     }  
@@ -12,7 +12,7 @@ class Image_Model extends Model {
             'subject'   => $_POST['subject'],
             'message'   => $_POST['message']
         );
-        ValidarDatos($data['mail']);
+        $this->ValidarDatos($data['mail']);
 	$mail="dan@almabranding.com";
 	//$mail = "dmartin@glass120ocean.com,anna@glass120ocean.com,eloy@glass120ocean.com,nherrera@terragroup.com,contact@glass120ocean.com,info@glass120ocean.com";
         $to = $mail;
@@ -25,7 +25,7 @@ class Image_Model extends Model {
             $body.= $key.': '.$value.'<br/>';		
 	mail($to, $subject, $body, $headers);
         
-        $this->db->insert('users', $data);
+        $this->db->insert('request', $data);
     }
     
 }

@@ -5,7 +5,7 @@ class Model {
     }
     function getMenu($id=null,$column=null){
         $column=($column==null)?'*':$column;
-        if($id==null)return $this->db->select("SELECT * FROM menu");
+        if($id==null)return $this->db->select("SELECT * FROM menu WHERE parent=0");
         else $consulta=$this->db->select('SELECT '.$column.' FROM menu WHERE id = :id', 
             array('id' => $id));
         if($column==null) return $consulta;

@@ -130,7 +130,8 @@ class Page_Model extends Model {
         $this->db->update('menu', $data, 
             "`page` = '{$id}'");
     }
-    public function detele($id){
+    public function delete($id){
+        $this->db->delete('page', "`page` = {$id}");
          $this->db->delete('page', "`id` = {$id}");
          $this->delTree(UPLOAD.$id);
     }   
