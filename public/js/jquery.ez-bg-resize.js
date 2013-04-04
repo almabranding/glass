@@ -16,17 +16,18 @@ var containerObj;
 		containerObj.css("visibility","hidden");
 		
 		$(window).load(function() {
-			resizeImage();
+                    resizeImage();
 		});
-		
+		$(containerObj.parent()).on('change',function() {
+                    resizeImage();
+		});
 		$(window).bind("resize",function() {
-			resizeImage();
+                    resizeImage();
 		});
 		
 	};
 	
 	function resizeImage() {
-		
 		containerObj.css({
 			"position":"fixed",
 			"top":"0px",
@@ -90,6 +91,7 @@ var containerObj;
 				}
 			}
 		}
+                windowHeight= containerObj.parent().height();
 		return windowHeight;
 	};
 	
@@ -109,6 +111,7 @@ var containerObj;
 				}
 			}
 		}
+                windowWidth= containerObj.parent().width()
 		return windowWidth;
 	};
 })(jQuery);

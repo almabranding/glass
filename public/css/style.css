@@ -178,8 +178,15 @@ label {
 form p{
     margin: 5px 0;
 }
-#body-background{
+#body{
+    width: 100%;
+    float: left;
+    position: absolute !important;
     z-index: 0 !important;
+    height: 100% !important;
+}
+#body-background{
+    position: absolute !important;
 }
 #body-background > img{
     position: absolute !important;
@@ -193,13 +200,16 @@ form p{
 }
 .accessFrame{
     background: #f7f9f9;
-    width: 250px;
+    width: 0%;
+    float: left;
     height: 100%;
     left: 0px;
     z-index: 0;
     position: relative;
+    overflow: hidden;
 }
 .frameContent{
+    width: 250px;
     color:#807f83;
     padding: 50px 0 0 10px;
 }

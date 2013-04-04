@@ -43,19 +43,24 @@
             <div class="clr"></div>
         </div>
     </div>
-    <div id="body-background" class=""><img src="<?php echo URL.'public/images/homeBackground.jpg';?>" alt="Bg">
+    <div id="body">
+        
+        <div class="labelInfo"></div><div onclick="location.href='login'" class="labelNext"></div>
+    <div id="body-background" class=""><img src="<?php echo URL.'public/images/testBG.jpg';?>" alt="Bg">
     <div class="logoBox" style="margin-top: 40px;">
         <img src="<?php echo URL;?>public/images/logoWhite.png" alt="Glass">
     </div>  
-    <div class="labelInfo"></div><div onclick="location.href='login'" class="labelNext"></div>
+    
+    </div>
     </div>
 <script>
 $(document).ready(function() {
     var h;
+     var frame=250;
     $("#body-background").ezBgResize({
-        img     : "<?php echo URL.'public/images/homeBackground.jpg';?>"
+        img     : "<?php echo URL.'public/images/testBG.jpg';?>"
     });
-    $('.labelInfo').on('click',function(){
+    /*$('.labelInfo').on('click',function(){
         var frame=250;
         var bg=$( '#body-background' );
         var img=$( '#body-background > img' );
@@ -73,12 +78,7 @@ $(document).ready(function() {
                 width:'+='+frameW+'px',
                 height:'+='+frameH+'px',
             },500);
-            /*bg.css('left',frame+'px').removeClass("backgroundMove").animate({left:'0px'},500);*/
         }else{
-            /*bg.animate({left:frame+'px'},500,function(){
-                bg.addClass("backgroundMove");
-            });
-            h=img.height();*/
             bg.animate({
                 left:frame+'px',
                 width:'-='+frameW+'px'
@@ -91,6 +91,53 @@ $(document).ready(function() {
             },500);
         }
 
+    });*/
+    $('.labelInfo').on('mouseover',function(){
+        $('#body').queue(function () {
+            $(this).clearQueue();
+            $(this).animate(
+                {
+                    width:'85%',
+                    left:'15%'
+                },
+                {
+                    duration:500,
+                    step: function(now, fx) {    
+                        $(this).change();    
+                    }
+                });
+            });
+        $('.accessFrame').queue(function () {
+            $(this).clearQueue();
+            $(this).animate({
+                width:'15%'
+            },500);
+        });
+        
+    });
+    $('#body-background').on('mouseover',function(){
+        $('.accessFrame').queue(function () {
+            $(this).clearQueue();
+            $(this).animate({
+                width:'0%'
+            },500);
+        });
+        $('#body').queue(function () {
+            $(this).clearQueue();
+            $(this).animate(
+                {
+                    width:'100%',
+                    left: 0
+                },
+                {
+                    duration:500,
+                    step: function(now, fx) {    
+                        $(this).change();    
+                    }
+                }
+                );
+        });
+        
     });
     $('.startForm').on('click',function(){
         $('.frameContent').toggle();
