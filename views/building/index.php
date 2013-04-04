@@ -1,16 +1,19 @@
 
     <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/elastislide.css" />
-
     <ul id="carousel" class="elastislide-list">
     <?php foreach ($this->gallery as $id => $value) { 
             $description=($value['info']?$value['info']:$this->page['content']);
+            if(!$value['info']){
+                $infoStyle='display:none';
+                $imgStyle='width:100%';
+            }
         ?>
             <li>
-                <div class="primaryInfo">
+                <div class="primaryInfo" style="<?php echo $infoStyle;?>">
                     <span class="title"><?php echo $this->page['name']; ?></span><br/>
                     <p><?php echo $description; ?></p>
                 </div>
-                <div class="primaryImage">
+                <div class="primaryImage" style="<?php echo $imgStyle;?>">
                     <a href="#"><img src="<?php echo URL . UPLOAD . $this->page['id'] . '/' . $value['img']; ?>" alt="<?php echo $value['caption']; ?>" /></a>
                 </div>
             </li>

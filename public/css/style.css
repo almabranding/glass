@@ -175,9 +175,7 @@ label {
     text-align: center;
     width: 100px;
 }
-form p{
-    margin: 5px 0;
-}
+
 #body{
     width: 100%;
     float: left;
@@ -271,6 +269,7 @@ input[type="submit"]{
     width: 100px;
     height: 60px;
     cursor: pointer;
+    z-index: 1
 }
 .labelNext{
     background: url("../images/labelNext.png") no-repeat scroll 0 0px transparent;
@@ -317,12 +316,12 @@ input[type="submit"]{
     display: inline;
     float: left;
     height: auto;
-    padding: 5px 10px;
+    padding: 5px 0px;
     position: relative;
     text-transform: uppercase;
     top: 12px;
     text-align: center;
-    width: 19%;
+    width: 33%;
 }
 .header_menu .selected{
     display: inline;
@@ -366,9 +365,12 @@ input[type="submit"]{
     width: 100%;
 }
 .menuTitle{
-    font-weight: bold;
-    margin: 0 10px;
+    cursor: pointer;
+    margin: 0 auto;
     display: inherit !important;
+}
+.menuOpt:over{
+    color:#000;
 }
 .menuView{
     float:left;
@@ -393,12 +395,60 @@ input[type="submit"]{
     float:left;
     width: 80%;
 }
+.primaryInfoMap {
+    float: left;
+    padding: 0;
+    text-align: left;
+    width: 20%;
+}
+.primaryInfoMap > *{
+    padding: 0 10px;
+}
+.primaryInfoMap h1,p{
+    margin: 10px 0;
+}
 .primaryMap{
     float: left;
-    height: 490px;
+    height: 601px;
     overflow: hidden;
     position: relative;
-    width: 70%;
+    width: 80%;
+}
+.mapSubBar{
+    background: none repeat scroll 0 0 #CACACA;
+    height: 16px;
+    padding: 10px 0;
+}
+.mapSubBar .barLogo{
+    float: left;
+    position: relative;
+    left:10px;
+}
+.mapSubBar .barText{
+    float: right;
+    right:10px;
+    color:#fff;
+    font-size: 10px;
+    position: relative;
+}
+.mapLeyend {
+    height: 20px;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.mapLeyend li{
+    display: inline;
+    float: left;
+    margin-right: 5px;
+    position: relative;
+    vertical-align: middle;
+    width: auto;
+}
+.mapLeyend li p{
+    float: left;
+    margin: 0;
 }
 .primaryMap img{
     float: left;

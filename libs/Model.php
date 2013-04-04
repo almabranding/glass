@@ -49,7 +49,7 @@ class Model {
                     ));
                     $data = $sth->fetch();
                     $class=($url==$data['url'])?'selected':'';
-                    $m.='<li class="'.$class.'"><a href="'.URL.$this->getTemplate($data['template']).'/view/'.$value['url'].'">'.$value['name'].'</a></li>';
+                    $m.='<li class="menuOpt '.$class.'"><a href="'.URL.$this->getTemplate($data['template']).'/view/'.$value['url'].'">'.$value['name'].'</a></li>';
                 }
                 $m.='</ul></li>';
             }

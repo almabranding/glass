@@ -21,9 +21,10 @@ class uploadFile_Model extends Model {
             if(move_uploaded_file($pic['tmp_name'], $uploadDir.$nameFile)){
                 //$SQL="INSERT INTO ".$bbdd." (project,name,caption,img) VALUES ('".$project."','".$nameFile."','".$pathinfo['filename']."','".$nameFile."')";
                 //$consulta->setConsulta($SQL);
-                $this->createThumbs($nameFile,$uploadDir, $uploadDir, $thumbWidth );
+                $data=$this->createThumbs($nameFile,$uploadDir, $uploadDir, $thumbWidth );
                 $this->exit_status('File was uploaded successfuly!');
-                return $nameFile;
+                $data['name']=$nameFile;
+                return $data;
             }
 
         }
@@ -36,7 +37,8 @@ class uploadFile_Model extends Model {
         echo json_encode(array('status'=>$str));
     }
     
-    public function insertImg($name,$page){
+    public function insertImg($img,$page){
+        $name=$img['name'];
         $p=$this->db->select("SELECT info FROM page WHERE id=:id",
             array('id' => $page));
         $this->db->insert('images', array(
@@ -44,6 +46,8 @@ class uploadFile_Model extends Model {
             'caption'   => $name,
             'name'      => $name,
             'page'      => $page,
+            'w'         => $img['w'],
+            'h'         => $img['h'],
             'info'      => $p[0]['info']
         ));
     }
@@ -59,13 +63,15 @@ class uploadFile_Model extends Model {
           // calculate thumbnail size
           $new_width = $thumbWidth;
           $new_height = floor( $height * ( $thumbWidth / $width ) );
-
+          $data['w']=$new_width;
+          $data['h']=$new_height;
           // create a new temporary image
           $tmp_img = imagecreatetruecolor( $new_width, $new_height ); 
           // copy and resize old image into new image 
           imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
           // save thumbnail into a file
           imagejpeg( $tmp_img, "{$pathToThumbs}{$fname}" );
+          return $data;
 
     }
 }

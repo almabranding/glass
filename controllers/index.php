@@ -7,7 +7,7 @@ class Index extends Controller {
     }
     
     function index() {
-        if(Auth::handleLogin()) header('location: page/view/the-team');
+        if(Auth::handleLogin()) header('location: building/view/building');
         $this->view->render('index/index',true);
     }
     

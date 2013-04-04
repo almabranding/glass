@@ -12,7 +12,6 @@ class Controller {
      * @param string $path Location of the models
      */
     public function loadModel($name,$control='', $modelPath = 'models/') {
-        
         $path = $modelPath . $name.'_model.php';
         if (file_exists($path)) {
             require $modelPath .$name.'_model.php';

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Imagenation</title>
+    <title>Glass</title>
     <meta charset="UTF-8"> 
     <meta property="og:site_name" content="" />
     <meta name="description" content="" />
@@ -24,8 +24,11 @@
     <script src="<?php echo URL;?>public/js/cufon-yui.js"></script>
     <script src="<?php echo URL;?>public/js/Akkurat_400.font.js"></script>
     <script type="text/javascript">
-    Cufon.set('fontSize', '12px').set('color', '#9a999c').set('letterSpacing', '0.5em').replace('p,span,label', { fontFamily: 'Akkurat'});
-    Cufon.set('fontSize', '13px').set('color','#2f292b').set('letterSpacing', '1em').replace('.title', { fontFamily: 'Akkurat'});
+    
+    Cufon.set('fontSize', '12px').set('color', '#2d2427').set('letterSpacing', '0.3em').replace('.menuTitle', { fontFamily: 'Akkurat'});
+    Cufon.set('fontSize', '11px').set('color', '#807f83').set('letterSpacing', '0.3em').replace('p,span,label,.menuOpt', { fontFamily: 'Akkurat'});
+    Cufon.set('fontSize', '13px').set('color','#2f292b').set('letterSpacing', '1em').replace('.title,', { fontFamily: 'Akkurat'});
+    Cufon.set('fontSize', '14px').set('color','#2f292b').set('letterSpacing', '1em').replace('h1', { fontFamily: 'Akkurat'});
     </script>
     
     <?php
