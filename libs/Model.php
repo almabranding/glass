@@ -39,7 +39,7 @@ class Model {
             array('parent' => '0'));
             $m.='<ul class="header_menu">';
             foreach($level1 as $value){
-                $m.='<li class="menuTitle">'.$value['name'].'
+                $m.='<li class="menuTitle"><span class="menuTitlespan">'.$value['name'].'</span>
                 <ul>';
                 $level2=$this->db->select('SELECT * FROM menu WHERE parent = :parent', array('parent' => $value['id']));
                 foreach($level2 as $value){

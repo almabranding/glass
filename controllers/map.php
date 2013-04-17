@@ -4,9 +4,11 @@ class Map extends Controller {
 
     function __construct() {
         parent::__construct();
+        $this->view->js = array('map/js/jquery.smoothzoom.js','map/js/custom.js');
+        
     }
     function index() {
-        $this->view->render('map/index');  
+        $this->view->render('map/index');
     }
     public function view($url,$pic=true) {
         $this->view->url=$url;

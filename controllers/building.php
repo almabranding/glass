@@ -4,7 +4,22 @@ class Building extends Controller {
 
     function __construct() {
         parent::__construct();
+        $this->view->js = array(
+            'building/js/modernizr.custom.17475.js',
+            'building/js/jquerypp.custom.js',
+            'building/js/jquery.elastislide.js',
+            'building/js/jquery.masonry.js',
+            'building/js/jquery.ez-bg-resize.js',
+            'building/js/custom.js');
+        /*$this->view->js = array(
+            'building/js/modernizr.custom.17475.js',
+            'building/js/jquery.elastislide.js',
+            'building/js/jquery.masonry.min.js',
+            'building/js/jquerypp.custom.js',
+            'building/js/jquery.ez-bg-resize.js',
+            'building/js/custom.js');*/
     }
+    
     function index() {
         $this->view->render('building/index');  
     }

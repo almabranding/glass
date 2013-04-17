@@ -22,11 +22,10 @@
 #container {
     margin-left: auto;
     margin-right: auto;
-    padding-bottom:  100px;
     position: relative;
     width: 96%;
-    max-width:1200px;
-    top: 150px;
+    max-width:1133px;
+    top: 180px; 
 }
 
 html, body {
@@ -72,7 +71,7 @@ header{
 }
 .header{
    width: 470px;
-   margin:30px auto;
+   margin:55px auto 30px;
 }
 
 .login{
@@ -90,20 +89,15 @@ ol,ul{
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -43px; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto;
     min-width: 100%;
+    padding-bottom: 225px;
     background: url("../images/gallerysBg.jpg") repeat scroll center center transparent;
-    padding-bottom: 150px;
 }
-footer{    
-    background: none repeat scroll 0 0 #FFFFFF;
-    border-top: 1px solid #CCCCCC;
+footer{  
     bottom: 0;
-    color: #777777;
-    min-width: 1099px;
-    position: fixed;
+    position: absolute;
     width: 100%;
-    opacity: 0;
 }
 
 #floater {
@@ -115,6 +109,9 @@ footer{
 }
 .frameHead{
     background: #fff;
+}
+fieldset{
+    text-align: left;
 }
 #white_full {
     background: none repeat scroll 0 0 rgba(255, 255, 255, 0.7);
@@ -151,7 +148,7 @@ input[type="text"], input[type="password"] {
     font-size: 14px;
     height: 20px;
     line-height: 20px;
-    padding: 4px 6px;
+    padding: 4px 0px;
     vertical-align: middle;
     width: 200px;
 }
@@ -175,6 +172,34 @@ label {
     text-align: center;
     width: 100px;
 }
+#bgPrev{
+    z-index: 1;
+    position: absolute;
+}
+#bgNext{
+    z-index: 1;
+    position: absolute;
+}
+#whiteBG{
+    position:relative;
+    width: 1px;
+    height: 0px;
+    display: none;
+}
+#imgFull{
+    background: #ffffff;
+    overflow: hidden;
+    float: left;
+    position: relative !important;
+    width: 100%;
+    z-index: 1 !important;
+    display: none;
+    clear: both;
+    float: none;
+}
+#imgFull img {
+    width: 100%;
+}   
 
 #body{
     width: 100%;
@@ -185,6 +210,7 @@ label {
 }
 #body-background{
     position: absolute !important;
+    background: #000;
 }
 #body-background > img{
     position: absolute !important;
@@ -206,15 +232,20 @@ label {
     position: relative;
     overflow: hidden;
 }
+.accessFrame > div{
+    height: 750px;
+    margin: auto;
+    padding: 143px 0;
+}
 .frameContent{
-    width: 250px;
+    width: 240px;
     color:#807f83;
-    padding: 50px 0 0 10px;
+    width: 190px;
 }
 .frameForm{
     color:#807f83;
     display: none;
-    padding: 50px 0 0 10px;
+    width: 214px;
 }
 .frameForm form fieldset{
     text-align: left;
@@ -246,9 +277,9 @@ input[type="submit"]{
 }
 .loginBox{
     background: none repeat scroll 0 0 rgba(255, 255, 255, 0.7);
-    height: 177px;
+    height: 192px;
     padding: 20px;
-    width: 221px;
+    width: 235px;
 }
 .accessFrame p{
     text-align: left;
@@ -258,8 +289,23 @@ input[type="submit"]{
     color:#000;
 }
 .accessFrame .link cufon{
+    /*border-bottom: 2px solid #cacaca;*/
+    cursor: pointer;
+}
+.accessFrame .link:hover cufon{
     border-bottom: 2px solid #cacaca;
     cursor: pointer;
+}
+.preload{
+   background: url("../images/preload.gif") no-repeat scroll 0 0px transparent;
+    left: 100px;
+    position: absolute;
+    top: 100px;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 1;
+    display: none;
 }
 .labelInfo{
     background: url("../images/labelInfo.png") no-repeat scroll 0 0px transparent;
@@ -290,8 +336,8 @@ input[type="submit"]{
     margin: auto;
 }
 #menu{
-    margin: auto;
-    width: 450px;
+    margin: 20px auto auto;
+    width: 470px;
 }
 .menuTitle ul{
     float:left;
@@ -303,9 +349,7 @@ input[type="submit"]{
 }
 .header_menu {
     color: #000000;
-    height: 51px;
-    margin: auto;
-    padding-left: 10px;
+    height: auto;
     position: relative;
     text-align: left;
     width: 100%;
@@ -316,7 +360,7 @@ input[type="submit"]{
     display: inline;
     float: left;
     height: auto;
-    padding: 5px 0px;
+    padding: 0px;
     position: relative;
     text-transform: uppercase;
     top: 12px;
@@ -324,7 +368,8 @@ input[type="submit"]{
     width: 33%;
 }
 .header_menu .selected{
-    display: inline;
+    display: block;
+    height: 16px;
     opacity: 1;
     position: relative;
 }
@@ -332,13 +377,10 @@ input[type="submit"]{
 }
 .header_menu ul {
     margin: auto;
-    /*opacity: 0;*/
     padding-top: 5px;
     position: relative;
     top: 0;
-    transition: opacity 0.25s ease 0.1s;
-    transition: height 0.25s ease 0.1s;
-    width: 100%;
+    width: 98%;
 }
 .header_menu:hover li ul {
     opacity: 1;
@@ -346,24 +388,25 @@ input[type="submit"]{
 .header_menu ul li {
     height: 0;
     opacity: 0;
-    overflow: hidden;
+    overflow: hidden;    
     padding: 0;
-    transition: opacity 0.25s ease 0.1s;
-    transition: height 0.25s ease 0.1s;
 }
-.header_menu:hover li ul li {
+
+.menuOpt{
+}
+.header_menu:hover .menuOpt{
+ /*   display: block;
     height: 17px;
+    margin: 5px 0;
     opacity: 1;
     overflow: visible;
-    transition: height 0.25s ease 0.1s;
-    transition: opacity 0.25s ease 0.1s;
-    text-align: center;
+    text-align: center;*/
 }
 .header_menu ul li a {
     border: medium none;
     margin: 0;
     width: 100%;
-}
+} 
 .menuTitle{
     cursor: pointer;
     margin: 0 auto;
@@ -381,19 +424,19 @@ input[type="submit"]{
     position: relative;
 }
 #gallerys{
-    background: url("../images/gallerysBg.jpg") repeat scroll center center transparent;
+    margin: 0 0 100px;
 }
 .primaryInfo
 {
     white-space: pre-line;
     float:left;
-    width: 20%;
+    width: 240px;
     text-align: left;
     padding:10px;
 }
 .primaryImage{
     float:left;
-    width: 80%;
+    width: auto;
 }
 .primaryInfoMap {
     float: left;
@@ -404,7 +447,7 @@ input[type="submit"]{
 .primaryInfoMap > *{
     padding: 0 10px;
 }
-.primaryInfoMap h1,p{
+.primaryInfoMap h1,.primaryInfoMap p{
     margin: 10px 0;
 }
 .primaryMap{
@@ -416,18 +459,19 @@ input[type="submit"]{
 }
 .mapSubBar{
     background: none repeat scroll 0 0 #CACACA;
-    height: 16px;
-    padding: 10px 0;
+    height: 45px;
 }
 .mapSubBar .barLogo{
     float: left;
     position: relative;
-    left:10px;
+    left:20px;
+    padding: 10px 0;
 }
 .mapSubBar .barText{
     float: right;
-    right:10px;
+    right:20px;
     color:#fff;
+    padding: 15px 0;
     font-size: 10px;
     position: relative;
 }
@@ -463,10 +507,8 @@ input[type="submit"]{
 .primaryInfo p{
     
 }
-
 .gallerysBox{
-    background: none repeat scroll 0 0 #DADADA;
-    margin: 10px;
+    margin: 20px 20px 0 0;
 }
 .gallerysBoxImg{
     
@@ -474,10 +516,15 @@ input[type="submit"]{
 .gallerysBoxImg img{
     width: auto;
 }
-.gallerysBoxInfo{
-    margin: 2px auto 2px 5px;
+.gallerysBoxInfo p{
+    padding: 5px 0 0 10px;
     text-align: left;
-    
+    text-transform: uppercase;
+}
+.gallerysBoxInfo{
+    background: none repeat scroll 0 0 #DADADA;
+    height: 30px;
+    width: 100%;
 }
 .arrowNext{
     background: url("../images/arrowNext.png") no-repeat scroll center center transparent;
@@ -579,17 +626,11 @@ ul.slider li {
     width: 80000px;
     left: 0;
 }
-#carousel li{
-    max-width: 100% !important;
-    max-height: 100% !important;
-    vertical-align: top;
-}
-#carousel{
-}
+
 .teamCol{
     background: none repeat scroll 0 0 #FFFFFF;
     float: left;
-    margin-right: 4%;
+    margin: auto 17px;
     padding: 20px;
     text-align: left;   
 }
@@ -597,7 +638,7 @@ ul.slider li {
     width: 100%;
 }
 .teamContent .both{
-    width: 30%;
+    width: 35%;
 }
 .teamContent .single{
     width: 22%;
@@ -630,22 +671,38 @@ ul.slider li {
 .teamText p{
     margin:15px 0;
 }
-.mapZoom{
-    width: 50px;
-    height: 50px;
-    z-index: 100;
-    position: absolute;
+.mapZoom,#_zi_icon, #_zo_icon{
+    width: 50px !important;
+    height: 50px!important;
+    z-index: 100!important;
+    position: absolute!important;
     cursor: pointer;
 }
-.zoomMas{
-    background: url("../images/mapZoom.jpg") no-repeat scroll -50px 0 transparent;
-    right: 0px;
-    bottom: 0px;
+#controlsMaps{
+    right: 0 !important;
+    left: auto !important;
+    width: auto !important;
+    height: auto !important;
+    bottom: 0 !important;
 }
-.zoomMenos{
-    background: url("../images/mapZoom.jpg") no-repeat scroll 0 0px transparent;
-    right: 50px;
-    bottom: 0px;
+#controlsMaps > div{
+    width: 50px !important;
+    height: 50px !important;
+    float:right!important;;
+    position: relative!important;
+    top:auto!important;;
+    left:auto!important;;
+}
+#controlsBg{
+    display: none;
+}
+.zoomMas,#_zi_icon{
+    background: url("../images/mapZoom.jpg") no-repeat scroll -50px 0 transparent !important;
+
+}
+.zoomMenos, #_zo_icon{
+    background: url("../images/mapZoom.jpg") no-repeat scroll 0 0px transparent !important;
+
 }
 .fitScreenBar{
     position: absolute;
@@ -668,4 +725,22 @@ ul.slider li {
 .fullScreen{
     max-width: 100% !important;
     width: 100% !important;
+}
+.videoWrapper {
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    min-height: 60px;
+    position: relative;
+}
+.videoInfo{
+    float: left;
+    padding: 10px;
+    text-align: left;
+    white-space: pre-line;
+    width: 20%;
+}
+.videoBox{
+    float: left;
+    width: 80%;
 }

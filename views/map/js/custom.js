@@ -1,14 +1,17 @@
 
-    $(window).load(function() {
-        $('#gallerys').masonry({
-            itemSelector: '.gallerysBox',
-            columnWidth: 100
+$(window).load(function() {
+    var sample = 3;
+    var smPos = 153;
+    var spPos = 153;
+    var sW;
+    var sH;
+    jQuery(function($) {
+        $('#map').smoothZoom({
+            zoom_MAX:200,
+            button_SIZE:22,
+            pan_BUTTONS_SHOW: 'NO',
+            button_ALIGN:'bottom center',
+            zoom_OUT_TO_FIT:'NO'
         });
     });
-    var carousel = $('#carousel').elastislide({
-        minItems: 1
-    });
-    $('.gallerysBoxImg img').on('click', '', function() {
-        pos = $(this).attr("ref");
-        carousel._slideTo(pos);
-    });
+});

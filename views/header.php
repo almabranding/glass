@@ -10,18 +10,14 @@
             </a>
         </div>
     <nav id="menu">
-        
-        <?php 
-        
-        echo $this->getMenu;
-        ?>
-        
+        <?php echo $this->getMenu; ?>
     </nav>
     <div class="clr"></div>
     </div>
 </header>
 <div id="white_full" class="hide" onclick="$('.hide').css('display','none').html('')"></div>
 <div id="white_box" class="hide"></div>
+
 <div id="container">
     
     

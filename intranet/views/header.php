@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Imagenation</title>
+    <title>Glass</title>
     <meta charset="UTF-8"> 
     <meta property="og:site_name" content="" />
     <meta name="description" content="" />
@@ -47,7 +47,6 @@
         <a href="index.php">
         <div id="logo">
             <img src="images/logo.png">
-            <p>Photo & Motion<br/> Production Company</p>
         </div>
         </a>
     </div>

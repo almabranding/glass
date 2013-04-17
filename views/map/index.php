@@ -46,17 +46,11 @@ U&nbsp; Jewish Museum of Florida</p>-->
 </div>
 
 <div class="primaryMap">
-        <div class="mapZoom zoomMas"></div>
-        <div class="mapZoom zoomMenos"></div>
     <?php foreach ($this->gallery as $id => $value) { 
-       echo '<img alt="map" src="/glass/uploads/images/'.$this->page['id'].'/'.$value['img'].'" />';
+       echo '<img id="map" alt="map" src="'.URL.UPLOAD.$this->page['id'].'/'.$value['img'].'" />';
        break;
     }?>
     
 </div>
-    <div class="mapSubBar clr">
-<div class="barLogo"><img alt="Terra Group" src="/glass/public/images/terraLogo.png" /></div>
-
-<div class="barText">&copy;TERRA GROUP 2013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DISCLAIMER</div>
-    </div>
+    <div class=" clr"></div>
 </div>

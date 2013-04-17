@@ -36,6 +36,7 @@ class Image_Model extends Model {
          foreach ($this->getInfo($id) as $value){
             $this->db->delete('images', "`id` = {$id}");
             unlink(UPLOAD.$value['page'].'/'.$value['img']);
+            unlink(UPLOAD.$value['page'].'/'.$value['thumb']);
          } 
     }
 }

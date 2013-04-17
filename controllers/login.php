@@ -4,6 +4,7 @@ class Login extends Controller {
 
     function __construct() {
         parent::__construct();
+        $this->view->js = array('login/js/custom.js','login/js/jquery.ez-bg-resize.js');
     }
     
     function index() {

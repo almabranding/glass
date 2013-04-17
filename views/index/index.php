@@ -1,16 +1,16 @@
 <body>
     <div class="accessFrame">
         <div class="frameContent">
-            <p class="title" style="color:#000;">GLASS</p>
-            <p>120 OCEAN DRIVE<br>MIAMI BEACH</p>
-            <p>18 FLOORS,<br>10 RESIDENCES,<br>360 VIEWS</p>
-            <p>STARTING AT 7 MILLION</p>
-            <p>2,500 SQ FT ON FLOORS 6 & 7<br>3,000 SQ FT ON FLOORS 8 - 15<br>9,000SQ FT ON SINGLE PH<br>(OCCUPYING FLOORS 16 - 18)</p>
+            <p class="bold" style="color:#000;">GLASS</p>
+            <p class="bold">120 Ocean Drive<br>Miami Beach</p>
+            <p class="bold">18 floors,<br>10 residences,<br>360 views</p>
+            <p class="bold">Starting at 7 million</p>
+            <p class="bold">2,500 sq fr on floors  6 & 7<br>3,000 sq fr on floors 8 - 15<br>9,000SQ ft on floors PH<br>(occupying flors 16 - 18)</p>
             <br>
             <br><p class="link startForm"> ACCESS THE WEBSITE</p>
         </div>
         <div class="frameForm">
-            <p class="title" style="">PLEASE COMPLETE<br>THE FORM BELOW TO<br>ACCESS THE GLASS<br> WEBSITE</p>
+            <p class="bold" style="">PLEASE COMPLETE<br>THE FORM BELOW TO<br>ACCESS THE GLASS<br> WEBSITE</p>
             <p>GLASS<br>120 Ocean Drive<br>Miami Beach, Florida 33139<br>glass120ocean.com</p>
             <p>Representation:<br>Eloy Carmenale<br>ONE Sotheby's International Realty<br>119 Washington Avenue, Suite 600<br>Miami Beach, FL 33139<br>305.282.7179</p>
             <p>Owned and developed by Terra Group.<br>Broker participation welcome.</p>
@@ -44,25 +44,33 @@
         </div>
     </div>
     <div id="body">
-        
-        <div class="labelInfo"></div><div onclick="location.href='login'" class="labelNext"></div>
-    <div id="body-background" class=""><img src="<?php echo URL.'public/images/homeBG.jpg';?>" alt="Bg">
-    <div class="logoBox" style="margin-top: 40px;">
-        <img src="<?php echo URL;?>public/images/logoWhite.png" alt="Glass">
-    </div>  
-    
+        <div class="labelInfo"></div>
+        <div class="labelNext"></div>
+        <div class="preload"></div>
+        <div id="body-background" class="">
+            <img class="imgBG" src="<?php echo URL.'public/images/homeBG01.jpg';?>" alt="Bg">
+            <div class="logoBox" style="margin-top: 40px;">
+                <img src="<?php echo URL;?>public/images/logoWhite.png" alt="Glass">
+            </div>  
+        </div>
     </div>
-    </div>
-<script>
-$(document).ready(function() {
-    var h;
-     var frame=250;
-    $("#body-background").ezBgResize({
-        img     : "<?php echo URL.'public/images/homeBG.jpg';?>"
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <?php
+    if (isset($this->js)) 
+        foreach ($this->js as $js)
+            echo '<script type="text/javascript" src="'.URL.'views/'.$js.'"></script>';
+    ?>
+    <script>
+    $(document).ready(function() {
+        $("#body-background").ezBgResize({
+            img     : "<?php echo URL.'public/images/homeBG01.jpg';?>"
+        });
     });
+    </script>
     
-});
-
-</script>
+    <script src="<?php echo URL;?>public/js/cufon-yui.js"></script>
+    <script src="<?php echo URL;?>public/js/Akkurat_400.font.js"></script>
+    <script src="<?php echo URL;?>public/js/custom.js"></script>
 </body>
 </html>

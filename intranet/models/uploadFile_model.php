@@ -8,7 +8,8 @@ class uploadFile_Model extends Model {
         if(!is_dir(UPLOAD))mkdir(UPLOAD);
         $uploadDir = UPLOAD.$sub.'/';
         if(!is_dir($uploadDir))mkdir($uploadDir);
-        $thumbWidth=rand(200,500);
+        $sizes=array(228,358,487,616);
+        $thumbWidth=$sizes[rand(0,3)];
         if(array_key_exists($name,$_FILES) && $_FILES[$name]['error'] == 0 ){
             $pic = $_FILES[$name];
             $pathinfo = pathinfo($pic["name"]);
@@ -39,16 +40,17 @@ class uploadFile_Model extends Model {
     
     public function insertImg($img,$page){
         $name=$img['name'];
-        $p=$this->db->select("SELECT info FROM page WHERE id=:id",
+        $p=$this->db->select("SELECT content FROM page WHERE id=:id",
             array('id' => $page));
         $this->db->insert('images', array(
             'img'       => $name,
+            'thumb'     => 'thumb_'.$name,
             'caption'   => $name,
             'name'      => $name,
             'page'      => $page,
             'w'         => $img['w'],
             'h'         => $img['h'],
-            'info'      => $p[0]['info']
+            'info'      => $p[0]['content']
         ));
     }
     public function createThumbs($fname,$pathToImages, $pathToThumbs, $thumbWidth ) 
