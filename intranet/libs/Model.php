@@ -2,6 +2,7 @@
 class Model {
     function __construct() {
         $this->db = new Database(DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASS);
+        $this->delTree(CACHE);
     }
     function getMenu($id=null,$column=null){
         $column=($column==null)?'*':$column;
@@ -27,5 +28,10 @@ class Model {
          } 
         return rmdir($dir); 
     } 
+    public function getPageInfo($id){
+         $consulta=$this->db->select('SELECT * FROM page WHERE id = :id', 
+            array('id' => $id));
+         return $consulta;
+    }
 
 }

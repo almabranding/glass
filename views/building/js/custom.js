@@ -45,6 +45,7 @@ $('.bgControl').on('click',function(){
 });
 function fitScreen(){
      if(!$("#container").hasClass('fullScreen')){
+         jQuery('html,body').animate({scrollTop: $("#carousel").offset().top}, 1000);
          $('#container').toggleClass("fullScreen");
          $('#gallerys').masonry('reload');
         var URLBG=$('img[ref="'+carouselPos+'"]').attr('title');
@@ -70,6 +71,7 @@ function fitScreen(){
         $('#gallerys').masonry('reload');
         resampleBG();    
     }else{
+          
         //$('#whiteBG').css('display','none');
         $('#gallerys').css('left','0');
         $('#wrapper').css('background-position','center center');
@@ -92,6 +94,7 @@ function fitScreen(){
 
 }
 function changeBG(img){
+    jQuery('html,body').animate({scrollTop: $("#carousel").offset().top}, 1000);
     carouselPos=$(img).attr('ref');
     var link=$(img).attr('title');
     carousel._slideTo(carouselPos);
@@ -112,5 +115,5 @@ function resampleBG(){
         var Wh=$(window).height()-180;
         var img = document.getElementById('imgBG'); 
         var bgH=Math.min(Wh,img.clientHeight);
-        $('#imgFull').css('height',bgH);
+        $('#imgFull').css('height',img.clientHeight);
 }

@@ -37,7 +37,7 @@ a{
 }
 img{
     display: block;
-    clear: both;
+    clear: none;
     margin: 0;
     padding: 0;
 }
@@ -173,10 +173,14 @@ label {
     width: 100px;
 }
 #bgPrev{
+    top: 50%;
+    left: 0;
     z-index: 1;
     position: absolute;
 }
 #bgNext{
+    top: 50%;
+    right: 0;
     z-index: 1;
     position: absolute;
 }
@@ -307,6 +311,15 @@ input[type="submit"]{
     z-index: 1;
     display: none;
 }
+.bgControl{
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.preloadW{
+   background: url("../images/preloadW.gif") no-repeat scroll 0 0px transparent !important;
+}
 .labelInfo{
     background: url("../images/labelInfo.png") no-repeat scroll 0 0px transparent;
     left: 0px;
@@ -424,19 +437,55 @@ input[type="submit"]{
     position: relative;
 }
 #gallerys{
-    margin: 0 0 100px;
+    margin-bottom: 100px !important;
+}
+.video-list{
+    
 }
 .primaryInfo
 {
-    white-space: pre-line;
     float:left;
-    width: 240px;
+    width: 275px;
     text-align: left;
-    padding:10px;
+    padding:10px 15px;
 }
 .primaryImage{
-    float:left;
     width: auto;
+}
+.primaryImage div{
+    background: #fff!important;
+}
+.map-list {
+    max-height: 500px;
+    overflow: hidden;
+    width: 100%;
+}
+.map-list > li {
+    background: none repeat scroll 0 0 #FFFFFF;
+    height: 500px;
+    max-width: 100% !important;
+    vertical-align: top;
+}
+.carouselBox{
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.carouselBox .primaryInfo{
+    float: left;
+    max-width: 200px;
+    min-width: 50px;
+    position: relative;
+    white-space: normal;
+    width: 19%;
+}
+.carouselBox .primaryImage{
+    float: right;
+    height: 100%;
+    position: relative;
+    width: 75%;
 }
 .primaryInfoMap {
     float: left;
@@ -504,8 +553,8 @@ input[type="submit"]{
 .primaryInfo .title{
     text-transform: uppercase;
 }
-.primaryInfo p{
-    
+.primaryInfo p {
+    margin: 6px 0;
 }
 .gallerysBox{
     margin: 20px 20px 0 0;
@@ -626,22 +675,38 @@ ul.slider li {
     width: 80000px;
     left: 0;
 }
-
+.teamRead{
+    bottom: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 22px;
+    text-align: right;
+}
 .teamCol{
     background: none repeat scroll 0 0 #FFFFFF;
     float: left;
-    margin: auto 17px;
-    padding: 20px;
-    text-align: left;   
+    margin: 0 25px 0 0;
+    overflow: hidden;
+    padding: 20px 18px 40px;
+    position: relative;
+    text-align: left;
+}
+.teamColMax{
+    height: 100% !important;
 }
 .teamCol>div{
     width: 100%;
 }
+.teamContent{
+    margin: auto;
+    left:130px;
+    position: relative;
+}
 .teamContent .both{
-    width: 35%;
+    width: 29%;
 }
 .teamContent .single{
-    width: 22%;
+    width: 17%;
 }
 .teamPic{
     width: 100%;
@@ -664,6 +729,10 @@ ul.slider li {
 .teamText{
     width: 100%;
     clear: both;
+    overflow: hidden;
+}
+.teamTextShort{
+   height: 350px; 
 }
 .teamText h1{
     font-size: 15px;

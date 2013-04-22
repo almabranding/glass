@@ -4,6 +4,7 @@ class Page extends Controller {
 
     function __construct() {
         parent::__construct();
+        $this->view->js = array('page/js/custom.js');
     }
     function index() { 
         $this->view->form = $this->model->form();
@@ -31,5 +32,9 @@ class Page extends Controller {
     {
         $this->model->delete($id);
         header('location: ' . URL . 'page');
+    }
+    public function sort() 
+    {
+        $this->model->sort();
     }
 }

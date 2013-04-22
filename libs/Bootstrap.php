@@ -27,7 +27,7 @@ class Bootstrap {
 
         // Serve from the cache if it is the same age or younger than the last 
         // modification time of the included file (includes/$reqfilename)
-        $this->loadCache();
+        //$this->loadCache();
          
         // Load the default controller if no URL is set
         // eg: Visit http://localhost it loads Default Controller
@@ -53,8 +53,7 @@ class Bootstrap {
 
            //include($cachefile);
 
-           echo "<!-- Cached ".date('H:i', filemtime($cachefile))." 
-           -->";
+           
 
 
            //exit;
@@ -106,7 +105,8 @@ class Bootstrap {
      */
     private function _getUrl()
     {
-        $url = isset($_GET['url']) ? $_GET['url'] : null;
+        $url = isset($_GET['url']) ? $_GET['url'] : null;     
+        $url=str_replace(' ','+',$url);
         $url = rtrim($url, '/');
         $url = filter_var($url, FILTER_SANITIZE_URL);
         $this->_url = explode('/', $url);

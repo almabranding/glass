@@ -21,7 +21,8 @@ class Building extends Controller {
     }
     
     function index() {
-        $this->view->render('building/index');  
+        $this->view->msg = 'This page doesnt exist';
+        $this->view->render('error/index'); 
     }
     public function view($url,$pic=true) {
         $this->view->url=$url;

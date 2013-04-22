@@ -7,7 +7,11 @@ class Page_Model extends Model {
         $action=($type=='add')?URL.'page/create':URL.'page/edit/'.$id;
         if ($type=='edit')
             foreach ($this->getInfo($id) as $project);
-        $form = new Zebra_Form('addProject','POST',$action);
+        $atributes=array(
+            'enctype'    => 'multipart/form-data',
+        );
+        $form = new Zebra_Form('addProject','POST',$action,$atributes);
+        
         $form->add('hidden', '_add', 'project');
 
         $form->add('label', 'label_name', 'name', 'Name');
@@ -37,7 +41,7 @@ class Page_Model extends Model {
             ));
             $obj=$form->add('textarea', 'content', $project['content'], array('autocomplete' => 'off'));
             $obj->set_attributes(array(
-                'class'    => 'ckeditor',
+                'class'    => 'wysiwyg',
             ));
         }
         
@@ -89,7 +93,7 @@ class Page_Model extends Model {
          return $consulta;
     }
     public function getGallery($id){
-         return $this->db->select('SELECT * FROM images WHERE page = :id', 
+         return $this->db->select('SELECT * FROM images WHERE page = :id ORDER by orden', 
             array('id' => $id));
     } 
     
@@ -99,12 +103,12 @@ class Page_Model extends Model {
             'name' => $_POST['name'],
             'template' => $_POST['template'],
             'description' => $_POST['description'],
-            'url' => urlencode(strtolower($_POST['name']))
+            'url' => filter_var(urlencode(strtolower($_POST['name'])), FILTER_SANITIZE_URL)
         );
         $page=$this->db->insert('page', $data);
         $data = array(
             'name' => $_POST['name'],
-            'url' => urlencode(strtolower($_POST['name'])),
+            'url' => $url = filter_var(urlencode(strtolower($_POST['name'])), FILTER_SANITIZE_URL),
             'parent' => $_POST['menu'],
             'page' => $page
         );
@@ -115,7 +119,7 @@ class Page_Model extends Model {
             'name' => $_POST['name'],
             'template' => $_POST['template'],
             'description' => $_POST['description'],
-            'content' => $_POST['content'],
+            'content' => stripslashes($_POST['content']),
             'url' => urlencode(strtolower($_POST['name'])),
             'menu' => $_POST['menu']
         );
@@ -134,5 +138,15 @@ class Page_Model extends Model {
         $this->db->delete('page', "`page` = {$id}");
          $this->db->delete('page', "`id` = {$id}");
          $this->delTree(UPLOAD.$id);
+    }   
+    public function sort(){
+        foreach($_POST['foo'] as $key=>$value){
+            $data = array(
+                'orden' => $key
+            );
+             $this->db->update('images', $data, 
+            "`id` = '{$value}'");
+        }
+        exit;
     }   
 }

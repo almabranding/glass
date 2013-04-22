@@ -22,7 +22,8 @@ class View {
             require 'views/footer.php';    
         }
         // open the cache file for writing
-        $cachefile = ROOT."cache/".$this->_cache.".html";
+        if(!is_dir(CACHE))mkdir(CACHE);
+        $cachefile = CACHE.$this->_cache.".html";
         $fp = fopen($cachefile, 'w');
 
 		 // save the contents of output buffer to the file

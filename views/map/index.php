@@ -1,56 +1,45 @@
-<div class="frameHead">
-<div class="primaryInfoMap">
-<h1>LOREM IPSUM</h1>
-<?php echo $this->page['content'];?>
-<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis odio sapien. Sed fringilla tincidunt leo eget sagittis. Praesent dictum risus id velit faucibus eu sollicitudin eros vulputate. Nulla ultricies egestas bibendum. Duis vel mauris sit amet lacus laoreet lobortis sed sit amet nisi. Maecenas commodo aliquam euismod.</p>
-
-<p>&nbsp;</p>
-
-<h1>MAP LEGEND</h1>
-
-<div class="mapLeyend">
-<ul>
-	<li><img alt="map" src="/glass/uploads/leyendGlass.jpg" style="float:left" /></li>
-	<li>
-	<p>Glass</p>
-	</li>
-	<li><img alt="map" src="/glass/uploads/leyendPark.jpg" style="float:left" /></li>
-	<li>
-	<p>Parks</p>
-	</li>
+<ul id="carousel" class="map-list">
+<?php foreach ($this->gallery as $id => $value) { 
+        $description=($value['replace'])?$value['info']:$this->page['content'];
+        if(!$description){
+            $infoStyle='display:none';
+            $imgStyle='';
+        }else{
+            $infoStyle='display:inherit';
+            $imgStyle='';
+        }
+    ?>
+        <li id="<?php echo $value['id'];?>">
+            <div class="carouselBox" style="margin:auto">
+            <div class="primaryInfo" style="<?php echo $infoStyle;?>">
+                <p><?php echo $description; ?></p>
+            </div>
+            <div class="primaryImage" style="<?php echo $imgStyle;?>">
+                <?php { 
+                    echo '<img class="map" alt="map" src="'.URL.UPLOAD.$value['page'].'/'.$value['img'].'" />';
+                 }?>
+            </div>
+            </div>
+        </li>
+<?php } ?>
 </ul>
+<div id="imgFull">
+    <div id="bgPrev" class="elastislide-prev bgControl bgPrev"></div>
+    <div id="bgNext" class="elastislide-next bgControl bgNext"></div>
+    <div class="preload preloadW"></div>
+    <img class="imgBG" id="imgBG" src="" alt="Bg"> 
 </div>
+<div id="gallerys" class="clearfix fluid masonry" style="<?php if(sizeof($this->gallery)==1) echo 'display:none'; ?>">
+    <?php foreach ($this->gallery as $id => $value) { ?>
+        <div class="gallerysBox">
+            <div class="gallerysBoxImg">
+                <a href="#<?php echo $value['id'];?>"><img title="<?php echo URL . UPLOAD . $value['page']. '/' . $value['img']; ?>" ref="<?php echo $id; ?>" src="<?php echo URL . UPLOAD . $this->page['id'] . '/thumb_' . $value['img']; ?>" alt="<?php echo $value['caption']; ?>"></a>
+            </div>
+            <div class="gallerysBoxInfo"><p><?php echo $value['name'];?></p></div>
+        </div> 
+    <?php } ?>
+    <div class="clr"></div>
+</div>
+<div class="clr"></div>
 
-<p>A&nbsp; South Pointe Park<br />
-B&nbsp; Pier Park<br />
-C&nbsp; Prime 112<br />
-D&nbsp; Joe&rsquo;s Stone Crab<br />
-E&nbsp; Majory Stoneman Douglas &nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp; Ocean Beach Park<br />
-F&nbsp; Smith &amp; Wollensky<br />
-G&nbsp; Washington Park<br />
-H&nbsp; The Room<br />
-I&nbsp;&nbsp;&nbsp; Lummus Park<br />
-J&nbsp;&nbsp; The Wolfsonian-FIU<br />
-K&nbsp; Flamingo Park &amp; Pool<br />
-L&nbsp;&nbsp; Maurice Gibb Memorial Park<br />
-M Lincoln Road<br />
-N&nbsp; 21st&nbsp; Street Recreation Center<br />
-O&nbsp; Collins Park<br />
-P&nbsp; Bass Museu<br />
-Q&nbsp; Miami Beach Botanical Garden<br />
-R&nbsp; New World Symphony<br />
-S&nbsp;&nbsp; Aroma Espresso Bar<br />
-T&nbsp;&nbsp; Estiatorio Milos<br />
-U&nbsp; Jewish Museum of Florida</p>-->
-</div>
 
-<div class="primaryMap">
-    <?php foreach ($this->gallery as $id => $value) { 
-       echo '<img id="map" alt="map" src="'.URL.UPLOAD.$this->page['id'].'/'.$value['img'].'" />';
-       break;
-    }?>
-    
-</div>
-    <div class=" clr"></div>
-</div>

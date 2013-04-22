@@ -19,6 +19,15 @@ class Model {
         $data = $sth->fetch();
         return $data;
     }
+    
+    function getPageByCol($attr){
+        $sth = $this->db->prepare("SELECT * FROM page WHERE ".$attr['col']." = :id");
+        $sth->execute(array(
+            ':id'  => $attr['id']
+        ));
+        $data = $sth->fetch();
+        return $data;
+    }
     function getGallery($id){
         return $this->db->select('SELECT * FROM images WHERE page = :page', 
             array('page' => $id));
@@ -30,6 +39,15 @@ class Model {
         ));
         $data = $sth->fetch();
         return $data['URL'];
+    }
+    function getTemplatebyCol($attr){
+        $sth = $this->db->prepare("SELECT * FROM template WHERE ".$attr['col']." = :id");
+        
+        $sth->execute(array(
+            ':id'  => $attr['id']
+        ));
+        $data = $sth->fetch();
+        return $data;
     }
     function setLang($lang){
         $this->lang=$lang;

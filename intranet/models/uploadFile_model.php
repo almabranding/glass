@@ -16,15 +16,17 @@ class uploadFile_Model extends Model {
             $ext='.'.$pathinfo['extension'];
             $file = ($pathinfo['filename'].'_'.rand());
             $nameFile=$file.$ext;
+            $jpgFile=$file.'.jpg';
             if(!in_array($pathinfo['extension'],$allowed_ext)){
                 $this->exit_status('Only '.implode(',',$allowed_ext).' files are allowed!');
             }	  
             if(move_uploaded_file($pic['tmp_name'], $uploadDir.$nameFile)){
-                //$SQL="INSERT INTO ".$bbdd." (project,name,caption,img) VALUES ('".$project."','".$nameFile."','".$pathinfo['filename']."','".$nameFile."')";
-                //$consulta->setConsulta($SQL);
-                $data=$this->createThumbs($nameFile,$uploadDir, $uploadDir, $thumbWidth );
+                if($pathinfo['extension']=='png')
+                    $data=$this->png2jpg($uploadDir.$nameFile,$uploadDir.$jpgFile, 90 );
+                $data=$this->createThumbs($jpgFile,$uploadDir, $uploadDir, $thumbWidth );
                 $this->exit_status('File was uploaded successfuly!');
-                $data['name']=$nameFile;
+                $data['file']=$jpgFile;
+                $data['name']=$file;
                 return $data;
             }
 
@@ -37,21 +39,48 @@ class uploadFile_Model extends Model {
     function exit_status($str){
         echo json_encode(array('status'=>$str));
     }
-    
+    public function crop(){
+        $sizes=array(228,358,487,616);
+        $thumbWidth=$sizes[rand(0,3)];
+        $filename= $_POST['filename'];
+        $filepath= UPLOAD.$_POST['filefolder'].'/';   
+        
+        $rel = $_POST['rel'];
+	$targ_w = $_POST['w']*$rel;
+        $targ_h = $_POST['h']*$rel;
+	$jpeg_quality = 90;
+	$src = $filepath.$filename;
+        $pathinfo = pathinfo($filename);
+        
+        if($pathinfo['extension']=='jpg' || $pathinfo['extension']=='jpeg') $img_r = imagecreatefromjpeg($src);
+        if($pathinfo['extension']=='png') $img_r = imagecreatefrompng($src);
+	$dst_r = ImageCreateTrueColor( $targ_w, $targ_h );
+
+	imagecopyresampled($dst_r,$img_r,0,0,$_POST['x']*$rel,$_POST['y']*$rel,$targ_w,$targ_h,$_POST['w']*$rel,$_POST['h']*$rel);
+        imagejpeg($dst_r,$src,$jpeg_quality);
+        $this->createThumbs($filename,$filepath, $filepath, $thumbWidth );
+
+    }
     public function insertImg($img,$page){
-        $name=$img['name'];
         $p=$this->db->select("SELECT content FROM page WHERE id=:id",
             array('id' => $page));
         $this->db->insert('images', array(
-            'img'       => $name,
-            'thumb'     => 'thumb_'.$name,
-            'caption'   => $name,
-            'name'      => $name,
+            'img'       => $img['file'],
+            'thumb'     => $img['thumb'],
+            'caption'   => $img['name'],
+            'video'     => $img['video'],
+            'name'      => $img['name'],
             'page'      => $page,
             'w'         => $img['w'],
             'h'         => $img['h'],
             'info'      => $p[0]['content']
         ));
+    }
+    public function png2jpg($originalFile, $outputFile, $quality) {
+        $image = imagecreatefrompng($originalFile);
+        imagejpeg($image, $outputFile, $quality);
+        unlink($originalFile);
+        imagedestroy($image);
     }
     public function createThumbs($fname,$pathToImages, $pathToThumbs, $thumbWidth ) 
     {
@@ -65,6 +94,7 @@ class uploadFile_Model extends Model {
           // calculate thumbnail size
           $new_width = $thumbWidth;
           $new_height = floor( $height * ( $thumbWidth / $width ) );
+          $data['thumb']=$fname;
           $data['w']=$new_width;
           $data['h']=$new_height;
           // create a new temporary image

@@ -2,7 +2,6 @@ $(document).ready(function() {
     var mapZoom=0;
     var BGnum=0;
     var frame=240;
-    var URL='http://borndevelopments.com/glass/';
     $(window).on('resize',function(){
         var f=$('.accessFrame').width();
         var bodySize=$(window).width()-f;
@@ -67,14 +66,13 @@ $(document).ready(function() {
     });
     $('.labelNext').on('click',function(){
         BGnum++;
-        var BGImageArray = ["homeBG01.jpg","homeBG02.jpg","homeBG03.jpg"];
         if(BGnum>=BGImageArray.length)BGnum=0;
 	var BGImage = BGImageArray[BGnum];
         $('.preload').show();
         $('.imgBG').fadeOut(function(){
             $(this).attr('src','');
-            $(this).load(URL+'public/images/'+BGImage,function(){
-                $(this).attr('src',URL+'public/images/'+BGImage);
+            $(this).load(BGImage,function(){
+                $(this).attr('src',BGImage);
                 $('.preload').delay(500).hide('fast',function(){
                     $('.imgBG').fadeIn();
                 });
@@ -88,5 +86,10 @@ $(document).ready(function() {
         $('.frameContent').toggle();
         $('.frameForm').toggle();
     });
+ 
+    $("#body-background").ezBgResize({
+        img     : BGImageArray[0]
+    });
+  
 });
     

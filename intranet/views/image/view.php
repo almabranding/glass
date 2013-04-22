@@ -4,7 +4,6 @@
 </div>
 <script type="text/javascript">
   jQuery(function($){
-
     // Create variables (in this scope) to hold the API and image size
     var jcrop_api,
         boundx,
@@ -18,11 +17,10 @@
         xsize = $pcnt.width(),
         ysize = $pcnt.height();
     
-    console.log('init',[xsize,ysize]);
     $('#target').Jcrop({
       onChange: updatePreview,
       onSelect: updatePreview,
-      aspectRatio: xsize / ysize
+      aspectRatio: 0
     },function(){
       // Use the API to get the real image size
       var bounds = this.getBounds();
@@ -42,6 +40,10 @@
         var rx = xsize / c.w;
         var ry = ysize / c.h;
 
+        $pcnt.css({
+          width: Math.round(c.w) + 'px',
+          height: Math.round(c.h) + 'px'
+        });
         $pimg.css({
           width: Math.round(rx * boundx) + 'px',
           height: Math.round(ry * boundy) + 'px',
@@ -49,11 +51,35 @@
           marginTop: '-' + Math.round(ry * c.y) + 'px'
         });
       }
+      updateCoords(c)
     };
+
 
   });
 
 
+ function updateCoords(c)
+  {
+    var img = document.getElementById('target');
+    var width = img.width;
+    var rel=width/$('#target').width();
+    //rel=1.98;
+    $('#rel').val(rel);
+    $('#x').val(c.x);
+    $('#y').val(c.y);
+    $('#w').val(c.w);
+    $('#h').val(c.h);
+  };
+  function checkCoords()
+  {
+    if (parseInt($('#w').val())) return true;
+    alert('Select the area first');
+    return false;
+  };
+  function hidePreview()
+  {
+    $preview.stop().fadeOut('fast');
+  };
 </script>
 <style type="text/css">
 
@@ -86,48 +112,28 @@
   height: 170px;
   overflow: hidden;
 }
-/*
-function updateCoords(c)
-  {
-      var img = document.getElementById('target');
 
-    var width = img.width;
-    var width = img.width;
-    var height = img.height
-    var rel=width/$('#target').width();
-    //rel=1.98;
-    $('#rel').val(rel);
-    $('#x').val(c.x);
-    $('#y').val(c.y);
-    $('#w').val(c.w);
-    $('#h').val(c.h);
-    $('#width').text(c.w);
-    $('#height').text(c.h);
-    if(c.w<300) $('#width').css('color','#ef3333');
-    if(c.w<350 && c.w>300 ) $('#width').css('color','#278654');
-    if(c.w>350 ) $('#width').css('color','#ffa61a');
-    
-    if(c.h<200 || c.h>400) $('#height').css('color','#ffa61a');
-    else $('#height').css('color','#278654');
-  };
-  function checkCoords()
-  {
-    if (parseInt($('#w').val())) return true;
-    return true;
-  };
-  function hidePreview()
-  {
-    $preview.stop().fadeOut('fast');
-  };*/
 </style>
 <div class="container">
     <?php foreach($this->img as $value){?>
-  <img src="<?php echo UPLOAD_ABS.$value['project'].'/'.$value['img'];?>" id="target" alt="[Jcrop Example]" />
+  <img src="<?php echo UPLOAD_ABS.$value['page'].'/'.$value['img'];?>" id="target" alt="[Jcrop Example]" />
   <div id="preview-pane">
     <div class="preview-container">
-      <img src="<?php echo UPLOAD_ABS.$value['project'].'/'.$value['img'];?>" class="jcrop-preview" alt="Preview" />
+      <img src="<?php echo UPLOAD_ABS.$value['page'].'/'.$value['img'];?>" class="jcrop-preview" alt="Preview" />
     </div>
   </div>
+  <form action="<?php echo URL;?>uploadFile/crop" method="post" onsubmit="return checkCoords();">
+        <input type="hidden" id="x" name="x" />
+        <input type="hidden" id="y" name="y" />
+        <input type="hidden" id="w" name="w" />
+        <input type="hidden" id="h" name="h" />
+        <input type="hidden" id="rel" name="rel" />
+        <input type="hidden" id="" name="id" value="<?php echo $this->id;?>"/>
+        <input type="hidden" id="" name="filename" value="<?php echo $value['img'];?>"/>
+        <input type="hidden" id="" name="filefolder" value="<?php echo $value['page'];?>"/>
+        <input type="submit" value="Crop Image" class="btn" /><input type="button" value="Back" class="btn" onclick="location.href='<?php echo URL;?>page/view/<?php echo $value['page'];?>';" />
+</form>
   <?php   } ?>
 <div class="clearfix"></div>
 </div>
+

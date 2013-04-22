@@ -1,50 +1,46 @@
+
 <ul id="carousel" class="elastislide-list">
 <?php foreach ($this->gallery as $id => $value) { 
         $description=($value['info']?$value['info']:$this->page['content']);
         if(!$value['info']){
             $infoStyle='display:none';
-            $imgStyle='width:100%';
+            $imgStyle='';
+        }else{
+            $infoStyle='display:inherit';
+            $imgStyle='';
         }
     ?>
         <li>
+            <div class="carouselBox" style="margin:auto">
             <div class="primaryInfo" style="<?php echo $infoStyle;?>">
-                <span class="title"><?php echo $this->page['name']; ?></span><br/>
                 <p><?php echo $description; ?></p>
             </div>
-            <div class="primaryImage" style="<?php echo $imgStyle;?>">
-                 <!-- Video -->
-                <video id="video" width="640" height="365">
-                  <source src="<?php echo URL . VUPLOAD . $this->page['id'] . '/' . $value['video']; ?>" autoplay>
-                  <p>
-                    Your browser doesn't support HTML5 video.
-                    <a href="<?php echo URL . UPLOAD . $this->page['id'] . '/' . $value['video']; ?>">Download</a> the video instead.
-                  </p>
-                </video>
-                <!-- Video Controls -->
-                <div id="video-controls">
-                  <button type="button" id="play-pause">Play</button>
-                  <input type="range" id="seek-bar" value="0">
-                  <button type="button" id="mute">Mute</button>
-                  <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
-                  <button type="button" id="full-screen">Full-Screen</button>
-                </div>
+            <div class="primaryImage" style="margin:auto; height:500px; <?php echo $imgStyle;?>">
+                <iframe src="http://player.vimeo.com/video/<?php echo $value['vimeo'];?>?autoplay=0&api=1&player_id=player" width='100%' height='100%'  frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+             </div>
             </div>
         </li>
 <?php } ?>
 </ul>
+<div id="imgFull">
+    <div id="bgPrev" class="labelInfo bgControl bgPrev"></div>
+    <div id="bgNext" class="labelNext bgControl bgNext"></div>
+    <div class="preload"></div>
+    <img class="imgBG" id="imgBG" src="<?php echo URL.'public/images/homeBG01.jpg';?>" alt="Bg"> 
+</div>
 <div id="gallerys" class="clearfix fluid masonry">
     <?php foreach ($this->gallery as $id => $value) { ?>
         <div class="gallerysBox">
             <div class="gallerysBoxImg">
-                <img ref="<?php echo $id; ?>" src="<?php echo URL . UPLOAD . $this->page['id'] . '/thumb_' . $value['img']; ?>" alt="<?php echo $value['caption']; ?>">
+                <img title="http://player.vimeo.com/video/<?php echo $value['vimeo'];?>?autoplay=0&api=1&player_id=player" ref="<?php echo $id; ?>" src="<?php echo URL . UPLOAD . $this->page['id'] . '/thumb_' . $value['img']; ?>" alt="<?php echo $value['caption']; ?>">
             </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
+            <div class="gallerysBoxInfo"><p><?php echo $this->page['name'];?></p></div>
         </div> 
     <?php } ?>
     <div class="clr"></div>
 </div>
 <div class="clr"></div>
-<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/elastislide.css" />
-<script type="text/javascript" src="<?php echo URL;?>views/building/js/modernizr.custom.17475.js"></script>
-<script type="text/javascript" src="<?php echo URL;?>views/building/js/jquery.elastislide.js"></script>
-<script type="text/javascript" src="<?php echo URL;?>views/building/js/custom.js"></script>
+<script src="http://a.vimeocdn.com/js/froogaloop2.min.js?216a2-1366640435"></script>
+
+
+

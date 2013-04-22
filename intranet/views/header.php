@@ -18,22 +18,23 @@
    <!-- <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/sunny/jquery-ui.css" />-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-    <script src="<?php echo URL; ?>public/js/custom.js"></script>
+
     <script src="<?php echo URL; ?>public/js/jquery.min.js"></script>
     <script src="<?php echo URL; ?>public/js/jquery.Jcrop.js"></script>
     <script src="<?php echo URL; ?>public/js/ajaxfileupload.js"></script>
     <script src="<?php echo URL; ?>public/js/jquery.filedrop.js"></script>
-    <script src="<?php echo URL; ?>/ckeditor/ckeditor.js"></script>
     <script src="<?php echo URL; ?>public/js/HTML5script.js"></script>
-    <script src="<?php echo URL; ?>public/js/file-upload.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script src="<?php echo URL; ?>/ckeditor/ckeditor.js"></script>
+    <script src="<?php echo URL; ?>/tinymce/tinymce.min.js"></script>
+    <script src="<?php echo URL; ?>public/js/custom.js"></script>
     
     <?php
-    echo $this->js;
     if (isset($this->js)) 
     {
         foreach ($this->js as $js)
         {
-            echo "$js";
             echo '<script src="'.URL.'views/'.$js.'"></script>';
         }
     }
