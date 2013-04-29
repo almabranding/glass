@@ -19,7 +19,7 @@ class Login_Model extends Model {
             Session::set('role', $data['role']);
             Session::set('loggedIn', true);
             Session::set('id', $data['userid']);
-            header('location: '.URL.'building/view/gallery');
+            header('location: '.URL);
         } else {
             header('location: '.URL.'login');
         }

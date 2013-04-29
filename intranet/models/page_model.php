@@ -33,13 +33,28 @@ class Page_Model extends Model {
 
         $form->add('label', 'label_description', 'description', 'Description');
         $obj=$form->add('textarea', 'description', $project['description'], array('autocomplete' => 'off'));
-
+        
+        $form->add('label', 'label_slide', 'slide', 'Slide description');
+        $obj = $form->add('checkboxes', 'slide',
+            array(
+                '1' => ''
+            )
+        );
+        $obj->set_attributes(array(
+                'autocomplete' => 'off'
+            ));
+        if($project['slide']){
+            $obj->set_attributes(array(
+                'checked' => 'checked'
+            ));
+        }
+        
         if($type=='edit'){
             $obj=$form->add('label', 'label_content', 'content', 'Content');
             $obj->set_attributes(array(
                 'style'    => 'float:none',
             ));
-            $obj=$form->add('textarea', 'content', $project['content'], array('autocomplete' => 'off'));
+            $obj=$form->add('textarea', 'content', htmlentities($project['content']), array('autocomplete' => 'off'));
             $obj->set_attributes(array(
                 'class'    => 'wysiwyg',
             ));
@@ -103,6 +118,7 @@ class Page_Model extends Model {
             'name' => $_POST['name'],
             'template' => $_POST['template'],
             'description' => $_POST['description'],
+            'slide' => $_POST['slide'],
             'url' => filter_var(urlencode(strtolower($_POST['name'])), FILTER_SANITIZE_URL)
         );
         $page=$this->db->insert('page', $data);
@@ -112,16 +128,17 @@ class Page_Model extends Model {
             'parent' => $_POST['menu'],
             'page' => $page
         );
-        $this->db->insert('menu', $data);
+        if($_POST['menu']!='')$this->db->insert('menu', $data);
     }
     public function edit($id){
         $data = array(
-            'name' => $_POST['name'],
-            'template' => $_POST['template'],
-            'description' => $_POST['description'],
-            'content' => stripslashes($_POST['content']),
-            'url' => urlencode(strtolower($_POST['name'])),
-            'menu' => $_POST['menu']
+            'name'          => $_POST['name'],
+            'template'      => $_POST['template'],
+            'description'   => $_POST['description'],
+            'slide'         => $_POST['slide'],
+            'content'       => stripslashes($_POST['content']),
+            'url'           => urlencode(strtolower($_POST['name'])),
+            'menu'          => $_POST['menu']
         );
         $this->db->update('page', $data, 
             "`id` = '{$id}'");
@@ -135,9 +152,9 @@ class Page_Model extends Model {
             "`page` = '{$id}'");
     }
     public function delete($id){
-        $this->db->delete('page', "`page` = {$id}");
-         $this->db->delete('page', "`id` = {$id}");
-         $this->delTree(UPLOAD.$id);
+        $this->db->delete('menu', "`page` = {$id}");
+        $this->db->delete('page', "`id` = {$id}");
+        $this->delTree(UPLOAD.$id);
     }   
     public function sort(){
         foreach($_POST['foo'] as $key=>$value){

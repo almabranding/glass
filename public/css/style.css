@@ -25,7 +25,7 @@
     position: relative;
     width: 96%;
     max-width:1133px;
-    top: 180px; 
+    top: 165px; 
 }
 
 html, body {
@@ -71,7 +71,7 @@ header{
 }
 .header{
    width: 470px;
-   margin:55px auto 30px;
+   margin:28px auto 30px;
 }
 
 .login{
@@ -201,7 +201,8 @@ label {
     clear: both;
     float: none;
 }
-#imgFull img {
+#imgFull > img {
+    position: absolute;
     width: 100%;
 }   
 
@@ -211,6 +212,7 @@ label {
     position: absolute !important;
     z-index: 0 !important;
     height: 100% !important;
+    overflow: hidden;
 }
 #body-background{
     position: absolute !important;
@@ -227,11 +229,11 @@ label {
     z-index: 1;
 }
 .accessFrame{
+    width: 240px;
     background: #f7f9f9;
-    width: 0%;
     float: left;
     height: 100%;
-    left: 0px;
+    left: -240px;
     z-index: 0;
     position: relative;
     overflow: hidden;
@@ -240,6 +242,14 @@ label {
     height: 750px;
     margin: auto;
     padding: 143px 0;
+}
+.frameLogin{
+    height: 546px;
+    margin: auto;
+    position: relative;
+    top: 40%;
+    padding: 0 !important;
+    width: 200px !important;
 }
 .frameContent{
     width: 240px;
@@ -302,7 +312,7 @@ input[type="submit"]{
 }
 .preload{
    background: url("../images/preload.gif") no-repeat scroll 0 0px transparent;
-    left: 100px;
+    right: 100px;
     position: absolute;
     top: 100px;
     width: 48px;
@@ -343,8 +353,6 @@ input[type="submit"]{
     left: 250px !important;
 }
 #logo_img{
-    background: url("../images/logo.png") no-repeat scroll center center transparent;
-    height: 40px;
     width: 168px;
     margin: auto;
 }
@@ -452,9 +460,45 @@ input[type="submit"]{
 .primaryImage{
     width: auto;
 }
-.primaryImage div{
+.primaryImage .noSel{
+    width: 100% !important;
+}
+.noSel div{
     background: #fff!important;
 }
+#fitNav{
+    background: none repeat scroll 0 0 transparent !important;
+    bottom: 30px;
+    left: 50%;
+    position: absolute;
+    z-index: 3;
+}
+.groupNav{
+    background: none repeat scroll 0 0 transparent !important;
+    bottom: 31px;
+    left: 0;
+    position: relative;
+    z-index: 3;
+}
+.groupNav a{
+    background: none repeat scroll 0 0 #EEEEEE;
+    color: #717171;
+    cursor: pointer;
+    height: 13px;
+    margin: 2px;
+    padding: 2px 6px;
+    width: 7px;
+}
+.mapLinks{
+    cursor: pointer;
+}
+.groupNav a:hover,.groupNav a.selected{
+    height: 15px;
+    width: 15px;
+    background: #bcb8b8;
+    color:#ffffff;
+}
+.mapLinks:hover cufon {border-bottom: solid 1px #2facd5}
 .map-list {
     max-height: 500px;
     overflow: hidden;
@@ -541,7 +585,7 @@ input[type="submit"]{
 }
 .mapLeyend li p{
     float: left;
-    margin: 0;
+    margin: 2px 5px 0 -4px;
 }
 .primaryMap img{
     float: left;
@@ -685,9 +729,10 @@ ul.slider li {
 .teamCol{
     background: none repeat scroll 0 0 #FFFFFF;
     float: left;
-    margin: 0 25px 0 0;
+    margin: 0 24px 0 0;
+    min-height: 600px;
     overflow: hidden;
-    padding: 20px 18px 40px;
+    padding: 20px 10px 40px;
     position: relative;
     text-align: left;
 }
@@ -703,10 +748,10 @@ ul.slider li {
     position: relative;
 }
 .teamContent .both{
-    width: 29%;
+    width: 30%;
 }
 .teamContent .single{
-    width: 17%;
+    width: 19%;
 }
 .teamPic{
     width: 100%;
@@ -766,12 +811,20 @@ ul.slider li {
     display: none;
 }
 .zoomMas,#_zi_icon{
-    background: url("../images/mapZoom.jpg") no-repeat scroll -50px 0 transparent !important;
+    background: url("../images/mapZoom.jpg") no-repeat scroll -44px -4px transparent !important;
 
 }
 .zoomMenos, #_zo_icon{
-    background: url("../images/mapZoom.jpg") no-repeat scroll 0 0px transparent !important;
-
+    background: url("../images/mapZoom.jpg") no-repeat scroll -4px -4px transparent !important;
+}
+.frameContent div{
+    text-align: left;
+    margin-left: 14px;
+}
+.linkDesc{
+    margin: 14px 5px;
+    display: none;
+    text-align: left;
 }
 .fitScreenBar{
     position: absolute;
@@ -779,6 +832,7 @@ ul.slider li {
     width: 100%;
     height: 20px;
     background: #cacaca;
+    display: none;
 }
 .fitScreen{
     float:right;
@@ -792,6 +846,12 @@ ul.slider li {
     margin-right: 10px; 
 }
 .fullScreen{
+    background-position: 1px center !important;
+}
+.fullScreen #gallerys{
+    left: 10px;
+}
+.fullScreen #container{
     max-width: 100% !important;
     width: 100% !important;
 }

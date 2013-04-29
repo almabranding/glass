@@ -82,11 +82,11 @@
 	display: block;
 }
 
-.elastislide-carousel ul li a {
+.elastislide-carousel ul li {
 	width: 100%;
 }
 
-.elastislide-carousel ul li a img {
+.elastislide-carousel ul li img {
         max-height: 600px;
 	display: block;
         margin: 0 auto;

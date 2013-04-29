@@ -1,75 +1,64 @@
 $(document).ready(function() {
-    var mapZoom=0;
-    var BGnum=0;
-    var frame=240;
-    $(window).on('resize',function(){
-        var f=$('.accessFrame').width();
-        var bodySize=$(window).width()-f;
-        $('#body').css(
-            {
-                width:bodySize+'px'
-            }
-        ).change();
+    if(BGImageArray.length<2) $('.labelNext').hide();
+    $('.imgBG').attr('src',BGImageArray[BGnum]);
+    $("#body-background").ezBgResize({
+        img     : BGImageArray[BGnum]
     });
+    $(window).on('resize',function(){
+        /*CHANGE ES PARA REAJUSTAR EL FONDO*/
+        $('#body').width($(window).width()).change();
+    });
+    /*
+     * EN FOCUS EN INFO APARECE LA BARRA LATERAL
+     */
     $('.labelInfo').on('mouseover',function(){
         var bodySize=$(window).width()-frame;
         $('#body').queue(function () {
             $(this).clearQueue();
             $(this).animate(
                 {
-                    width:bodySize+'px',
-                    left:frame+'px'
-                },
-                {
-                    duration:500,
-                    step: function(now, fx) {    
-                        $(this).change();    
-                    },
-                    complete: function (){
-                        $(this).change(); 
-                    }
-                });
+                    width:bodySize,
+                    left:frame
+                },500);
             });
         $('.accessFrame').queue(function () {
             $(this).clearQueue();
             $(this).animate({
-                width:frame+'px'
+                left:0
             },500);
         });     
     });
+    /*
+     * Al FOCUS EN EL BODY SE OCULTA LA BARRA LATERAL
+     */
     $('#body-background').on('mouseover',function(){ 
         var bodySize=$(window).width();
         $('#body').queue(function () {
             $(this).clearQueue();
             $(this).animate(
                 {
-                    width:bodySize+'px',
-                    left: '0px'
-                },
-                {
-                    duration:500,
-                    step: function(now, fx) {    
-                        $(this).change();    
-                    },
-                    complete: function (){
-                        $(this).change(); 
-                    }
-                }
-                );
+                    width:bodySize,
+                    left: 0
+                },500);
         });
         $('.accessFrame').queue(function () {
             $(this).clearQueue();
             $(this).animate({
-                width:'0px'
+                left:-frame
             },500);
         }); 
     });
+    
+    /*
+     * CARGAMOS LOS NUEVOS BG
+     */
     $('.labelNext').on('click',function(){
         BGnum++;
         if(BGnum>=BGImageArray.length)BGnum=0;
 	var BGImage = BGImageArray[BGnum];
         $('.preload').show();
         $('.imgBG').fadeOut(function(){
+            $(this).clearQueue();
             $(this).attr('src','');
             $(this).load(BGImage,function(){
                 $(this).attr('src',BGImage);
@@ -82,13 +71,12 @@ $(document).ready(function() {
         
         
     });
+    /*
+     * Mostramos el formulario
+     */
     $('.startForm').on('click',function(){
         $('.frameContent').toggle();
         $('.frameForm').toggle();
-    });
- 
-    $("#body-background").ezBgResize({
-        img     : BGImageArray[0]
     });
   
 });

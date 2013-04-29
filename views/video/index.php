@@ -1,4 +1,8 @@
-
+<style>
+    #container nav{
+        display:none;
+    }
+</style>
 <ul id="carousel" class="elastislide-list">
 <?php foreach ($this->gallery as $id => $value) { 
         $description=($value['info']?$value['info']:$this->page['content']);
@@ -23,10 +27,7 @@
 <?php } ?>
 </ul>
 <div id="imgFull">
-    <div id="bgPrev" class="labelInfo bgControl bgPrev"></div>
-    <div id="bgNext" class="labelNext bgControl bgNext"></div>
     <div class="preload"></div>
-    <img class="imgBG" id="imgBG" src="<?php echo URL.'public/images/homeBG01.jpg';?>" alt="Bg"> 
 </div>
 <div id="gallerys" class="clearfix fluid masonry">
     <?php foreach ($this->gallery as $id => $value) { ?>

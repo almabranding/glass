@@ -11,7 +11,7 @@ class View {
     {
         $this->_getCache();
 
-        if ($noInclude == true) {
+        if ($noInclude) {
             require 'views/head.php';
             require 'views/' . $name . '.php';    
         }

@@ -5,12 +5,12 @@
         <div class="fitScreenBar"><div class="fitScreen"><img src="<?php echo URL;?>public/images/fitScreen.png">Fit to screen</div></div>
     <div class="header">
         <div class="logo">
-            <a href="index.php">
-                <div id="logo_img"></div>
+            <a href="<?php echo URL;?>">
+                <img id="logo_img" src="/public/images/logo.png">
             </a>
         </div>
     <nav id="menu">
-        <?php echo $this->getMenu; ?>
+        <?php echo Menu::getMenu(); ?>
     </nav>
     <div class="clr"></div>
     </div>

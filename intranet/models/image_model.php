@@ -26,6 +26,11 @@ class Image_Model extends Model {
             '487' => '487px',
             '616' => '616px'
         ));
+        $form->add('label', 'label_group', 'group', 'Group');
+        $obj = $form->add('text', 'group', $value['group'], array('autocomplete' => 'off'));
+        $obj->set_attributes(array(
+                'style' => 'width:30px;'
+            ));
         $form->add('label', 'label_replace', 'replace', 'Replace text');
         $obj = $form->add('checkboxes', 'replace',
             array(
@@ -65,6 +70,7 @@ class Image_Model extends Model {
         $data = array(
             'name'      => $_POST['name'],
             'caption'   => $_POST['caption'],
+            'group'   => $_POST['group'],
             'vimeo'     => $_POST['vimeo'],
             'replace'   => $_POST['replace'],
             'info'  => stripslashes($_POST['info'])

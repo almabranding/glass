@@ -262,7 +262,7 @@
 			this.$el.append( this.$items );
 
 			// main wrapper
-			this.$el.wrap( '<div class="elastislide-wrapper elastislide-loading elastislide-' + this.options.orientation + '"></div>' );
+			this.$el.wrap( '<div class="elastic-container elastislide-wrapper elastislide-loading elastislide-' + this.options.orientation + '"></div>' );
 
 			// check if we applied a transition to the <ul>
 			this.hasTransition = false;

@@ -258,9 +258,8 @@ header {
     float: left;
     width: 196px;
     height: 64px;
-    margin: 20px 0 0 20px;
+    margin: 34px 34px 0;
     color:#ababab;    
-    font-family: GillSans;
 }
 .header_menu{
     height: 40px;

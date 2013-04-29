@@ -1,7 +1,7 @@
 <div class="clr"></div></div><div class="clr"></div>
 <footer>
     <div class="mapSubBar clr">
-    <div class="barLogo"><img alt="Terra Group" src="/glass/public/images/terraLogo.png" /></div>
+    <div class="barLogo"><img alt="Terra Group" src="/public/images/terraLogo.png" /></div>
     <div class="barText">&copy;TERRA GROUP 2013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DISCLAIMER</div>
     </div>
 </footer>
