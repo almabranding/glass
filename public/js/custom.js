@@ -1,6 +1,7 @@
 var mapZoom = 0;
 var BGnum = 0;
 var frame = 240;
+var URL='/test/';
 var std = ({
         fontFamily: 'Akkurat',
         color: '#7f7e82',
@@ -56,7 +57,13 @@ var std = ({
         color: '#2facd5',
         letterSpacing: '0.3em',
         fontSize: '11px',
-    });   
+    });
+    var mapLinksSel = ({
+        fontFamily: 'Akkurat',
+        color: '#7f7e82',
+        letterSpacing: '0.3em',
+        fontSize: '11px',
+    });  
 $(document).ready(function() {
     if(!checkCookie('fitScreen')) setCookie('fitScreen','y');
     $('.fitScreen').on("click", function() {
@@ -95,6 +102,7 @@ function reloadCufon(){
     Cufon.replace('.link', link);
     Cufon.replace('.bold', frameContent);
     Cufon.replace('.mapLinks', mapLinks);
+    Cufon.replace('.mapLinksSel', mapLinksSel);
     Cufon.replace('h2', h2);
     Cufon.replace('h3', h3); 
 }

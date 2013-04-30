@@ -3,8 +3,8 @@ class Image_Model extends Model {
     public function __construct() {
         parent::__construct();
     }  
-    public function form($type='add',$id='null') {
-        $action=($type=='add')?URL.'image/create':URL.'image/edit/'.$id;
+    public function form($type='add',$page='null',$id='null') {
+        $action=($type=='add')?URL.'image/create':URL.'image/edit/'.$page.'/'.$id;
         if ($type=='edit')
             foreach ($this->getInfo($id) as $value);
         $form = new Zebra_Form('addProject','POST',$action);
@@ -70,11 +70,12 @@ class Image_Model extends Model {
         $data = array(
             'name'      => $_POST['name'],
             'caption'   => $_POST['caption'],
-            'group'   => $_POST['group'],
+            'group'     => $_POST['group'],
             'vimeo'     => $_POST['vimeo'],
             'replace'   => $_POST['replace'],
             'info'  => stripslashes($_POST['info'])
         );
+        $data=array_filter($data);
         $this->db->update('images', $data, 
             "`id` = '{$id}'");
             

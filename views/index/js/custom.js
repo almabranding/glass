@@ -11,7 +11,7 @@ $(document).ready(function() {
     /*
      * EN FOCUS EN INFO APARECE LA BARRA LATERAL
      */
-    $('.labelInfo').on('mouseover',function(){
+    $('#info').on('mouseover',function(){
         var bodySize=$(window).width()-frame;
         $('#body').queue(function () {
             $(this).clearQueue();

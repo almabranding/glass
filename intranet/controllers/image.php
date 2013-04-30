@@ -8,17 +8,17 @@ class Image extends Controller {
     function index() {
         $this->view->render('index/index');  
     }
-    public function view($id) 
+    public function view($page,$id) 
     {
         $this->view->id=$id;
-        $this->view->form=$this->model->form('edit',$id);
+        $this->view->form=$this->model->form('edit',$page,$id);
         $this->view->img=$this->model->getInfo($id);
         $this->view->render('image/view');  
     }
-    public function edit($id) 
+    public function edit($page,$id) 
     {
         $this->model->edit($id);
-        header('location: ' . URL . 'image/view/'.$id);  
+        header('location: ' . URL . 'page/view/'.$page);  
     }
     public function delete($page,$id) 
     {

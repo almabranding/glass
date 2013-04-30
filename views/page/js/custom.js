@@ -1,12 +1,6 @@
-var std=({
-    fontFamily:     'Akkurat',
-    color:          '#7f7e82',
-    letterSpacing:  '0.3em',
-    fontSize:       '11px',
-});
-$(document).ready(function() {
+$(window).load(function(){
     $('.teamCol').each(function(){
-        if($(this).find('.teamText').height()+$(this).find('.teamPic').height()>550){
+        if(($(this).find('.teamText').height()+$(this).find('.teamPic').height())>550){
             $(this).find('.teamText').toggleClass( "teamTextShort");
             $(this).append('<div class="teamRead">Read More</div>');
         }

@@ -9,8 +9,15 @@ class Building_Model extends Model {
             array('id' => $id));
     }
     public function picsProject($id){
-         return $this->db->select('SELECT * FROM images WHERE project = :id', 
-            array('id' => $id));
+        ;
+        $sth = $this->db->prepare("SELECT * FROM almaglass.images WHERE page=:id and `group`!=0 group by `group` UNION SELECT * FROM almaglass.images WHERE page=:id and `group`=0 ORDER by `orden`");
+        $sth->execute(array(
+            ':id' => $id,
+            ':id' => $id
+        ));
+       return $sth->fetchAll();
+        /*return $this->db->select('SELECT * FROM images WHERE project = :id', 
+            array('id' => $id));*/
     }
     public function getFullScreen($pageID,$imgID){
         $page=$this->db->select('SELECT * FROM page WHERE id = :id', 

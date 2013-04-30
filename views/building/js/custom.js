@@ -14,14 +14,14 @@ $(window).load(function(){
     $('#gallerys').masonry('reload');
     if($('.gallerysBox').length<2)$('#bgNext').hide();
     if(getCookie('fitScreen')==='y')fitScreen();
-    $('a').on('click',function (e) {
+    /*$('a').on('click',function (e) {
         var anchor=$(this).attr('rel');
         var link=$('#rel_'+anchor);
         var desc=$('.desc_'+anchor);
         $('.linkDesc').not(desc).hide('slow');
         desc.show('slow');
         changeBG(link);
-    });
+    });*/
     
 });
 $('.fitScreen').on('click',function(){
@@ -34,7 +34,7 @@ function control(btn){
     if(btn==='next') carouselPos++;
     if(btn==='prev') carouselPos--;
 }
-$('.bgPrev').on('click',function(){
+$('#bgPrev').on('click',function(){
     if($(this).hasClass('framed')){
         $(this).removeClass('framed');
         $(this).animate({left:0},500);
@@ -128,7 +128,7 @@ function getScreen(img){
     var link=img.attr('title');
     $('.preload').show();
     $('.imgBG').attr('src','');
-    $.post('http://glass120ocean.com/test/building/getFullScreen/'+link, function(data) {      
+    $.post(URL+'building/getFullScreen/'+link, function(data) {      
         if(!data['slide'] || !$('.frameContent').html()){
             $('.frameContent').html(data['content']);
             reloadCufon();
@@ -145,6 +145,9 @@ function getScreen(img){
         });
         $('a').off();
         $('a').on('click',function (e) {
+            $('.mapLinksSel').removeClass('mapLinksSel');
+            $(this).addClass('mapLinksSel');
+            reloadCufon();
             var anchor=$(this).attr('rel');
             var link=$('#rel_'+anchor);
             var desc=$('.desc_'+anchor);

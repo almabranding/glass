@@ -26,7 +26,7 @@
 <?php } ?>
 </ul>
 <div id="imgFull">
-    <div id="bgPrev" class="elastislide-prev bgControl bgPrev"></div>
+    <div id="bgPrev" class="bgControl labelInfo"></div>
     <div id="bgNext" class="elastislide-next bgControl bgNext"></div>
     <div class="preload preloadW"></div>
     <div class="accessFrame"><div class="frameContent" style="padding: 17px 0;"></div></div>
@@ -34,13 +34,20 @@
     <div id="fitNav" class="groupNav" style=""></div>
 </div>
 <div id="gallerys" class="clearfix fluid masonry" style="<?php if(sizeof($this->gallery)==1) echo 'display:none'; ?>">
-    <?php foreach ($this->gallery as $id => $value) { ?>
-        <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <a rel="<?php echo $value['id'];?>" id="rel_<?php echo $value['id'];?>"><img title="<?php echo $this->page['id'] . '/' . $value['id']; ?>" ref="<?php echo $id; ?>" src="<?php echo URL . UPLOAD . $this->page['id'] . '/thumb_' . $value['img']; ?>" alt="<?php echo $value['caption']; ?>"></a>
-            </div>
-            <div class="gallerysBoxInfo"><p><?php echo $value['name'];?></p></div>
-        </div> 
+    <?php 
+    $grupos=Array();
+    foreach ($this->gallery as $id => $value) { 
+        $style='';
+        if($value['group']!=0 && in_array($value['group'],$grupos))
+            $style='display:none;width:0;height:0;margin:0;padding:0';
+        else $grupos[] = $value['group'];    
+    ?>
+    <div class="gallerysBox" style="<?php echo $style;?>">
+        <div class="gallerysBoxImg">
+            <a rel="<?php echo $value['id'];?>" id="rel_<?php echo $value['id'];?>"><img title="<?php echo $this->page['id'] . '/' . $value['id']; ?>" ref="<?php echo $id; ?>" src="<?php echo URL . UPLOAD . $this->page['id'] . '/thumb_' . $value['img']; ?>" alt="<?php echo $value['caption']; ?>"></a>
+        </div>
+        <div class="gallerysBoxInfo"><p><?php echo $value['name'];?></p></div>
+    </div> 
     <?php } ?>
     <div class="clr"></div>
 </div>

@@ -252,9 +252,8 @@ label {
     width: 200px !important;
 }
 .frameContent{
-    width: 240px;
     color:#807f83;
-    width: 190px;
+    width: 200px;
 }
 .frameForm{
     color:#807f83;
@@ -340,6 +339,16 @@ input[type="submit"]{
     cursor: pointer;
     z-index: 1
 }
+.labelLogin{
+    background: url("../images/labelLogin.png") no-repeat scroll 0 0px transparent;
+    left: 0px;
+    position: absolute;
+    top: 50%;
+    width: 100px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 1
+}
 .labelNext{
     background: url("../images/labelNext.png") no-repeat scroll 0 0px transparent;
     position: fixed;
@@ -358,7 +367,7 @@ input[type="submit"]{
 }
 #menu{
     margin: 20px auto auto;
-    width: 470px;
+    width: 477px;
 }
 .menuTitle ul{
     float:left;
@@ -499,6 +508,7 @@ input[type="submit"]{
     color:#ffffff;
 }
 .mapLinks:hover cufon {border-bottom: solid 1px #2facd5}
+.mapLinksSel cufon{/*border-bottom: solid 1px #7f7e82;*/}
 .map-list {
     max-height: 500px;
     overflow: hidden;
@@ -608,6 +618,7 @@ input[type="submit"]{
 }
 .gallerysBoxImg img{
     width: auto;
+    cursor: pointer;
 }
 .gallerysBoxInfo p{
     padding: 5px 0 0 10px;
@@ -777,7 +788,7 @@ ul.slider li {
     overflow: hidden;
 }
 .teamTextShort{
-   height: 350px; 
+   height: 349px; 
 }
 .teamText h1{
     font-size: 15px;
@@ -822,7 +833,7 @@ ul.slider li {
     margin-left: 14px;
 }
 .linkDesc{
-    margin: 14px 5px;
+    margin: 4px 5px 14px;
     display: none;
     text-align: left;
 }
