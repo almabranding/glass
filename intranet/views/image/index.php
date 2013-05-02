@@ -1,9 +1,10 @@
-<div class="white_box hide" id="newProject">
-    <h2 style="width:100%">Upload project</h2>
-    <?php
-        $this->addProject->render();
-    ?>
-</div>
+
+    <div class="white_box hide" id="newProject">
+        <h2 style="width:100%">Upload project</h2>
+        <?php
+            $this->addProject->render();
+        ?>
+   </div>
 <table>
 <?php
     $this->viewGrill($this->projectList);

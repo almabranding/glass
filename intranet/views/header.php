@@ -45,20 +45,20 @@
 <?php Session::init(); ?>
     <header>
     <div class="header_logo">
-        
+        <a href="index.php">
         <div id="logo">
-            <a href="index.php">
-            <img src="/public/images/logoWhite.png">
-            </a>
+            <img src="images/logo.png">
         </div>
+        </a>
     </div>
     <div class="header_admin">
         <div class="header_admin_title">Administration panel</div>
-        <div class="header_login"><!--<img src="<?php //echo BASE;?>intranet/images/account_ico.png">My account--> <a href="<?php echo URL.'login/out';?>"><img src="/public/images/logout_ico.png">Logout</a></div>
+        <div class="header_login"><!--<img src="<?php //echo BASE;?>intranet/images/account_ico.png">My account--> <a onClick="location.href='<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?logout=1';?>'"><img src="images/logout_ico.png">Logout</a></div>
     </div>    
     <nav class="header_menu" id="sidebarnav">
         <ul>
             <li><a href="<?php echo URL; ?>page">pages</a></li>
+            <li><a href="<?php echo URL; ?>menu">menus</a></li>
         </ul>
     </nav>
     <div class="header_shadow"></div>

@@ -255,12 +255,14 @@ if (isset($_GET['captcha']) && ($_GET['captcha'] == 1 || $_GET['captcha'] == 2))
         ob_start();
 
         ?>
+
         <script type="text/javascript">
             var f=parent.window.$('#<?php echo $form?>');
             if(undefined!=f){
                 f.data('Zebra_Form').end_file_upload('<?php echo $control . '\'' . (isset($file) ? ',[\'' . addcslashes($file['name'], '\'') . '\',\'' . $file['type'] . '\',\'' . $file['error'] . '\',\'' . $file['size'] . '\']' : '')?>)
             }
         </script>
+
         <?php
 
         $contents = ob_get_contents();

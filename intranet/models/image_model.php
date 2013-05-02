@@ -3,8 +3,8 @@ class Image_Model extends Model {
     public function __construct() {
         parent::__construct();
     }  
-    public function form($type='add',$page='null',$id='null') {
-        $action=($type=='add')?URL.'image/create':URL.'image/edit/'.$page.'/'.$id;
+    public function form($type='add',$id='null') {
+        $action=($type=='add')?URL.'image/create':URL.'image/edit/'.$id;
         if ($type=='edit')
             foreach ($this->getInfo($id) as $value);
         $form = new Zebra_Form('addProject','POST',$action);
@@ -26,11 +26,28 @@ class Image_Model extends Model {
             '487' => '487px',
             '616' => '616px'
         ));
+        
         $form->add('label', 'label_group', 'group', 'Group');
         $obj = $form->add('text', 'group', $value['group'], array('autocomplete' => 'off'));
         $obj->set_attributes(array(
-                'style' => 'width:30px;'
+            'style'    => 'width:20px',
+        ));
+        
+        $form->add('label', 'label_hide', 'hide', 'Hide in gallery');
+        $obj = $form->add('checkboxes', 'hide',
+            array(
+                '1' => ''
+            )
+        );
+        $obj->set_attributes(array(
+            'autocomplete' => 'off'
+        ));
+        if($value['hide']){
+            $obj->set_attributes(array(
+                'checked' => 'checked'
             ));
+        }
+        
         $form->add('label', 'label_replace', 'replace', 'Replace text');
         $obj = $form->add('checkboxes', 'replace',
             array(
@@ -70,12 +87,12 @@ class Image_Model extends Model {
         $data = array(
             'name'      => $_POST['name'],
             'caption'   => $_POST['caption'],
-            'group'     => $_POST['group'],
             'vimeo'     => $_POST['vimeo'],
+            'group'     => $_POST['group'],
             'replace'   => $_POST['replace'],
-            'info'  => stripslashes($_POST['info'])
+            'hide'      => $_POST['hide'],
+            'info'      => stripslashes($_POST['info'])
         );
-        $data=array_filter($data);
         $this->db->update('images', $data, 
             "`id` = '{$id}'");
             

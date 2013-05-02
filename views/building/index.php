@@ -29,7 +29,7 @@
     <div id="bgPrev" class="bgControl labelInfo"></div>
     <div id="bgNext" class="elastislide-next bgControl bgNext"></div>
     <div class="preload preloadW"></div>
-    <div class="accessFrame"><div class="frameContent" style="padding: 17px 0;"></div></div>
+    <div class="accessFrame"><div class="frameContent" style="padding: 17px 0;height:auto;"></div></div>
     <img class="imgBG" id="imgBG" src="" alt=""> 
     <div id="fitNav" class="groupNav" style=""></div>
 </div>
@@ -38,7 +38,7 @@
     $grupos=Array();
     foreach ($this->gallery as $id => $value) { 
         $style='';
-        if($value['group']!=0 && in_array($value['group'],$grupos))
+        if(($value['group']!=0 && in_array($value['group'],$grupos)) || $value['hide'])
             $style='display:none;width:0;height:0;margin:0;padding:0';
         else $grupos[] = $value['group'];    
     ?>

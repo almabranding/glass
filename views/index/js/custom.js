@@ -39,7 +39,18 @@ $(document).ready(function() {
                 {
                     width:bodySize,
                     left: 0
-                },500);
+                },
+                {
+                    duration:500,
+                    step:function() {
+                        $(this).change();
+                    },
+                    complete:function() {
+                        $(this).change();
+                    }
+                  
+                } 
+            );
         });
         $('.accessFrame').queue(function () {
             $(this).clearQueue();

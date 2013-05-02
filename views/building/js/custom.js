@@ -14,14 +14,16 @@ $(window).load(function(){
     $('#gallerys').masonry('reload');
     if($('.gallerysBox').length<2)$('#bgNext').hide();
     if(getCookie('fitScreen')==='y')fitScreen();
-    /*$('a').on('click',function (e) {
-        var anchor=$(this).attr('rel');
-        var link=$('#rel_'+anchor);
-        var desc=$('.desc_'+anchor);
-        $('.linkDesc').not(desc).hide('slow');
-        desc.show('slow');
-        changeBG(link);
-    });*/
+    $('#bgPrev').addClass('framed');
+    $('#bgPrev').css({left:frame});
+    $('#imgBG').queue(function () {
+        $(this).clearQueue();
+        $(this).css({left:frame});
+    });
+    $('.accessFrame').queue(function () {
+        $(this).clearQueue();
+        $(this).css({left:0});
+    }); 
     
 });
 $('.fitScreen').on('click',function(){
@@ -144,16 +146,18 @@ function getScreen(img){
             }); 
         });
         $('a').off();
-        $('a').on('click',function (e) {
-            $('.mapLinksSel').removeClass('mapLinksSel');
-            $(this).addClass('mapLinksSel');
-            reloadCufon();
+        $('a').on('click',function (e) {   
             var anchor=$(this).attr('rel');
-            var link=$('#rel_'+anchor);
-            var desc=$('.desc_'+anchor);
-            $('.linkDesc').not(desc).hide('slow');
-            desc.show('slow');
-            changeBG(link);
+            if(anchor){
+                $('.mapLinksSel').removeClass('mapLinksSel');
+                $(this).addClass('mapLinksSel');
+                reloadCufon();
+                var link=$('#rel_'+anchor);
+                var desc=$('.desc_'+anchor);
+                $('.linkDesc').not(desc).hide('slow');
+                desc.show('slow');
+                changeBG(link);
+            }
         });
 
     },"json");

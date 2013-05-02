@@ -1,8 +1,8 @@
 <div class="clr"></div></div><div class="clr"></div>
 <footer>
     <div class="mapSubBar clr">
-    <div class="barLogo"><img alt="Terra Group" src="/public/images/terraLogo.png" /></div>
-    <div class="barText">&copy;TERRA GROUP 2013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DISCLAIMER</div>
+    <div class="barLogo"><a href='http://www.terragroup.com' target='_blank'><img alt="Terra Group" src="/public/images/terraLogo.png" /></a></div>
+    <div class="barText"><a href='http://www.terragroup.com/about' target='_blank'>&copy;TERRA GROUP 2013</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href='<?php echo URL;?>/page/view/disclaimer'>DISCLAIMER</a></div>
     </div>
 </footer>
 </div>

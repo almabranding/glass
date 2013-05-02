@@ -6,7 +6,7 @@
     <div class="header">
         <div class="logo">
             <a href="<?php echo URL;?>">
-                <img id="logo_img" src="/public/images/logo.png">
+                <img id="logo_img" src="/public/images/logo.png"><br/><p class='menuTitlespan'>MIAMI BEACH</p>
             </a>
         </div>
     <nav id="menu">

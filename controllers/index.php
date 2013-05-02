@@ -3,7 +3,6 @@ class Index extends Controller {
 
     function __construct() {
         parent::__construct();
-        $this->view->js = array('index/js/custom.js', 'index/js/jquery.ez-bg-resize.js');
     }
     function index() {
 
@@ -19,7 +18,7 @@ class Index extends Controller {
             );
             $this->view->page = $this->model->getPageByCol($attr);
             $this->view->gallery = $this->model->getGallery($this->view->page['id']);
-            $this->view->js = array('index/js/jquery.ez-bg-resize.js', 'index/js/front.js');
+            $this->view->js = array('index/js/front.js','index/js/jquery.ez-bg-resize.js');
             $this->view->render('index/loged');
         } else {
             $attr = array(
@@ -33,6 +32,7 @@ class Index extends Controller {
             );
             $this->view->page = $this->model->getPageByCol($attr);
             $this->view->gallery = $this->model->getGallery($this->view->page['id']);
+            $this->view->js = array('index/js/custom.js', 'index/js/jquery.ez-bg-resize.js');
             $this->view->render('index/index', true);
         }
     }
