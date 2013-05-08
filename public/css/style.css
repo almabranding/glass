@@ -25,7 +25,7 @@
     position: relative;
     width: 96%;
     max-width:1133px;
-    top: 165px; 
+    top: 210px; 
 }
 
 html, body {
@@ -178,16 +178,53 @@ label {
     padding: 20px;
     position: relative;
     text-align: left;
+    min-width: 1090px;
+}
+.contactSection input[type="text"],.contactSection textarea {
+    background: #f8f8f6 !important;  
+}
+.contactSection textarea {
+    height: 100px !important;
+}
+.contactSection label {
+    display: block;
+    line-height: 13px;
+    margin: 0 -2px 0 0;
+    padding: 0 10px 8px 0;
+    position: relative;
+    text-align: left;
+    width: 100px;
+}
+.labels{
+    background: url("../images/labels.png") repeat scroll left center transparent; 
+    cursor: pointer;
+}
+#bgFrame{
+    height: 40px;
+    position: absolute;
+    top: 25px;
+    width: 40px;
+    z-index: 10;
+    left: 263px;
+}
+.bgFramePlus{
+    background-position:left -77px !important;
+}
+.bgFrameLess{
+    background-position:left -38px !important;
 }
 #bgPrev{
-    top: 500px;
-    left: 0;
+    background-position:left -240px !important;
+    top: 50%;
+    left: 263px;
     z-index: 1;
     position: absolute;
+    
 }
 #bgNext{
+    background-position:left -200px !important;
     top: 50%;
-    right: 0;
+    right: 25px;
     z-index: 1;
     position: absolute;
 }
@@ -328,41 +365,40 @@ input[type="submit"]{
     display: none;
 }
 .bgControl{
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
+    width: 40px;
+    height: 40px;
 }
 
 .preloadW{
    background: url("../images/preloadW.gif") no-repeat scroll 0 0px transparent !important;
 }
 .labelInfo{
-    background: url("../images/labelInfo.png") no-repeat scroll 0 0px transparent;
-    left: 0px;
+    background-position: left top;
+    cursor: pointer;
+    height: 40px;
+    left: 0;
     position: absolute;
     top: 50%;
-    width: 100px;
-    height: 60px;
-    cursor: pointer;
-    z-index: 1
+    width: 50px;
+    z-index: 1;
 }
 .labelLogin{
-    background: url("../images/labelLogin.png") no-repeat scroll 0 0px transparent;
+    background-position:left 120px;
     left: 0px;
     position: absolute;
     top: 50%;
-    width: 100px;
-    height: 60px;
+    width: 60px;
+    height: 40px;
     cursor: pointer;
     z-index: 1
 }
 .labelNext{
-    background: url("../images/labelNext.png") no-repeat scroll 0 0px transparent;
+    background-position:left 160px;
     position: fixed;
     right: 0px;
     top: 50%;
-    width: 100px;
-    height: 60px;
+    width: 50px;
+    height: 40px;
     cursor: pointer;
 }
 .backgroundMove{
@@ -417,7 +453,7 @@ input[type="submit"]{
     padding-top: 5px;
     position: relative;
     top: 0;
-    width: 98%;
+    width: 100%;
 }
 .header_menu:hover li ul {
     opacity: 1;
@@ -484,6 +520,7 @@ input[type="submit"]{
 }
 #fitNav {
     background: none repeat scroll 0 0 transparent !important;
+    height: 19px;
     position: absolute;
     right: 16px;
     top: 22px;

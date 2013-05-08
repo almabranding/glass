@@ -1,13 +1,10 @@
-<?php
-$label=($this->login)?'labelLogin':'labelInfo';
-?>
 <body style="overflow: hidden;">
     <div class="accessFrame">
         <?php echo $this->page['content'];?>
     </div>
     <div id="body">
-        <div id='info' class="<?php echo $label;?>"></div>
-        <div class="labelNext"></div>
+        <div id='info' class="labels <?php echo $this->label;?>"></div>
+        <div class="labelNext labels"></div>
         <div class="preload"></div>
         <div id="body-background" class="">
             <img class="imgBG" src="" alt="Bg">

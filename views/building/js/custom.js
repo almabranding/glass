@@ -12,10 +12,8 @@ $(window).load(function(){
         isFitWidth: true
     });
     $('#gallerys').masonry('reload');
-    if($('.gallerysBox').length<2)$('#bgNext').hide();
+    if($('.gallerysBox').length<2)$('.bgControl').hide();
     if(getCookie('fitScreen')==='y')fitScreen();
-    $('#bgPrev').addClass('framed');
-    $('#bgPrev').css({left:frame});
     $('#imgBG').queue(function () {
         $(this).clearQueue();
         $(this).css({left:frame});
@@ -36,10 +34,25 @@ function control(btn){
     if(btn==='next') carouselPos++;
     if(btn==='prev') carouselPos--;
 }
-$('#bgPrev').on('click',function(){
-    if($(this).hasClass('framed')){
-        $(this).removeClass('framed');
-        $(this).animate({left:0},500);
+$('.bgControl').on('click',function(){
+    var max=$('.gallerysBox').length-1;
+    if($(this).hasClass('bgPrev')){
+        carouselPos--;
+        if(carouselPos<0)carouselPos=max;
+    }
+    if($(this).hasClass('bgNext')){
+        carouselPos++;
+        if(carouselPos>max)carouselPos=0;
+    }
+    var link=$('img[ref="'+carouselPos+'"]').parent();
+    changeBG(link);
+});
+$('#bgFrame').on('click',function(){
+    if($(this).hasClass('bgFrameLess')){
+        $(this).toggleClass('bgFrameLess');
+        $(this).toggleClass('bgFramePlus');
+        $(this).animate({left:25},500);
+        $('#bgPrev').animate({left:25},500);
         $('#imgBG').queue(function () {
             $(this).clearQueue();
             $(this).animate({left:0},500);
@@ -49,8 +62,10 @@ $('#bgPrev').on('click',function(){
             $(this).animate({left:-frame},500);
         });     
     }else{
-        $(this).addClass('framed');
-        $(this).animate({left:frame},500);
+        $(this).toggleClass('bgFrameLess');
+        $(this).toggleClass('bgFramePlus');
+        $(this).animate({left:frame+25},500);
+        $('#bgPrev').animate({left:frame+25},500);
         $('#imgBG').queue(function () {
             $(this).clearQueue();
             $(this).animate({left:frame},500);
@@ -61,16 +76,16 @@ $('#bgPrev').on('click',function(){
         });    
     }
 });
-$('.bgNext').on('click',function(){
+/*$('.bgNext').on('click',function(){
     var max=$('.gallerysBox').length-1;
     carouselPos++;
     if(carouselPos>max)carouselPos=0;
     var link=$('img[ref="'+carouselPos+'"]').parent();
     changeBG(link);
-});
+});*/
 function fitScreen(){
      if(!$("#container").hasClass('fullScreen')){
-        jQuery('html,body').animate({scrollTop: $(".elastic-container").offset().top}, 1000);
+        jQuery('html,body').animate({scrollTop: $("#imgFull").offset().top}, 1000);
         $('#wrapper').toggleClass("fullScreen");
         $('#container').toggleClass("fullScreen");
         $('#gallerys').masonry('reload');
@@ -105,7 +120,7 @@ function fitScreen(){
     }
 }
 function changeBG(link){
-    jQuery('html,body').animate({scrollTop: $(".elastic-container").offset().top}, 1000);
+    jQuery('html,body').animate({scrollTop: $("#imgFull").offset().top}, 1000);
     var img=link.find('img');
     carouselPos = $(img).attr('ref');
     if($("#container").hasClass('fullScreen'))getScreen($(img));
@@ -122,7 +137,7 @@ function changeBG(link){
 }
 function resampleBG(){
         //var Wh=$(window).height()-180;
-        var img = document.getElementById('imgBG'); 
+        //var img = document.getElementById('imgBG'); 
         //var bgH=Math.min(Wh,img.clientHeight);
         //$('#imgFull').css('height',img.clientHeight);
 }
@@ -145,6 +160,12 @@ function getScreen(img){
                 $('.preload').hide();
             }); 
         });
+        if(data['group']){
+            $('.mapLinksSel').removeClass('mapLinksSel');
+            $('a[rel="'+data['group']+'"]').addClass('mapLinksSel');
+            $('.desc_'+data['group']).show('slow');
+            reloadCufon();
+        }
         $('a').off();
         $('a').on('click',function (e) {   
             var anchor=$(this).attr('rel');
@@ -152,11 +173,21 @@ function getScreen(img){
                 $('.mapLinksSel').removeClass('mapLinksSel');
                 $(this).addClass('mapLinksSel');
                 reloadCufon();
-                var link=$('#rel_'+anchor);
-                var desc=$('.desc_'+anchor);
-                $('.linkDesc').not(desc).hide('slow');
-                desc.show('slow');
-                changeBG(link);
+                if($(this).hasClass('group')){
+                    $.post(URL+'building/getGroups/'+anchor+'/'+page, function(data2) { 
+                        var link=$('#rel_'+data2);
+                        var desc=$('.desc_'+anchor);
+                        $('.linkDesc').not(desc).hide('slow');
+                        desc.show('slow');
+                        changeBG(link);
+                    });
+                }else{
+                   var link=$('#rel_'+anchor);
+                    var desc=$('.desc_'+anchor);
+                    $('.linkDesc').not(desc).hide('slow');
+                    desc.show('slow');
+                    changeBG(link); 
+                }  
             }
         });
 

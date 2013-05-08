@@ -7,6 +7,9 @@ class Image_Model extends Model {
         $action=($type=='add')?URL.'image/create':URL.'image/edit/'.$id;
         if ($type=='edit')
             foreach ($this->getInfo($id) as $value);
+        $group[0]='None';
+        foreach ($this->getGroups($value['page']) as $groups)
+            $group[$groups['pos']]=$groups['pos'].'. '.$groups['name'];
         $form = new Zebra_Form('addProject','POST',$action);
         $form->add('hidden', '_add', 'page');
         $form->add('hidden', 'page', $value['page']);
@@ -28,10 +31,13 @@ class Image_Model extends Model {
         ));
         
         $form->add('label', 'label_group', 'group', 'Group');
-        $obj = $form->add('text', 'group', $value['group'], array('autocomplete' => 'off'));
+        $obj = $form->add('select', 'group',$value['group'], array('autocomplete' => 'off'));
+        $obj->add_options($group);
+        
+        /*$obj = $form->add('text', 'group', $value['group'], array('autocomplete' => 'off'));
         $obj->set_attributes(array(
             'style'    => 'width:20px',
-        ));
+        ));*/
         
         $form->add('label', 'label_hide', 'hide', 'Hide in gallery');
         $obj = $form->add('checkboxes', 'hide',
@@ -79,9 +85,12 @@ class Image_Model extends Model {
         return $form;
     }
     public function getInfo($id){
-        $consulta=$this->db->select('SELECT * FROM images WHERE id = :id', 
+        return $this->db->select('SELECT * FROM images WHERE id = :id', 
            array('id' => $id));
-        return $consulta;
+    }
+    public function getGroups($page){
+        return $this->db->select('SELECT * FROM imagesGroups WHERE page = :page ORDER BY pos', 
+           array('page' => $page));
     }
     public function edit($id){
         $data = array(

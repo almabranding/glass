@@ -32,6 +32,7 @@ class Building_Model extends Model {
            $res['img']=URL . UPLOAD . $pageID . '/'.$value['img'];
             $nav='';
             if($value['group']){
+                $res['group']=$value['group'];
                 $group=$this->db->select("SELECT * from images WHERE page='".$value['page']."' AND `group`='".$value['group']."' ORDER BY orden");
                 foreach ($group as $id=>$v){
                     $class=($v['id']==$value['id'])?'selected':'';
@@ -42,6 +43,13 @@ class Building_Model extends Model {
         }        
         return $res;
     }
-    
-    
+    public function getGroups($group,$page){ 
+        $img=$this->db->select('SELECT * FROM images WHERE `group` = :group and `page`=:page ORDER BY orden', 
+            array('group' => $group,'page' => $page));
+        foreach($img as $value){
+            $res['image']=$value['id'];
+            return $res['image'];
+        }      
+        
+    }   
 }

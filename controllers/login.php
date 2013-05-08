@@ -1,5 +1,4 @@
 <?php
-
 class Login extends Controller {
 
     function __construct() {
@@ -9,7 +8,7 @@ class Login extends Controller {
     }
     
     function index() {
-        //$this->view->render('login/index',true);
+        $this->view->label='labelLogin';
         $attr = array(
             'col' => 'name',
             'id' => 'Login'
@@ -19,7 +18,6 @@ class Login extends Controller {
             'col' => 'template',
             'id' => $template['id']
         );
-        $this->view->login=true;
         $this->view->page = $this->model->getPageByCol($attr);
         $this->view->gallery = $this->model->getGallery($this->view->page['id']);
         $this->view->render('index/index', true);

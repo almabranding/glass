@@ -1,4 +1,4 @@
-<ul id="<?php echo ($this->zoom)?'':'carousel';?>" class="elastic-container <?php echo ($this->zoom)?'map-list':'elastislide-list';?>">
+<!--<ul id="<?php /*echo ($this->zoom)?'':'carousel';?>" class="elastic-container <?php echo ($this->zoom)?'map-list':'elastislide-list';?>">
 <?php foreach ($this->gallery as $id => $value) { 
     $description=($value['replace'])?$value['info']:$this->page['content'];
 ?>
@@ -23,11 +23,12 @@
         </div>
     </div>
 </li>
-<?php } ?>
-</ul>
-<div id="imgFull">
-    <div id="bgPrev" class="bgControl labelInfo"></div>
-    <div id="bgNext" class="elastislide-next bgControl bgNext"></div>
+<?php } */?>
+</ul>-->
+<div id="imgFull" class="">
+    <div id="bgFrame" class="labels bgFrameLess"></div>
+    <div id="bgPrev" class="labels bgControl bgPrev"></div>
+    <div id="bgNext" class="labels bgControl bgNext"></div>
     <div class="preload preloadW"></div>
     <div class="accessFrame"><div class="frameContent" style="padding: 17px 0;height:auto;"></div></div>
     <img class="imgBG" id="imgBG" src="" alt=""> 
@@ -35,14 +36,9 @@
 </div>
 <div id="gallerys" class="clearfix fluid masonry" style="<?php if(sizeof($this->gallery)==1) echo 'display:none'; ?>">
     <?php 
-    $grupos=Array();
     foreach ($this->gallery as $id => $value) { 
-        $style='';
-        if(($value['group']!=0 && in_array($value['group'],$grupos)) || $value['hide'])
-            $style='display:none;width:0;height:0;margin:0;padding:0';
-        else $grupos[] = $value['group'];    
     ?>
-    <div class="gallerysBox" style="<?php echo $style;?>">
+    <div class="gallerysBox" style="<?php echo ($value['hide'])?'display:none;width:0;height:0;margin:0;padding:0':'';?>">
         <div class="gallerysBoxImg">
             <a rel="<?php echo $value['id'];?>" id="rel_<?php echo $value['id'];?>"><img title="<?php echo $this->page['id'] . '/' . $value['id']; ?>" ref="<?php echo $id; ?>" src="<?php echo URL . UPLOAD . $this->page['id'] . '/thumb_' . $value['img']; ?>" alt="<?php echo $value['caption']; ?>"></a>
         </div>
@@ -52,3 +48,6 @@
     <div class="clr"></div>
 </div>
 <div class="clr"></div>
+<script>
+var page='<?php echo $this->page['id'];?>';
+</script>

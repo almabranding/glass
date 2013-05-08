@@ -8,6 +8,14 @@ $(document).ready(function() {
          $("#imgFull").ezBgResize();
          $('#imgFull').height($(window).height()-170).change();
     });
+        var bodySize=$(window).width()-frame;
+        $('#body').css(
+        {
+            width:bodySize,
+            left:frame
+        });
+        $('.accessFrame').css('left',0);
+
 });
 $(window).on('resize',function(){
     $('#imgFull').height($(window).height()-170).change();

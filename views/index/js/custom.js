@@ -1,8 +1,12 @@
-$(document).ready(function() {
+$(window).load(function() {
     if(BGImageArray.length<2) $('.labelNext').hide();
-    $('.imgBG').attr('src',BGImageArray[BGnum]);
-    $("#body-background").ezBgResize({
-        img     : BGImageArray[BGnum]
+    var img = new Image();
+    img.src = BGImageArray[BGnum];
+    $(img).load(BGImageArray[BGnum],function(){
+         $('.imgBG').attr('src',($(this)).attr('src'));
+         $("#body-background").ezBgResize();   
+         $('#body').width($(window).width()).change();  
+         $('.imgBG').width($(window).width());
     });
     $(window).on('resize',function(){
         /*CHANGE ES PARA REAJUSTAR EL FONDO*/
@@ -43,10 +47,10 @@ $(document).ready(function() {
                 {
                     duration:500,
                     step:function() {
-                        $(this).change();
+                        $('#body').css('width',bodySize);
                     },
                     complete:function() {
-                        $(this).change();
+                        $('#body').css('width',bodySize);
                     }
                   
                 } 

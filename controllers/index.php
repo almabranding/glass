@@ -21,6 +21,7 @@ class Index extends Controller {
             $this->view->js = array('index/js/front.js','index/js/jquery.ez-bg-resize.js');
             $this->view->render('index/loged');
         } else {
+            $this->view->label='labelInfo';
             $attr = array(
                 'col' => 'name',
                 'id' => 'Splash'

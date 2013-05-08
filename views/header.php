@@ -10,7 +10,7 @@
             </a>
         </div>
     <nav id="menu">
-        <?php echo Menu::getMenu(); ?>
+        <?php echo Menu::getMenu($this->url); ?>
     </nav>
     <div class="clr"></div>
     </div>

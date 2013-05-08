@@ -39,7 +39,7 @@ class Page_Model extends Model {
             $obj->set_attributes(array(
                 'style'    => 'float:none',
             ));
-            $obj=$form->add('textarea', 'content', $project['content'], array('autocomplete' => 'off'));
+            $obj=$form->add('textarea', 'content', htmlentities($project['content']), array('autocomplete' => 'off'));
             $obj->set_attributes(array(
                 'class'    => 'wysiwyg',
             ));
@@ -120,7 +120,7 @@ class Page_Model extends Model {
             'name' => $_POST['name'],
             'template' => $_POST['template'],
             'description' => $_POST['description'],
-            'content' => stripslashes($_POST['content']),
+            'content' => stripslashes( html_entity_decode($_POST['content'])),
             'url' => urlencode(strtolower($_POST['name'])),
             'menu' => $_POST['menu']
         );

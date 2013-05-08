@@ -63,7 +63,13 @@ var std = ({
         color: '#7f7e82',
         letterSpacing: '0.3em',
         fontSize: '11px',
-    });  
+    }); 
+    var logo = ({
+        fontFamily: 'Akkurat',
+        color: '#000000',
+        letterSpacing: '0.3em',
+        fontSize: '13px',
+    }); 
 $(document).ready(function() {
     if(!checkCookie('fitScreen')) setCookie('fitScreen','y');
     $('.fitScreen').on("click", function() {
@@ -98,6 +104,7 @@ function reloadCufon(){
     Cufon.replace('p,span,label', std);
     Cufon.replace('.menuOpt', menuLink);
     Cufon.replace('.menuTitlespan', menu);
+    Cufon.replace('.logo', logo);
     Cufon.replace('.frameContent', frameContent);
     Cufon.replace('.link', link);
     Cufon.replace('.bold', frameContent);
