@@ -25,7 +25,8 @@ class Building extends Controller {
         $this->view->render('building/index');
     }
     public function getFullScreen($page,$img) {
-        echo json_encode($this->model->getFullScreen($page,$img));
+        $json=json_encode($this->model->getFullScreen($page,$img));
+        echo $json;
     }
     public function getGroups($group,$page) {
         echo ($this->model->getGroups($group,$page));

@@ -120,7 +120,7 @@ class Page_Model extends Model {
             'name' => $_POST['name'],
             'template' => $_POST['template'],
             'description' => $_POST['description'],
-            'content' => stripslashes( html_entity_decode($_POST['content'])),
+            'content' => stripslashes($_POST['content']),
             'url' => urlencode(strtolower($_POST['name'])),
             'menu' => $_POST['menu']
         );

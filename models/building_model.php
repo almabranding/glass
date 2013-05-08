@@ -24,13 +24,16 @@ class Building_Model extends Model {
             array('id' => $pageID));  
         $img=$this->db->select('SELECT * FROM images WHERE id = :id', 
             array('id' => $imgID));
+        
         foreach($page as $value){
             $res['content']=$value['content'];
             $res['slide']=$value['slide'];
         }
         foreach($img as $value){
-           $res['img']=URL . UPLOAD . $pageID . '/'.$value['img'];
+            $res['img']=URL . UPLOAD . $pageID . '/'.$value['img'];
             $nav='';
+            if($value['replace'])
+                $res['content']=$value['info'];
             if($value['group']){
                 $res['group']=$value['group'];
                 $group=$this->db->select("SELECT * from images WHERE page='".$value['page']."' AND `group`='".$value['group']."' ORDER BY orden");
@@ -40,7 +43,7 @@ class Building_Model extends Model {
                 }
             }
             $res['nav']=$nav;
-        }        
+        }       
         return $res;
     }
     public function getGroups($group,$page){ 
