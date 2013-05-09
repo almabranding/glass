@@ -1,3 +1,13 @@
+<style>
+    @media only screen 
+    and (min-device-width : 320px) 
+    and (max-device-width : 480px) {
+        .imgBG{
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+</style>
 <body style="overflow: hidden;">
     <div class="accessFrame">
         <?php echo $this->page['content'];?>

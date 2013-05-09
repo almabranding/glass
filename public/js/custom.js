@@ -1,7 +1,7 @@
 var mapZoom = 0;
 var BGnum = 0;
 var frame = 240;
-var URL='/test/';
+var URL='/';
 var std = ({
         fontFamily: 'Akkurat',
         color: '#7f7e82',

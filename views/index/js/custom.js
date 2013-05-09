@@ -5,12 +5,14 @@ $(window).load(function() {
     $(img).load(BGImageArray[BGnum],function(){
          $('.imgBG').attr('src',($(this)).attr('src'));
          $("#body-background").ezBgResize();   
-         $('#body').width($(window).width()).change();  
-         $('.imgBG').width($(window).width());
+         $('#body').width($(window).width()).change();
+        
     });
     $(window).on('resize',function(){
         /*CHANGE ES PARA REAJUSTAR EL FONDO*/
         $('#body').width($(window).width()).change();
+        
+        
     });
     /*
      * EN FOCUS EN INFO APARECE LA BARRA LATERAL
