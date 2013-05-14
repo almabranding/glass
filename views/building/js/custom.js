@@ -136,10 +136,10 @@ function changeBG(link){
     }
 }
 function resampleBG(){
-        //var Wh=$(window).height()-180;
-        //var img = document.getElementById('imgBG'); 
-        //var bgH=Math.min(Wh,img.clientHeight);
-        //$('#imgFull').css('height',img.clientHeight);
+        var Wh=$(window).height()-180;
+        var img = document.getElementById('imgBG'); 
+        var bgH=Math.min(Wh,img.clientHeight);
+        $('#imgFull').css('height',img.clientHeight);
 }
 function getScreen(img){
     var link=img.attr('title');

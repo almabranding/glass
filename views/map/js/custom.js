@@ -29,8 +29,8 @@ $(window).load(function(){
             zoom_OUT_TO_FIT:'NO'
         });
     });
-    if(checkCookie('fitScreen'))fitScreen();
-    if($('.gallerysBox').length===1) $('.bgControl').hide();
+    //if(checkCookie('fitScreen'))fitScreen();
+    //if($('.gallerysBox').length===1) $('.bgControl').hide();
    
     
 });
