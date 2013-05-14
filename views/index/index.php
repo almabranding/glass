@@ -16,11 +16,11 @@
         <div id='info' class="labels <?php echo $this->label;?>"></div>
         <div class="labelNext labels"></div>
         <div class="preload"></div>
+        <div class="logoBox" style="margin-top: 40px;">
+            <img src="<?php echo URL;?>public/images/logoWhite.png" alt="Glass">
+        </div> 
         <div id="body-background" class="">
-            <img class="imgBG" src="" alt="Bg">
-            <div class="logoBox" style="margin-top: 40px;">
-                <img src="<?php echo URL;?>public/images/logoWhite.png" alt="Glass">
-            </div>  
+            <img class="imgBG" src="" alt="">
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

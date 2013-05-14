@@ -30,6 +30,18 @@
 
 html, body {
     height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+    background-image: none;
+    background-position: 0 0;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    transition: background-color 1s linear;
+    -webkit-transition: background-color 1s linear;
+    transition: background-image 1s linear;
+    -webkit-transition: background-image 1s linear;
 }
 a{
     color: inherit;
@@ -42,7 +54,6 @@ img{
     padding: 0;
 }
 body {
-    background:  #fff;
     color:#333333;
     font-size:11px;
     text-align:center;
@@ -259,8 +270,12 @@ label {
     overflow: hidden;
 }
 #body-background{
-    position: absolute !important;
-    background: #000;
+    border: 0 none;
+    height: 100%;
+    position: relative;
+    width: 95%;
+    z-index: 0;
+    opacity: 0;
 }
 #body-background > img{
     position: absolute !important;
@@ -278,7 +293,7 @@ label {
     float: left;
     height: 100%;
     left: -240px;
-    z-index: 0;
+    z-index: 3;
     position: relative;
     overflow: hidden;
     overflow-y: auto;
@@ -395,7 +410,7 @@ input[type="submit"]{
 }
 .labelNext{
     background-position:left 160px;
-    position: absolute;
+    position: fixed;
     right: 0px;
     top: 50%;
     width: 50px;
@@ -927,4 +942,7 @@ ul.slider li {
 .videoBox{
     float: left;
     width: 80%;
+}
+.bgMove{
+    background-position:240px center;
 }

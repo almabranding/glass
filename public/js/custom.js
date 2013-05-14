@@ -1,80 +1,83 @@
 var mapZoom = 0;
 var BGnum = 0;
 var frame = 240;
-var URL='/';
+var URL = '/';
 var std = ({
-        fontFamily: 'Akkurat',
-        color: '#7f7e82',
-        letterSpacing: '0.3em',
-        fontSize: '11px',
-    });
-    var h2 = ({
-        fontFamily: 'Akkurat',
-        color: '#7f7e82',
-        letterSpacing: '0.3em',
-        fontSize: '18px',
-    });
-    var h3 = ({
-        fontFamily: 'Akkurat',
+    fontFamily: 'Akkurat',
+    color: '#7f7e82',
+    letterSpacing: '0.3em',
+    fontSize: '11px',
+});
+var h2 = ({
+    fontFamily: 'Akkurat',
+    color: '#7f7e82',
+    letterSpacing: '0.3em',
+    fontSize: '18px',
+});
+var h3 = ({
+    fontFamily: 'Akkurat',
+    color: '#2d2427',
+    letterSpacing: '0.3em',
+    fontSize: '13px',
+});
+var link = ({
+    fontFamily: 'Akkurat',
+    color: '#807f83',
+    letterSpacing: '0.3em',
+    fontSize: '11px',
+    hover: {
         color: '#2d2427',
-        letterSpacing: '0.3em',
-        fontSize: '13px',
-    });
-    var link = ({
-        fontFamily: 'Akkurat',
-        color: '#807f83',
-        letterSpacing: '0.3em',
-        fontSize: '11px',
-        hover: {
-            color: '#2d2427',
-            fontSize: '11px'
-        }
-    });
-    var menuLink = ({
-        fontFamily: 'Akkurat',
-        color: '#7f7e82',
-        letterSpacing: '0.3em',
-        fontSize: '11px',
-        hover: {
-            color: '#2d2427',
-            fontSize: '11px'
-        }
-    });
-    var menu = ({
-        fontFamily: 'Akkurat',
+        fontSize: '11px'
+    }
+});
+var menuLink = ({
+    fontFamily: 'Akkurat',
+    color: '#7f7e82',
+    letterSpacing: '0.3em',
+    fontSize: '11px',
+    hover: {
         color: '#2d2427',
-        letterSpacing: '0.3em',
-        fontSize: '13px',
-    });
-    var frameContent = ({
-        fontFamily: 'Akkurat_bold',
-        color: '#2d2427',
-        letterSpacing: '0.8em',
-        fontSize: '13px',
-    });
-    var mapLinks = ({
-        fontFamily: 'Akkurat',
-        color: '#2facd5',
-        letterSpacing: '0.3em',
-        fontSize: '11px',
-    });
-    var mapLinksSel = ({
-        fontFamily: 'Akkurat',
-        color: '#7f7e82',
-        letterSpacing: '0.3em',
-        fontSize: '11px',
-    }); 
-    var logo = ({
-        fontFamily: 'Akkurat',
-        color: '#000000',
-        letterSpacing: '0.3em',
-        fontSize: '13px',
-    }); 
+        fontSize: '11px'
+    }
+});
+var menu = ({
+    fontFamily: 'Akkurat',
+    color: '#2d2427',
+    letterSpacing: '0.3em',
+    fontSize: '13px',
+});
+var frameContent = ({
+    fontFamily: 'Akkurat_bold',
+    color: '#2d2427',
+    letterSpacing: '0.8em',
+    fontSize: '13px',
+});
+var mapLinks = ({
+    fontFamily: 'Akkurat',
+    color: '#2facd5',
+    letterSpacing: '0.3em',
+    fontSize: '11px',
+});
+var mapLinksSel = ({
+    fontFamily: 'Akkurat',
+    color: '#7f7e82',
+    letterSpacing: '0.3em',
+    fontSize: '11px',
+});
+var logo = ({
+    fontFamily: 'Akkurat',
+    color: '#000000',
+    letterSpacing: '0.3em',
+    fontSize: '13px',
+});
 $(document).ready(function() {
-    if(!checkCookie('fitScreen')) setCookie('fitScreen','y');
+    if (!checkCookie('fitScreen'))
+        setCookie('fitScreen', 'y');
     $('.fitScreen').on("click", function() {
-        if(getCookie('fitScreen')==='y') setCookie('fitScreen','n');
-        else setCookie('fitScreen','y');
+        if (getCookie('fitScreen') === 'y')
+            setCookie('fitScreen', 'n');
+        else
+            setCookie('fitScreen', 'y');
 
 
     });
@@ -97,10 +100,10 @@ $(document).ready(function() {
         });
     });
     reloadCufon();
-    
+
 
 });
-function reloadCufon(){
+function reloadCufon() {
     Cufon.replace('p,span,label', std);
     Cufon.replace('.menuOpt', menuLink);
     Cufon.replace('.menuTitlespan', menu);
@@ -111,19 +114,19 @@ function reloadCufon(){
     Cufon.replace('.mapLinks', mapLinks);
     Cufon.replace('.mapLinksSel', mapLinksSel);
     Cufon.replace('h2', h2);
-    Cufon.replace('h3', h3); 
+    Cufon.replace('h3', h3);
 }
 function setCookie(c_name, value, exdays)
 {
     var exdate = new Date();
     exdate.setDate(exdate.getDate() + exdays);
-    var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString())+"; path=/";
+    var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString()) + "; path=/";
     document.cookie = c_name + "=" + c_value;
 }
 function unsetCookie(c_name)
 {
-    setCookie(c_name, '', Date()-10000);
-    
+    setCookie(c_name, '', Date() - 10000);
+
 }
 function getCookie(c_name)
 {
@@ -160,4 +163,11 @@ function checkCookie(c_name)
     {
         return false
     }
+}
+function changeFoot(texto) {
+    $('#lemon').animate({'color': '#CACACA'}, {
+        complete: function() {
+        $(this).text(texto);
+        $(this).animate({'color': '#ffffff'});
+    }});
 }

@@ -27,7 +27,7 @@ class Bootstrap {
 
         // Serve from the cache if it is the same age or younger than the last 
         // modification time of the included file (includes/$reqfilename)
-        //$this->loadCache();
+        $this->loadCache();
          
         // Load the default controller if no URL is set
         // eg: Visit http://localhost it loads Default Controller

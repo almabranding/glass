@@ -3,8 +3,9 @@ $(window).load(function() {
     var img = new Image();
     img.src = BGImageArray[BGnum];
     $(img).load(BGImageArray[BGnum],function(){
-         $('.imgBG').attr('src',($(this)).attr('src'));
-         $("#body-background").ezBgResize();   
+         //$('.imgBG').attr('src',($(this)).attr('src'));
+         $('html').css('background-image','url(\''+BGImageArray[BGnum]+'\')');
+         //$("#body-background").ezBgResize();   
          $('#body').width($(window).width()).change();
         
     });
@@ -22,11 +23,11 @@ $(window).load(function() {
         $('#body').queue(function () {
             $(this).clearQueue();
             $(this).animate(
-                {
-                    width:bodySize,
-                    left:frame
-                },500);
-            });
+            {
+                left:frame
+            },500);
+        });
+        $('html').animate({backgroundPosition: frame+'px 0'},500);
         $('.accessFrame').queue(function () {
             $(this).clearQueue();
             $(this).animate({
@@ -43,21 +44,14 @@ $(window).load(function() {
             $(this).clearQueue();
             $(this).animate(
                 {
-                    width:bodySize,
                     left: 0
                 },
                 {
-                    duration:500,
-                    step:function() {
-                        $('#body').css('width',bodySize);
-                    },
-                    complete:function() {
-                        $('#body').css('width',bodySize);
-                    }
-                  
+                    duration:500
                 } 
             );
         });
+        $('html').animate({backgroundPosition: '0px 0'},500);
         $('.accessFrame').queue(function () {
             $(this).clearQueue();
             $(this).animate({
@@ -74,17 +68,16 @@ $(window).load(function() {
         if(BGnum>=BGImageArray.length)BGnum=0;
 	var BGImage = BGImageArray[BGnum];
         $('.preload').show();
-        $('.imgBG').fadeOut(function(){
-            $(this).clearQueue();
-            $(this).attr('src','');
-            $(this).load(BGImage,function(){
-                $(this).attr('src',BGImage);
-                $('.preload').delay(500).hide('fast',function(){
-                    $('.imgBG').fadeIn();
+        var img = new Image();
+        img.src=BGImage;
+        $(img).load(function(){
+                $('html').css('background-image','url(\''+BGImage+'\')');
+                //$(this).attr('src',BGImage);
+                $('.preload').hide('fast',function(){
+                    //$('.imgBG').fadeIn();
                 });
                 
             });
-        });
         
         
     });

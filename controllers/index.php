@@ -18,7 +18,7 @@ class Index extends Controller {
             );
             $this->view->page = $this->model->getPageByCol($attr);
             $this->view->gallery = $this->model->getGallery($this->view->page['id']);
-            $this->view->js = array('index/js/front.js','index/js/jquery.ez-bg-resize.js');
+            $this->view->js = array('index/js/front.js','index/js/jquery.ez-bg-resize.js','index/js/jquery.backgroundpos.min.js');
             $this->view->render('index/loged');
         } else {
             $this->view->label='labelInfo';
@@ -33,7 +33,7 @@ class Index extends Controller {
             );
             $this->view->page = $this->model->getPageByCol($attr);
             $this->view->gallery = $this->model->getGallery($this->view->page['id']);
-            $this->view->js = array('index/js/custom.js', 'index/js/jquery.ez-bg-resize.js');
+            $this->view->js = array('index/js/custom.js', 'index/js/jquery.ez-bg-resize.js','index/js/jquery.backgroundpos.min.js');
             $this->view->render('index/index', true);
         }
     }
