@@ -1,9 +1,9 @@
 var carousel;
 var carouselPos=0;
 $(window).load(function(){  
-    carousel=$( '#carousel' ).elastislide({
+    /*carousel=$( '#carousel' ).elastislide({
         minItems: 1
-    });
+    });*/
     $('#gallerys').masonry({
         itemSelector: '.gallerysBox',
         columnWidth: 130,
@@ -72,7 +72,7 @@ function fitScreen(){
             $('#wrapper').toggleClass("fullScreen");
             $('#container').toggleClass("fullScreen");
             $('#gallerys').masonry('reload');
-            carousel._slideTo(carouselPos);
+            //carousel._slideTo(carouselPos);
         });
     }
     $('#gallerys').masonry('reload');
@@ -82,7 +82,7 @@ function changeBG(img){
     jQuery('html,body').animate({scrollTop: $("#imgFull").offset().top}, 1000);
     carouselPos=$(img).attr('ref');
     var URLBG=$(img).attr('title');
-    carousel._slideTo(carouselPos);
+    //carousel._slideTo(carouselPos);
     $('.preload').show();
     $('#imgFull iframe').fadeOut(function(){
         $(this).remove();
