@@ -3,8 +3,8 @@
         display:none;
     }
 </style>
-<ul id="carousel" class="elastislide-list">
-<?php foreach ($this->gallery as $id => $value) { 
+<!--<ul id="carousel" class="elastislide-list">
+<?php /*foreach ($this->gallery as $id => $value) { 
         $description=($value['info']?$value['info']:$this->page['content']);
         if(!$value['info']){
             $infoStyle='display:none';
@@ -24,8 +24,8 @@
              </div>
             </div>
         </li>
-<?php } ?>
-</ul>
+<?php } */?>
+</ul>-->
 <div id="imgFull">
     <div class="preload"></div>
 </div>

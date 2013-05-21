@@ -5,7 +5,6 @@ $(document).ready(function() {
     $(img).load(BGImage,function(){
          $('.imgBG').attr('src',($(this)).attr('src'));
          $("#imgFull").fadeIn();
-         $("#imgFull").ezBgResize();
          $('#imgFull').height($(window).height()-170).change();
     });
 });

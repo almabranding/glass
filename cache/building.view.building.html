@@ -8,56 +8,64 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1"/> 
     <!--<link rel="shortcut icon" href="../favicon.ico" Content-type="image/x-icon" />-->
     <link rel="stylesheet" href="http://localhost:8888/glass/public/css/style.css" />
     <link rel="stylesheet" href="http://localhost:8888/glass/public/css/elastislide.css" />
+    <link rel="stylesheet"type="text/css" href="http://localhost:8888/glass/public/css/mobile.css"/>
         
 </head>
     
     <body>
-<div id="wrapper">
-    <header>
-        <div class="fitScreenBar"><div class="fitScreen"><img src="http://localhost:8888/glass/public/images/fitScreen.png">Fit to screen</div></div>
-    <div class="header">
-        <div class="logo">
-            <a href="index.php">
-                <div id="logo_img"></div>
-            </a>
-        </div>
-    <nav id="menu">
-        <ul class="header_menu"><li class="menuTitle"><span class="menuTitlespan">inspiration</span>
-                <ul><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/gallery">Gallery</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/video/view/videos">Videos</a></li></ul></li><li class="menuTitle"><span class="menuTitlespan">building</span>
-                <ul><li class="menuOpt "><a href="http://localhost:8888/glass/page/view/the+team">The Team</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/architecture">Architecture</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/residences">Residences</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/technology">Technology</a></li></ul></li><li class="menuTitle"><span class="menuTitlespan">environment</span>
-                <ul><li class="menuOpt "><a href="http://localhost:8888/glass/map/view/area">Area</a></li></ul></li>    </nav>
-    <div class="clr"></div>
-    </div>
-</header>
-<div id="white_full" class="hide" onclick="$('.hide').css('display','none').html('')"></div>
-<div id="white_box" class="hide"></div>
+    <div id="wrapper">
+                <header>
+            <div class="fitScreenBar"><div class="fitScreen"><img src="http://localhost:8888/glass/public/images/fitScreen.png">Fit to screen</div></div>
+            <div class="mobileHeader">
+                <div class="logo">
+                    <img src="http://localhost:8888/glass/public/images/mobileLogo.jpg">                </div>
+                <nav id="menu">
+                    <ul class="header_menu"><li class="menuTitle menuDepl " id="vision"><div class="menuTitleBox"><span class="menuTitlespan menuTitlespanArrrow">vision</span></div></li><ul class="vision"><li class="menuMobile  menuDepl group" id="Inspiration"><span>Inspiration<div class="plusM">+</div></span></li><ul class="Inspiration"><li class="menuGroup "><a><span>HORIZON STUDY</span></a></li><li class="menuGroup "><a><span>WATER CUBE</span></a></li><li class="menuGroup "><a><span>NIGHT SKY</span></a></li><li class="menuGroup "><a><span>REFLECTION</span></a></li></ul><li class="menuMobile  menuDepl group" id="The Team"><span>The Team</span></li><ul class="The Team"></ul><li class="menuMobile  menuDepl group" id="Videos"><span>Videos</span></li><ul class="Videos"></ul></ul><li class="menuTitle menuDepl " id="building"><div class="menuTitleBox"><span class="menuTitlespan menuTitlespanArrrow">building</span></div></li><ul class="building"><li class="menuMobile  menuDepl group" id="Exterior"><span>Exterior</span></li><ul class="Exterior"></ul><li class="menuMobile  menuDepl group" id="Residences"><span>Residences<div class="plusM">+</div></span></li><ul class="Residences"><li class="menuGroup "><a><span>Pool Flats - 2 bedroom</span></a></li><li class="menuGroup "><a><span>Pool Flats - 3 bedroom</span></a></li><li class="menuGroup "><a><span>3 bedroom</span></a></li><li class="menuGroup "><a><span>4 bedroom</span></a></li></ul><li class="menuMobile  menuDepl group" id="Experience"><span>Experience</span></li><ul class="Experience"></ul></ul><li class="menuTitle menuDepl " id="environment"><div class="menuTitleBox"><span class="menuTitlespan menuTitlespanArrrow">environment</span></div></li><ul class="environment"><li class="menuMobile  menuDepl group" id="Culture"><span>Culture</span></li><ul class="Culture"></ul><li class="menuMobile  menuDepl group" id="Area"><span>Area</span></li><ul class="Area"></ul></ul>                </nav>
+                <div class="clr"></div>
+            </div>
+            <div class="header">
+                <div class="logo">
+                    <a href="http://localhost:8888/glass/">
+                        <img id="logo_img" src="/public/images/logo.png"><br/><p class='menuTitlespan'>MIAMI BEACH</p>
+                    </a>
+                </div>
+                <nav id="menu">
+                    <ul class="header_menu"><li class="menuTitle"><div class="menuTitleBox"><span class="menuTitlespan">vision</span></div>
+                <ul><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/inspiration">Inspiration</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/page/view/the+team">The Team</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/video/view/videos">Videos</a></li></ul></li><li class="menuTitle"><div class="menuTitleBox"><span class="menuTitlespan">building</span></div>
+                <ul><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/exterior">Exterior</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/residences">Residences</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/experience">Experience</a></li></ul></li><li class="menuTitle"><div class="menuTitleBox"><span class="menuTitlespan">environment</span></div>
+                <ul><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/culture">Culture</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/map/view/area">Area</a></li></ul></li>                </nav>
+                <div class="clr"></div>
+            </div>
+        </header>
+        <div id="white_full" class="hide" onclick="$('.hide').css('display', 'none').html('')"></div>
+        <div id="white_box" class="hide"></div>
+        <div id="container">
 
-<div id="container">
-    
-    
-<ul id="carousel" class="elastislide-list">
-</ul>
-<div id="imgFull">
-    <div id="bgPrev" class="labelInfo bgControl bgPrev"></div>
-    <div id="bgNext" class="labelNext bgControl bgNext"></div>
-    <div class="preload"></div>
-    <img class="imgBG" id="imgBG" src="http://localhost:8888/glass/public/images/homeBG01.jpg" alt="Bg"> 
+<!--<ul id="</ul>-->
+<div id="imgFull" class="">
+    <div id="bgFrame" class="labels bgFrameLess"></div>
+    <div id="bgPrev" class="labels bgControl bgPrev"></div>
+    <div id="bgNext" class="labels bgControl bgNext"></div>
+    <div class="preload preloadW"></div>
+    <div class="accessFrame"><div class="frameContent" style="padding: 17px 0;height:auto;"></div></div>
+    <img class="imgBG" id="imgBG" src="" alt=""> 
+    <div id="fitNav" class="groupNav" style=""></div>
 </div>
-<div id="gallerys" class="clearfix fluid masonry">
+<div id="gallerys" class="clearfix fluid masonry" style="">
         <div class="clr"></div>
 </div>
 <div class="clr"></div>
-
-
-<div class="clr"></div></div><div class="clr"></div>
+<script>
+var page='';
+</script><div class="clr"></div></div><div class="clr"></div>
 <footer>
     <div class="mapSubBar clr">
-    <div class="barLogo"><img alt="Terra Group" src="/glass/public/images/terraLogo.png" /></div>
-    <div class="barText">&copy;TERRA GROUP 2013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DISCLAIMER</div>
+    <div class="barLogo"><a href='http://www.terragroup.com' target='_blank'><img alt="Terra Group" src="/public/images/terraLogo.png" /></a></div>
+    <div class="barText"><a href='http://www.terragroup.com/about' target='_blank'>&copy;TERRA GROUP 2013</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href='http://localhost:8888/glass//page/view/disclaimer'>DISCLAIMER</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href='http://localhost:8888/glass/page/view/contact'>CONTACT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a id="lemon" href='http://www.lemonyellow.com/' target="_blank" onmouseover="changeFoot('LEMON YELLOW');" onmouseout="changeFoot('SITE CREDITS');">SITE CREDITS</a></div>
     </div>
 </footer>
 </div>
@@ -65,7 +73,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <script src="http://localhost:8888/glass/public/js/custom.js"></script>
+    <script src="http://localhost:8888/glass/public/js/mobile.js"></script>
     <script src="http://localhost:8888/glass/public/js/cufon-yui.js"></script>
     <script src="http://localhost:8888/glass/public/js/Akkurat_400.font.js"></script>
-<script type="text/javascript" src="http://localhost:8888/glass/views/building/js/modernizr.custom.17475.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquerypp.custom.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquery.elastislide.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquery.masonry.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquery.ez-bg-resize.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/custom.js"></script></body>
+<script type="text/javascript" src="http://localhost:8888/glass/views/building/js/modernizr.custom.17475.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquerypp.custom.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquery.elastislide.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquery.masonry.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/custom.js"></script></body>
 </html>

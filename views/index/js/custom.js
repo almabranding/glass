@@ -31,7 +31,7 @@ $(window).load(function() {
                 $(this).clearQueue();
                 $(this).animate({left: 0}, 500);
             });
-            exit;
+            return;
         }
         if ($(this).hasClass('showed')) {
             $(this).removeClass('showed');
@@ -44,7 +44,7 @@ $(window).load(function() {
                 $(this).clearQueue();
                 $(this).animate({left: -frame}, 500);
             });
-            exit;
+            return;
         }
 
     });

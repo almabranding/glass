@@ -8,311 +8,64 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1"/> 
     <!--<link rel="shortcut icon" href="../favicon.ico" Content-type="image/x-icon" />-->
     <link rel="stylesheet" href="http://localhost:8888/glass/public/css/style.css" />
     <link rel="stylesheet" href="http://localhost:8888/glass/public/css/elastislide.css" />
+    <link rel="stylesheet"type="text/css" href="http://localhost:8888/glass/public/css/mobile.css"/>
         
 </head>
     
     <body>
-<div id="wrapper">
-    <header>
-        <div class="fitScreenBar"><div class="fitScreen"><img src="http://localhost:8888/glass/public/images/fitScreen.png">Fit to screen</div></div>
-    <div class="header">
-        <div class="logo">
-            <a href="index.php">
-                <div id="logo_img"></div>
-            </a>
-        </div>
-    <nav id="menu">
-        <ul class="header_menu"><li class="menuTitle"><span class="menuTitlespan">inspiration</span>
-                <ul><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/gallery">Gallery</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/video/view/videos">Videos</a></li></ul></li><li class="menuTitle"><span class="menuTitlespan">building</span>
-                <ul><li class="menuOpt "><a href="http://localhost:8888/glass/page/view/the+team">The Team</a></li><li class="menuOpt selected"><a href="http://localhost:8888/glass/building/view/architecture">Architecture</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/residences">Residences</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/technology">Technology</a></li></ul></li><li class="menuTitle"><span class="menuTitlespan">environment</span>
-                <ul><li class="menuOpt "><a href="http://localhost:8888/glass/map/view/area">Area</a></li></ul></li>    </nav>
-    <div class="clr"></div>
-    </div>
-</header>
-<div id="white_full" class="hide" onclick="$('.hide').css('display','none').html('')"></div>
-<div id="white_box" class="hide"></div>
+    <div id="wrapper">
+                <header>
+            <div class="fitScreenBar"><div class="fitScreen"><img src="http://localhost:8888/glass/public/images/fitScreen.png">Fit to screen</div></div>
+            <div class="mobileHeader">
+                <div class="logo">
+                    <img src="http://localhost:8888/glass/public/images/mobileLogo.jpg">                </div>
+                <nav id="menu">
+                    <ul class="header_menu"><li class="menuTitle menuDepl " id="vision"><div class="menuTitleBox"><span class="menuTitlespan menuTitlespanArrrow">vision</span></div></li><ul class="vision"><li class="menuMobile  menuDepl group" id="Inspiration"><span>Inspiration<div class="plusM">+</div></span></li><ul class="Inspiration"><li class="menuGroup "><a><span>HORIZON STUDY</span></a></li><li class="menuGroup "><a><span>WATER CUBE</span></a></li><li class="menuGroup "><a><span>NIGHT SKY</span></a></li><li class="menuGroup "><a><span>REFLECTION</span></a></li></ul><li class="menuMobile  menuDepl group" id="The Team"><span>The Team</span></li><ul class="The Team"></ul><li class="menuMobile  menuDepl group" id="Videos"><span>Videos</span></li><ul class="Videos"></ul></ul><li class="menuTitle menuDepl " id="building"><div class="menuTitleBox"><span class="menuTitlespan menuTitlespanArrrow">building</span></div></li><ul class="building"><li class="menuMobile  menuDepl group" id="Exterior"><span>Exterior</span></li><ul class="Exterior"></ul><li class="menuMobile  menuDepl group" id="Residences"><span>Residences<div class="plusM">+</div></span></li><ul class="Residences"><li class="menuGroup "><a><span>Pool Flats - 2 bedroom</span></a></li><li class="menuGroup "><a><span>Pool Flats - 3 bedroom</span></a></li><li class="menuGroup "><a><span>3 bedroom</span></a></li><li class="menuGroup "><a><span>4 bedroom</span></a></li></ul><li class="menuMobile  menuDepl group" id="Experience"><span>Experience</span></li><ul class="Experience"></ul></ul><li class="menuTitle menuDepl " id="environment"><div class="menuTitleBox"><span class="menuTitlespan menuTitlespanArrrow">environment</span></div></li><ul class="environment"><li class="menuMobile  menuDepl group" id="Culture"><span>Culture</span></li><ul class="Culture"></ul><li class="menuMobile  menuDepl group" id="Area"><span>Area</span></li><ul class="Area"></ul></ul>                </nav>
+                <div class="clr"></div>
+            </div>
+            <div class="header">
+                <div class="logo">
+                    <a href="http://localhost:8888/glass/">
+                        <img id="logo_img" src="/public/images/logo.png"><br/><p class='menuTitlespan'>MIAMI BEACH</p>
+                    </a>
+                </div>
+                <nav id="menu">
+                    <ul class="header_menu"><li class="menuTitle"><div class="menuTitleBox"><span class="menuTitlespan">vision</span></div>
+                <ul><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/inspiration">Inspiration</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/page/view/the+team">The Team</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/video/view/videos">Videos</a></li></ul></li><li class="menuTitle"><div class="menuTitleBox"><span class="menuTitlespan">building</span></div>
+                <ul><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/exterior">Exterior</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/residences">Residences</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/experience">Experience</a></li></ul></li><li class="menuTitle"><div class="menuTitleBox"><span class="menuTitlespan">environment</span></div>
+                <ul><li class="menuOpt "><a href="http://localhost:8888/glass/building/view/culture">Culture</a></li><li class="menuOpt "><a href="http://localhost:8888/glass/map/view/area">Area</a></li></ul></li>                </nav>
+                <div class="clr"></div>
+            </div>
+        </header>
+        <div id="white_full" class="hide" onclick="$('.hide').css('display', 'none').html('')"></div>
+        <div id="white_box" class="hide"></div>
+        <div id="container">
 
-<div id="container">
-    
-    
-<ul id="carousel" class="elastislide-list">
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Exterior-04_155174308.jpg" alt="Exterior-04_155174308.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Exterior-06_1662179092.jpg" alt="Exterior-06_1662179092.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Exterior-07_485074808.jpg" alt="Exterior-07_485074808.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Exterior-05_1601339112.jpg" alt="Exterior-05_1601339112.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Exterior-02_260764140.jpg" alt="Exterior-02_260764140.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Exterior-03_2105514935.jpg" alt="Exterior-03_2105514935.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Exterior-08_1955986827.jpg" alt="Exterior-08_1955986827.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Exterior-09_1155440469.jpg" alt="Exterior-09_1155440469.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Exterior-11_1906671977.jpg" alt="Exterior-11_1906671977.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Exterior-10_347536165.jpg" alt="Exterior-10_347536165.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Exterior-12_1002712529.jpg" alt="Exterior-12_1002712529.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Exterior-01_1468859962.jpg" alt="Exterior-01_1468859962.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Materials-01_643593086.jpg" alt="Materials-01_643593086.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Materials-03_558319426.jpg" alt="Materials-03_558319426.jpg" /></a>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="carouselBox" style="margin:auto">
-            <div class="primaryInfo" style="display:inherit">
-                <span class="title">Architecture</span><br/>
-                <p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse c</p>
-            </div>
-            <div class="primaryImage" style="">
-                <a href="#"><img src="http://localhost:8888/glass/uploads/images/3/Materials_1269715123.jpg" alt="Materials_1269715123.jpg" /></a>
-            </div>
-            </div>
-        </li>
-</ul>
-<div id="imgFull">
-    <div id="bgPrev" class="labelInfo bgControl bgPrev"></div>
-    <div id="bgNext" class="labelNext bgControl bgNext"></div>
-    <div class="preload"></div>
-    <img class="imgBG" id="imgBG" src="http://localhost:8888/glass/public/images/homeBG01.jpg" alt="Bg"> 
+<!--<ul id="</ul>-->
+<div id="imgFull" class="">
+    <div id="bgFrame" class="labels bgFrameLess"></div>
+    <div id="bgPrev" class="labels bgControl bgPrev"></div>
+    <div id="bgNext" class="labels bgControl bgNext"></div>
+    <div class="preload preloadW"></div>
+    <div class="accessFrame"><div class="frameContent" style="padding: 17px 0;height:auto;"></div></div>
+    <img class="imgBG" id="imgBG" src="" alt=""> 
+    <div id="fitNav" class="groupNav" style=""></div>
 </div>
-<div id="gallerys" class="clearfix fluid masonry">
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Exterior-04_155174308.jpg" ref="0" src="http://localhost:8888/glass/uploads/images/3/thumb_Exterior-04_155174308.jpg" alt="Exterior-04_155174308.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Exterior-06_1662179092.jpg" ref="1" src="http://localhost:8888/glass/uploads/images/3/thumb_Exterior-06_1662179092.jpg" alt="Exterior-06_1662179092.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Exterior-07_485074808.jpg" ref="2" src="http://localhost:8888/glass/uploads/images/3/thumb_Exterior-07_485074808.jpg" alt="Exterior-07_485074808.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Exterior-05_1601339112.jpg" ref="3" src="http://localhost:8888/glass/uploads/images/3/thumb_Exterior-05_1601339112.jpg" alt="Exterior-05_1601339112.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Exterior-02_260764140.jpg" ref="4" src="http://localhost:8888/glass/uploads/images/3/thumb_Exterior-02_260764140.jpg" alt="Exterior-02_260764140.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Exterior-03_2105514935.jpg" ref="5" src="http://localhost:8888/glass/uploads/images/3/thumb_Exterior-03_2105514935.jpg" alt="Exterior-03_2105514935.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Exterior-08_1955986827.jpg" ref="6" src="http://localhost:8888/glass/uploads/images/3/thumb_Exterior-08_1955986827.jpg" alt="Exterior-08_1955986827.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Exterior-09_1155440469.jpg" ref="7" src="http://localhost:8888/glass/uploads/images/3/thumb_Exterior-09_1155440469.jpg" alt="Exterior-09_1155440469.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Exterior-11_1906671977.jpg" ref="8" src="http://localhost:8888/glass/uploads/images/3/thumb_Exterior-11_1906671977.jpg" alt="Exterior-11_1906671977.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Exterior-10_347536165.jpg" ref="9" src="http://localhost:8888/glass/uploads/images/3/thumb_Exterior-10_347536165.jpg" alt="Exterior-10_347536165.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Exterior-12_1002712529.jpg" ref="10" src="http://localhost:8888/glass/uploads/images/3/thumb_Exterior-12_1002712529.jpg" alt="Exterior-12_1002712529.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Exterior-01_1468859962.jpg" ref="11" src="http://localhost:8888/glass/uploads/images/3/thumb_Exterior-01_1468859962.jpg" alt="Exterior-01_1468859962.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Materials-01_643593086.jpg" ref="12" src="http://localhost:8888/glass/uploads/images/3/thumb_Materials-01_643593086.jpg" alt="Materials-01_643593086.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Materials-03_558319426.jpg" ref="13" src="http://localhost:8888/glass/uploads/images/3/thumb_Materials-03_558319426.jpg" alt="Materials-03_558319426.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
-            <div class="gallerysBox">
-            <div class="gallerysBoxImg">
-                <img title="http://localhost:8888/glass/uploads/images/3/Materials_1269715123.jpg" ref="14" src="http://localhost:8888/glass/uploads/images/3/thumb_Materials_1269715123.jpg" alt="Materials_1269715123.jpg">
-            </div>
-            <div class="gallerysBoxInfo"><p>Loren ipsim</p></div>
-        </div> 
+<div id="gallerys" class="clearfix fluid masonry" style="">
         <div class="clr"></div>
 </div>
 <div class="clr"></div>
-
-
-<div class="clr"></div></div><div class="clr"></div>
+<script>
+var page='';
+</script><div class="clr"></div></div><div class="clr"></div>
 <footer>
     <div class="mapSubBar clr">
-    <div class="barLogo"><img alt="Terra Group" src="/glass/public/images/terraLogo.png" /></div>
-    <div class="barText">&copy;TERRA GROUP 2013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DISCLAIMER</div>
+    <div class="barLogo"><a href='http://www.terragroup.com' target='_blank'><img alt="Terra Group" src="/public/images/terraLogo.png" /></a></div>
+    <div class="barText"><a href='http://www.terragroup.com/about' target='_blank'>&copy;TERRA GROUP 2013</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href='http://localhost:8888/glass//page/view/disclaimer'>DISCLAIMER</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href='http://localhost:8888/glass/page/view/contact'>CONTACT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a id="lemon" href='http://www.lemonyellow.com/' target="_blank" onmouseover="changeFoot('LEMON YELLOW');" onmouseout="changeFoot('SITE CREDITS');">SITE CREDITS</a></div>
     </div>
 </footer>
 </div>
@@ -320,7 +73,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <script src="http://localhost:8888/glass/public/js/custom.js"></script>
+    <script src="http://localhost:8888/glass/public/js/mobile.js"></script>
     <script src="http://localhost:8888/glass/public/js/cufon-yui.js"></script>
     <script src="http://localhost:8888/glass/public/js/Akkurat_400.font.js"></script>
-<script type="text/javascript" src="http://localhost:8888/glass/views/building/js/modernizr.custom.17475.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquerypp.custom.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquery.elastislide.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquery.masonry.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquery.ez-bg-resize.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/custom.js"></script></body>
+<script type="text/javascript" src="http://localhost:8888/glass/views/building/js/modernizr.custom.17475.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquerypp.custom.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquery.elastislide.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/jquery.masonry.js"></script><script type="text/javascript" src="http://localhost:8888/glass/views/building/js/custom.js"></script></body>
 </html>

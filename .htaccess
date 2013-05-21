@@ -20,5 +20,5 @@ Header append Cache-Control "public"
 Header unset ETag
 FileETag None
 </FilesMatch>
-RewriteRule ^(.*)$ /index.php?url=$1 [QSA]
+RewriteRule ^(.*)$ /glass/index.php?url=$1 [QSA]
 #AddType application/x-httpd-php .html

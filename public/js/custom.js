@@ -1,7 +1,7 @@
 var mapZoom = 0;
 var BGnum = 0;
 var frame = 240;
-var URL = '/';
+var URL = '/glass/';
 var std = ({
     fontFamily: 'Akkurat',
     color: '#7f7e82',
@@ -44,7 +44,13 @@ var menu = ({
     fontFamily: 'Akkurat',
     color: '#2d2427',
     letterSpacing: '0.3em',
-    fontSize: '13px',
+    fontSize: '13px'
+});
+var menuMobile = ({
+    fontFamily: 'Akkurat',
+    color: '#2d2427',
+    letterSpacing: '0.3em',
+    fontSize: '9px'
 });
 var frameContent = ({
     fontFamily: 'Akkurat_bold',
@@ -115,6 +121,7 @@ function reloadCufon() {
     Cufon.replace('.mapLinksSel', mapLinksSel);
     Cufon.replace('h2', h2);
     Cufon.replace('h3', h3);
+    Cufon.replace('.mobileHeader span', menuMobile);
 }
 function setCookie(c_name, value, exdays)
 {
@@ -165,9 +172,12 @@ function checkCookie(c_name)
     }
 }
 function changeFoot(texto) {
-    $('#lemon').animate({'color': '#CACACA'}, {
-        complete: function() {
-        $(this).text(texto);
-        $(this).animate({'color': '#ffffff'});
-    }});
+    $('#lemon').queue(function() {
+        $(this).clearQueue();
+        $(this).animate({'color': '#CACACA'}, {
+            complete: function() {
+                $(this).text(texto);
+                $(this).animate({'color': '#ffffff'});
+            }});
+    });
 }

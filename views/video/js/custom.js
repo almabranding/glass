@@ -42,7 +42,7 @@ $('.bgControl').on('click',function(){
 });
 function fitScreen(){
      if(!$("#container").hasClass('fullScreen')){
-         jQuery('html,body').animate({scrollTop: $("#carousel").offset().top}, 1000);
+         jQuery('html,body').animate({scrollTop: $("#imgFull").offset().top}, 1000);
          $('#wrapper').toggleClass("fullScreen");
          $('#container').toggleClass("fullScreen");
          $('#gallerys').masonry('reload');
@@ -79,7 +79,7 @@ function fitScreen(){
 
 }
 function changeBG(img){
-    jQuery('html,body').animate({scrollTop: $("#carousel").offset().top}, 1000);
+    jQuery('html,body').animate({scrollTop: $("#imgFull").offset().top}, 1000);
     carouselPos=$(img).attr('ref');
     var URLBG=$(img).attr('title');
     carousel._slideTo(carouselPos);

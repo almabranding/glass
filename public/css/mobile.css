@@ -1,0 +1,171 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 620px) {
+    .header{
+        display: none;
+    }
+    .mobileHeader{
+        display: inherit !important;
+    }
+    .menuTitleBox{
+        background: url("../images/mobileBg.jpg") repeat scroll 0 0 transparent;
+        border-left: 1px solid #FFFFFF;
+        border-right: 1px solid #B4B5B6;
+        height: 15px;
+        padding: 18px 0;
+        vertical-align: middle;
+        width: 100%;
+    }
+    .menuGroup{
+        background: url("../images/mobileSub.jpg") repeat scroll right center transparent;
+        background: #f0eff4;
+        height: 15px !important;
+        padding: 18px 0 !important;
+        width: 100%;
+        border-top: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+    }
+    .header_menu>ul {
+        height: 0;
+        left: -34%;
+        margin: auto;
+        overflow: hidden;
+        position: absolute;
+        top: 51px;
+        transition: height 2s ease 0s;
+        width: 134%; 
+    }
+    .despOpen{
+        height: auto !important;
+    }
+    .header_menu ul {
+        height: 0;
+        margin: auto;
+        overflow: hidden;
+        padding: 0;
+        transition: height 2s;
+        -webkit-transition: height 2s; 
+    }
+    .header_menu ul li {
+        opacity: 1 !important;
+        overflow: hidden;
+        padding-left:20px !important;
+        position: relative;
+    }
+    .menuTitlespanArrrow{
+        background: url("../images/mobileArrow.jpg") no-repeat scroll right center transparent;
+        padding-right: 9px;
+    }
+    .plusM{
+        height: 9px;
+        position: absolute;
+        right: 34px;
+        top: 18px;
+        width: 10px;
+    }
+    .lessM{
+        height: 4px;
+        position: absolute;
+        right: 10px;
+        top: 23px;
+        width: 7px;
+    }
+    .menuMobile {
+        background: url("../images/mobileBg.jpg") repeat scroll right center transparent;
+        height: 19px !important;
+        padding: 16px 0 !important;
+        width: 100%;
+    }
+    .logo{
+        background: url("../images/mobileBg.jpg") repeat scroll right center transparent;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        width: 25%;
+        float: left;
+        height: 51px;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .logo img{
+        width: 32px;
+        margin:auto;
+        vertical-align: middle;
+        margin-top: 5px; 
+    }
+    #container{
+        top:50px !important;
+    }
+    #menu{
+        width: 75%;
+        float: left;
+        margin: auto;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    .header_menu > li{
+        top: 0 !important;
+    }
+    #imgFull > img,#bgFrame,#fitNav,#bgPrev,#bgNext{
+        display: none;
+    }
+    .accessFrame{
+        width:100% !important;
+    }
+    #imgFull{
+        height: 100% !important;
+    }
+    .frameContent{
+        width: 97%;
+    }
+    .gallerysBox{
+        margin: 20px 0 !important;
+    }
+    #gallerys,.gallerysBoxImg img,.gallerysBox{
+        margin: auto;
+        width: 96% !important;
+    }
+    .gallerysBoxImg img{
+        margin: auto !important;
+        width: 100% !important;
+    }
+}   
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5),only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}

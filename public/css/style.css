@@ -81,10 +81,12 @@ header{
     z-index: 10;
 }
 .header{
-   width: 470px;
+   width: auto;
    margin:28px auto 30px;
 }
-
+.mobileHeader{
+    display: none;
+}
 .login{
    
 }
@@ -426,7 +428,7 @@ input[type="submit"]{
 }
 #menu{
     margin: 20px auto auto;
-    width: 477px;
+    max-width: 477px;
 }
 .menuTitle ul{
     float:left;

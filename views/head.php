@@ -15,10 +15,11 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=0"/> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"/> 
     <!--<link rel="shortcut icon" href="../favicon.ico" Content-type="image/x-icon" />-->
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/style.css" />
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/elastislide.css" />
+    <link rel="stylesheet"type="text/css" href="<?php echo URL; ?>public/css/mobile.css"/>
     <?php
     if (isset($this->css)) 
         foreach ($this->css as $css)

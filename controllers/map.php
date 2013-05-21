@@ -9,7 +9,6 @@ class Map extends Controller {
             'map/js/jquery.elastislide.js',
             'map/js/jquery.masonry.js',
             'map/js/jquery.smoothzoom.js',
-            'map/js/zoom.js',
             'map/js/custom.js');  
     }
     function index() {

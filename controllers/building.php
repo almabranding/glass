@@ -9,7 +9,6 @@ class Building extends Controller {
             'building/js/jquerypp.custom.js',
             'building/js/jquery.elastislide.js',
             'building/js/jquery.masonry.js',
-            'building/js/jquery.ez-bg-resize.js',
             'building/js/custom.js');
     }
     

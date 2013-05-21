@@ -9,7 +9,6 @@ class Video extends Controller {
             'video/js/jquerypp.custom.js',
             'video/js/jquery.elastislide.js',
             'video/js/jquery.masonry.js',
-            'video/js/jquery.ez-bg-resize.js',
             'video/js/custom.js');
     }
     function index() {
