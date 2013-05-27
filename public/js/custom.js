@@ -1,7 +1,7 @@
 var mapZoom = 0;
 var BGnum = 0;
 var frame = 240;
-var URL = '/glass/';
+var URL = '/';
 var std = ({
     fontFamily: 'Akkurat',
     color: '#7f7e82',
@@ -110,7 +110,7 @@ $(document).ready(function() {
 
 });
 function reloadCufon() {
-    Cufon.replace('p,span,label', std);
+    Cufon.replace('p,span:not(.nocufon),label', std);
     Cufon.replace('.menuOpt', menuLink);
     Cufon.replace('.menuTitlespan', menu);
     Cufon.replace('.logo', logo);
@@ -121,7 +121,7 @@ function reloadCufon() {
     Cufon.replace('.mapLinksSel', mapLinksSel);
     Cufon.replace('h2', h2);
     Cufon.replace('h3', h3);
-    Cufon.replace('.mobileHeader span', menuMobile);
+    //Cufon.replace('.mobileHeader span', menuMobile);
 }
 function setCookie(c_name, value, exdays)
 {
@@ -181,3 +181,36 @@ function changeFoot(texto) {
             }});
     });
 }
+function remove_cufon(selector) {
+    $(selector).each(function() {
+        var g = '';
+        $(this).find('cufon').each(function() {
+            $(this).find('cufontext').each(function() {  
+                g = g + $(this).html();
+            });
+            //if(g!='')$(this).html($.trim(g));
+        }); 
+        if(g!='') $(this).html($.trim(g));
+    }); 
+    return true;
+}
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};

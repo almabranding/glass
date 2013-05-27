@@ -4,9 +4,11 @@
         <header>
             <div class="fitScreenBar"><div class="fitScreen"><img src="<?php echo URL; ?>public/images/fitScreen.png">Fit to screen</div></div>
             <div class="mobileHeader">
-                <div class="logo">
-                    <img src="<?php echo URL.'public/images/mobileLogo.jpg">';?>
-                </div>
+                <a href="<?php echo URL; ?>"><div class="logo"><div>
+                    
+                    <img src="<?php echo URL.'public/images/mobileLogo.jpg';?>">
+                        </div> 
+                </div></a>
                 <nav id="menu">
                     <?php echo Menu::getMovil($this->url); ?>
                 </nav>

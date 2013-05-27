@@ -121,6 +121,12 @@ $(window).load(function() {
         $('.frameContent').toggle();
         $('.frameForm').toggle();
     });
+    if(isMobile.any()){
+        remove_cufon('p');
+        remove_cufon('span');
+        remove_cufon('a');
+        remove_cufon('label');
+    }
 
 });
 

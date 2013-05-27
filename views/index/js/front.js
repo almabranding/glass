@@ -3,12 +3,20 @@ $(document).ready(function() {
     var img = new Image();
     img.src = BGImage;
     $(img).load(BGImage,function(){
-         $('.imgBG').attr('src',($(this)).attr('src'));
-         $("#imgFull").fadeIn();
-         $('#imgFull').height($(window).height()-170).change();
+         $('#bgFull').css('background-image','url('+$(this).attr('src')+')');
+         $("#bgFull").fadeIn();
+    if(isMobile.any()){
+        $('#bgFull').height($(window).height()-95).change();
+    }else{
+        $('#bgFull').height($(window).height()-170).change();
+    }
     });
 });
 $(window).on('resize',function(){
-    $('#imgFull').height($(window).height()-170).change();
+    if(isMobile.any()){
+        $('#bgFull').height($(window).height()-95).change();
+    }else{
+        $('#bgFull').height($(window).height()-170).change();
+    }
 });
     

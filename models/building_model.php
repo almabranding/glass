@@ -46,6 +46,11 @@ class Building_Model extends Model {
         }       
         return $res;
     }
+    public function getGroup($id){ 
+        $sth = $this->db->prepare('SELECT * FROM imagesGroups WHERE `id` = :id');
+        $sth->execute(array('id' => $id));
+        return $sth->fetch();
+    }
     public function getGroups($group,$page){ 
         $img=$this->db->select('SELECT * FROM images WHERE `group` = :group and `page`=:page ORDER BY orden', 
             array('group' => $group,'page' => $page));
@@ -53,6 +58,19 @@ class Building_Model extends Model {
             $res['image']=$value['id'];
             return $res['image'];
         }      
-        
-    }   
+    }
+    public function getRel($group){ 
+        $img=$this->db->select('SELECT * FROM imagesGroups WHERE `id` = :group', 
+            array('group' => $group));
+        foreach($img as $value){
+            return $value['pos'];
+        }      
+    }
+    public function getGalleryByGroup($group,$id){ 
+        $grupos=$this->db->select('SELECT * FROM imagesGroups WHERE `id` = :id', 
+            array('id' => $group));
+        foreach($grupos as $value)
+            $grupo=$value['pos']; 
+        return $this->db->select('SELECT * FROM images WHERE page = :page and `group`=:group ORDER by orden', array('page' => $id,'group'=>$grupo));
+    }
 }

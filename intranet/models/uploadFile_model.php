@@ -8,13 +8,13 @@ class uploadFile_Model extends Model {
         if(!is_dir(UPLOAD))mkdir(UPLOAD);
         $uploadDir = UPLOAD.$sub.'/';
         if(!is_dir($uploadDir))mkdir($uploadDir);
-        $sizes=array(228,358,487,616);
+        $sizes=array(358,487,616);
         $thumbWidth=$sizes[rand(0,3)];
         if(array_key_exists($name,$_FILES) && $_FILES[$name]['error'] == 0 ){
             $pic = $_FILES[$name];
             $pathinfo = pathinfo($pic["name"]);
             $ext='.'.$pathinfo['extension'];
-            $file = ($pathinfo['filename'].'_'.rand());
+            $file = ($pathinfo['filename']);
             $nameFile=$file.$ext;
             $jpgFile=$file.'.jpg';
             if(!in_array($pathinfo['extension'],$allowed_ext)){
@@ -22,7 +22,7 @@ class uploadFile_Model extends Model {
             }	  
             if(move_uploaded_file($pic['tmp_name'], $uploadDir.$nameFile)){
                 if($pathinfo['extension']=='png')
-                    $data=$this->png2jpg($uploadDir.$nameFile,$uploadDir.$jpgFile, 90 );
+                    $data=$this->png2jpg($uploadDir.$nameFile,$uploadDir.$jpgFile, 100 );
                 $data=$this->createThumbs($jpgFile,$uploadDir, $uploadDir, $thumbWidth );
                 $this->exit_status('File was uploaded successfuly!');
                 $data['file']=$jpgFile;
@@ -48,7 +48,7 @@ class uploadFile_Model extends Model {
         $rel = $_POST['rel'];
 	$targ_w = $_POST['w']*$rel;
         $targ_h = $_POST['h']*$rel;
-	$jpeg_quality = 90;
+	$jpeg_quality = 100;
 	$src = $filepath.$filename;
         $pathinfo = pathinfo($filename);
         
@@ -72,8 +72,7 @@ class uploadFile_Model extends Model {
             'name'      => $img['name'],
             'page'      => $page,
             'w'         => $img['w'],
-            'h'         => $img['h'],
-            'info'      => $p[0]['content']
+            'h'         => $img['h']
         ));
     }
     public function png2jpg($originalFile, $outputFile, $quality) {
@@ -100,9 +99,9 @@ class uploadFile_Model extends Model {
           // create a new temporary image
           $tmp_img = imagecreatetruecolor( $new_width, $new_height ); 
           // copy and resize old image into new image 
-          imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+          imagecopyresampled( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
           // save thumbnail into a file
-          imagejpeg( $tmp_img, "{$pathToThumbs}{$fname}" );
+          imagejpeg( $tmp_img, "{$pathToThumbs}{$fname}",100 );
           return $data;
 
     }

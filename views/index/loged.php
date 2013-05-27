@@ -11,10 +11,7 @@
         z-index: 1;
     }
 </style>
-<div id="imgFull">
-    <div class="preload preloadW"></div>
-    <img class="imgBG" id="imgBG" src="/public/images/bg4.jpg" alt="Bg"> 
-</div>
+<div id="bgFull" style="background-size: cover; "></div>
  <script>
     <?php
     /*

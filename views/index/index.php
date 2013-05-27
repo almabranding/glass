@@ -9,6 +9,19 @@
     }
 </style>
 <body style="overflow: hidden;">
+    <div class="mobileHeader">
+        <a href="<?php echo URL; ?>">
+            <div class="logoBig">
+                <div>
+                    <img src="<?php echo URL.'public/images/mobileLogoBig.png';?>">
+                </div>
+        </div>
+        </a>
+        <nav id="menuSingle">
+            <?php echo Menu::getMovilHome($this->url); ?>
+        </nav>
+        <div class="clr"></div>
+    </div>
     <div class="accessFrame">
         <?php echo $this->page['content'];?>
     </div>
@@ -19,9 +32,6 @@
         <div class="logoBox" style="margin-top: 40px;">
             <img src="<?php echo URL;?>public/images/logoWhite.png" alt="Glass">
         </div> 
-        <div id="body-background" class="">
-            <img class="imgBG" src="" alt="">
-        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
@@ -46,5 +56,6 @@
     <script src="<?php echo URL;?>public/js/cufon-yui.js"></script>
     <script src="<?php echo URL;?>public/js/Akkurat_400.font.js"></script>
     <script src="<?php echo URL;?>public/js/custom.js"></script>
+    <script src="<?php echo URL;?>public/js/mobile.js"></script>
 </body>
 </html>

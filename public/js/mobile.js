@@ -14,7 +14,20 @@ $(document).ready(function() {
             $(this).toggleClass('despOpen', 500);
         });
     });
-    reloadCufon();
-
-
+    $('.mobileSubMenu').on('click',function(){
+        $('.accessFrame').toggle();
+        if($('.accessFrame').is(':visible')){
+            $(this).find('.plusM').html('-');
+        }else{
+            $(this).find('.plusM').html('+');
+        }
+    });  
+    remove_cufon('label');
+    if(isMobile.any()){
+        remove_cufon('p');
+        remove_cufon('span');
+        remove_cufon('a');
+        remove_cufon('label');
+    }
+    
 });

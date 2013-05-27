@@ -2,7 +2,21 @@
 <footer>
     <div class="mapSubBar clr">
     <div class="barLogo"><a href='http://www.terragroup.com' target='_blank'><img alt="Terra Group" src="/public/images/terraLogo.png" /></a></div>
-    <div class="barText"><a href='http://www.terragroup.com/about' target='_blank'>&copy;TERRA GROUP 2013</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href='<?php echo URL;?>/page/view/disclaimer'>DISCLAIMER</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href='<?php echo URL;?>page/view/contact'>CONTACT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a id="lemon" href='http://www.lemonyellow.com/' target="_blank" onmouseover="changeFoot('LEMON YELLOW');" onmouseout="changeFoot('SITE CREDITS');">SITE CREDITS</a></div>
+    <div class="barText">
+        <li>
+            <a href='http://www.terragroup.com/about' target='_blank'>&copy;TERRA GROUP 2013</a>
+        </li>
+        <li>
+            <a href='<?php echo URL;?>/page/view/disclaimer'>DISCLAIMER</a>
+        </li>
+        <li>
+            <a href='<?php echo URL;?>page/view/contact'>CONTACT</a>
+        </li>
+        <li>
+           <a id="lemon" href='http://www.lemonyellow.com/' target="_blank" onmouseover="changeFoot('LEMON YELLOW');" onmouseout="changeFoot('SITE CREDITS');">SITE CREDITS</a> 
+        </li>
+    </div>
+    <div class="clr"></div>
     </div>
 </footer>
 </div>

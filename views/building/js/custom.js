@@ -1,6 +1,6 @@
 var carousel;
 var carouselPos=0;
-var ROOT='/glass/';
+var ROOT='/';
 $(window).load(function(){
     carousel=$( '#carousel' ).elastislide({
         minItems: 1
@@ -22,6 +22,7 @@ $(window).load(function(){
         $(this).clearQueue();
         $(this).css({left:0});
     }); 
+    //if(typeof initImg!= "undefined") changeBG($('#'+initImg));
     
 });
 $('.fitScreen').on('click',function(){
@@ -76,16 +77,9 @@ $('#bgFrame').on('click',function(){
         });    
     }
 });
-/*$('.bgNext').on('click',function(){
-    var max=$('.gallerysBox').length-1;
-    carouselPos++;
-    if(carouselPos>max)carouselPos=0;
-    var link=$('img[ref="'+carouselPos+'"]').parent();
-    changeBG(link);
-});*/
 function fitScreen(){
      if(!$("#container").hasClass('fullScreen')){
-        jQuery('html,body').animate({scrollTop: $("#imgFull").offset().top}, 1000);
+        if(!isMobile.any()) jQuery('html,body').animate({scrollTop: $("#imgFull").offset().top}, 1000);
         $('#wrapper').toggleClass("fullScreen");
         $('#container').toggleClass("fullScreen");
         $('#gallerys').masonry('reload');
@@ -120,7 +114,7 @@ function fitScreen(){
     }
 }
 function changeBG(link){
-    jQuery('html,body').animate({scrollTop: $("#imgFull").offset().top}, 1000);
+    if(!isMobile.any())jQuery('html,body').animate({scrollTop: $("#imgFull").offset().top}, 1000);
     var img=link.find('img');
     carouselPos = $(img).attr('ref');
     if($("#container").hasClass('fullScreen'))getScreen($(img));
@@ -149,6 +143,9 @@ function getScreen(img){
         if(!data['slide'] || !$('.frameContent').html()){
             $('.frameContent').html(data['content']);
             reloadCufon();
+        }
+        if(typeof rel!= "undefined") {
+            $('.mapLinks[rel!="'+rel+'"]').remove();
         }
         $('#fitNav').html(data['nav']);
         $('.imgBG').fadeOut(function(){
@@ -189,7 +186,13 @@ function getScreen(img){
                     changeBG(link); 
                 }  
             }
-        });
+        });   
+        if(isMobile.any()){
+            remove_cufon('p');
+            remove_cufon('span');
+            remove_cufon('a');
+            remove_cufon('label');
+        }
 
     },"json");
 }

@@ -31,7 +31,7 @@ class Menu_Model extends Model {
                 $elem = $gsent->fetch();
                 $b[$parent['id']][] =
                 array(
-                    "id" => $elem['id'],
+                    "id" => $value['id'],
                     "name" => $elem['name']
                 );
             }

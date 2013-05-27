@@ -13,5 +13,11 @@ $(window).load(function(){
         else $(this).text('Read More');
         Cufon.replace('.teamRead', std);
     });
+    if(isMobile.any()){
+        remove_cufon('p');
+        remove_cufon('span');
+        remove_cufon('a');
+        remove_cufon('label');
+    }
    
 });

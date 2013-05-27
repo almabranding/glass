@@ -111,8 +111,8 @@ class Image_Model extends Model {
     public function delete($id){
          foreach ($this->getInfo($id) as $value){
             $this->db->delete('images', "`id` = {$id}");
-            unlink(UPLOAD.$value['page'].'/'.$value['img']);
-            unlink(UPLOAD.$value['page'].'/'.$value['thumb']);
+            @unlink(UPLOAD.$value['page'].'/'.$value['img']);
+            @unlink(UPLOAD.$value['page'].'/'.$value['thumb']);
          } 
     }
     public function createThumbs($fname,$pathToImages, $pathToThumbs, $thumbWidth ) 
@@ -132,9 +132,9 @@ class Image_Model extends Model {
           // create a new temporary image
           $tmp_img = imagecreatetruecolor( $new_width, $new_height ); 
           // copy and resize old image into new image 
-          imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+          imagecopyresampled( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
           // save thumbnail into a file
-          imagejpeg( $tmp_img, "{$pathToThumbs}{$fname}" );
+          imagejpeg( $tmp_img, "{$pathToThumbs}{$fname}",100 );
           return $data;
 
     }

@@ -343,7 +343,7 @@ input[type="submit"]{
     color:#807f83;
     cursor: pointer;
 }
-.frameForm textarea{
+textarea{
     border:none;
     width: 200px;
     height: 150px;
@@ -434,12 +434,15 @@ input[type="submit"]{
     float:left;
     width: 33%;
 }
+    .HidedScreen{
+        display: none !important;
+    }
 #menu li{
     text-transform: uppercase;
     /*display: none;*/
 }
 .header_menu {
-    color: #000000;
+    color: #333333;
     height: auto;
     position: relative;
     text-align: left;
@@ -560,6 +563,7 @@ input[type="submit"]{
     width: 7px;
 }
 .mapLinks{
+    color: #2facd5;
     cursor: pointer;
 }
 .groupNav a:hover,.groupNav a.selected{
@@ -623,7 +627,8 @@ input[type="submit"]{
 }
 .mapSubBar{
     background: none repeat scroll 0 0 #CACACA;
-    height: 45px;
+    min-height: 45px;
+    height: auto;
 }
 .mapSubBar .barLogo{
     float: left;
@@ -638,6 +643,10 @@ input[type="submit"]{
     padding: 15px 0;
     font-size: 10px;
     position: relative;
+}
+.barText li{
+    display: inline;
+    margin: 0 10px;
 }
 .mapLeyend {
     height: 20px;
@@ -947,4 +956,13 @@ ul.slider li {
 }
 .bgMove{
     background-position:240px center;
+}
+.mobileSubMenu{
+    display: none;
+}
+.HidedBox{ 
+    display: none;
+    height: 0 ;
+    overflow: hidden;
+    width: 0;
 }
